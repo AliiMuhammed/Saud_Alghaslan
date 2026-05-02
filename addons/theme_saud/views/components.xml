@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <!--  Hero Section  -->
+        <template id="hero_section_component" name="Saud Hero Section">
+            <!--
+        Reusable Hero Section Component
+        ================================
+        Variables:
+            hero_bg_image    (required) : Background image path, e.g. '/theme_saud/static/src/img/home-hero.jpg'
+            hero_title       (required) : Main heading text
+            hero_subtitle    (optional) : Subtitle paragraph text
+            hero_button_text (optional) : CTA button label
+            hero_button_url  (optional) : CTA button href
+            hero_button_target (optional) : Link target, e.g. '_blank'
+            is_home_page     (optional) : True for centered 80vh hero, False/unset for inner-page 60vh hero
+            hero_extra_class (optional) : Additional CSS classes on the wrapper
+    -->
+            <section
+                    t-attf-class="s_saud_hero {{ 'is-home' if is_home_page else 'is-inner' }} {{ hero_extra_class or '' }}"
+                    t-attf-style="background-image: url('{{ hero_bg_image }}');"
+            >
+                <!-- Dark navy overlay -->
+                <div class="s_saud_hero_overlay"/>
+
+                <div class="container position-relative h-100">
+                    <div t-attf-class="s_saud_hero_content {{ 'text-center' if is_home_page else '' }}">
+                        <!-- Title (always rendered) -->
+                        <h1 class="s_saud_hero_title text-white mb-3" t-out="hero_title"/>
+
+                        <!-- Subtitle (conditional) -->
+                        <p t-if="hero_subtitle"
+                           class="s_saud_hero_subtitle text-white mb-4"
+                           t-out="hero_subtitle"/>
+
+                        <!-- Button (conditional) -->
+                        <a t-if="hero_button_text and hero_button_url"
+                           t-att-href="hero_button_url"
+                           t-att-target="hero_button_target or None"
+                           class="btn btn-primary s_saud_hero_btn"
+                           t-out="hero_button_text"/>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!--   main section title     -->
+        <template id="main_section_title" name="Saud Section Title">
+            <div class="s_saud_section_title container  d-flex justify-content-center align-items-center flex-column">
+                <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0" t-out="main_title"/>
+                <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0" t-out="main_subtitle"/>
+            </div>
+        </template>
+        <!--Benefits Section-->
+        <template id="benefits_component" name="Saud Benefits Section">
+            <section t-attf-class="s_saud_benefits py-5 {{ benefits_extra_class or '' }}">
+                <div class="container">
+                    <div class="row g-5">
+                        <div t-foreach="benefits" t-as="benefit" class="col-lg-4 col-md-6">
+                            <div class="d-flex align-items-start gap-5 p-3">
+                                <div t-if="benefit.get('icon')" class=" text-primary flex-shrink-0">
+                                    <i t-att-class="benefit['icon']" aria-hidden="true"/>
+                                </div>
+                                <div class="s_saud_benefits_content">
+                                    <h6 class="fw-semibold mb-2" t-out="benefit['title']"/>
+                                    <p t-if="benefit.get('desc')" class="text-muted mb-0  lh-base small"
+                                       t-out="benefit['desc']"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Ruba Banner  -->
+        <template id="ruba_banner_component" name="Saud Ruba Banner Section">
+            <section
+                    class="s_saud_ruba_banner position-relative overflow-hidden bg-primary d-flex justify-content-center align-items-center">
+                <!-- Content -->
+                <div class="container position-relative text-center text-white py-4">
+                    <p class="mb-2 fw-medium fs-5">مخطط رُبــــــى</p>
+                    <h2 class="fw-bold mb-4">وجهة الحياة في قلب حائل</h2>
+                    <a t-if="show_ruba_btn"
+                       href="/roba-plan"
+                       class="btn btn-light text-primary fw-bold rounded-pill px-5 py-2">استكشف الآن
+                    </a>
+                </div>
+
+            </section>
+        </template>
+        <!-- Info section -->
+        <template id="info_section_component" name="Saud Info Section">
+            <!--
+                Reusable Info Section Component
+                ================================
+                Variables:
+                    section_image       (required) : Image path
+                    section_image_alt   (optional) : Image alt text
+                    section_title       (required) : Heading text
+                    section_description (required) : Paragraph text
+                    image_position      (optional) : 'left' or 'right' (default: 'right')
+                    section_items       (optional) : List of dicts with keys: icon, title, description
+                    section_button_text (optional) : CTA button label
+                    section_button_url  (optional) : CTA button href
+                    section_button_target (optional) : Link target
+                    section_dir         (optional) : 'rtl' or 'ltr' (default: 'rtl')
+                    section_extra_class (optional) : Additional CSS classes
+            -->
+
+            <section t-attf-class="s_saud_info_section {{ section_extra_class or '' }}"
+                     t-att-dir="section_dir or 'rtl'">
+                <div class="container d-flex justify-content-center align-items-center ">
+                    <div class=" s_saud_info_content  row align-items-center g-5 gy-5">
+
+                        <!-- Image Column -->
+                        <div t-attf-class="col-lg-6 {{ 'order-lg-2' if image_position == 'left' else 'order-lg-1' }}">
+                            <img t-att-src="section_image"
+                                 t-att-alt="section_image_alt or ''"
+                                 class="img-fluid rounded-4 w-100"
+                                 loading="lazy"/>
+                        </div>
+
+                        <!-- Content Column -->
+                        <div t-attf-class="col-lg-6 text-center text-lg-start {{ 'order-lg-1' if image_position == 'left' else 'order-lg-2' }}">
+
+                            <!-- Title -->
+                            <h2 class="text-primary fw-bold mb-3 s_saud_info_title" t-out="section_title"/>
+
+                            <!-- Description -->
+                            <p class="text-muted lh-lg mb-4" t-out="section_description"/>
+
+                            <!-- Feature Items Grid (optional) -->
+                            <div t-if="section_items" class="row g-4 mb-4" >
+                                <div t-foreach="section_items" t-as="item" class="col-sm-6">
+                                    <div class="d-flex align-items-start gap-3">
+                                        <div t-if="item.get('icon')" class="text-primary flex-shrink-0 mt-1">
+                                            <i t-att-class="item['icon']" style="font-size: 1.5rem;"
+                                               aria-hidden="true"/>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold mb-1" t-out="item['title']"/>
+                                            <p t-if="item.get('description')" class="text-muted small lh-base mb-0"
+                                               t-out="item['description']"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Button (optional) -->
+                            <a t-if="section_button_text and section_button_url"
+                               t-att-href="section_button_url"
+                               t-att-target="section_button_target or None"
+                               class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold"
+                               t-out="section_button_text"/>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- How We Work section -->
+        <template id="how_we_work_section" name="Saud How We Work Section">
+            <section t-attf-class="s_saud_how_work py-5 bg-white {{ how_we_work_extra_class or '' }}" >
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="'كيف نعمل؟'"/>
+                    <t t-set="main_subtitle"
+                       t-value="'نعمل على تقديم الاستشارات وتطوير العقارات وتسويقها بفعالية، وتنفيذ المشاريع وإدارتها لضمان أعلى مستويات الجودة ورضا العملاء.'"/>
+                </t>
+
+                <div class="container">
+                    <div class="row g-4 g-xl-5 justify-content-center s_saud_how_work_steps">
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <article class="s_saud_how_work_step h-100">
+                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">1.</div>
+                                <div class="s_saud_how_work_step_content">
+                                    <h3 class="s_saud_how_work_step_title fs-5 lh-sm  fw-semibold ">
+                                        التقييم والاستشارة
+                                    </h3>
+                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                        نقوم بتحليل احتياجاتك و تقديم استشارات مخصصة حول أفضل الطرق لتحقيق أهدافك
+                                        العقارية، مع دراسة السوق وتقييم الفرص المتاحة.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <article class="s_saud_how_work_step h-100">
+                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">2.</div>
+                                <div class="s_saud_how_work_step_content">
+                                    <h3 class="s_saud_how_work_step_title fs-5  lh-sm fw-semibold ">
+                                        التطوير والتسويق
+                                    </h3>
+                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                        نعمل على تطوير العقارات بما يتناسب مع احتياجات السوق، مع إعداد خطط تسويقية
+                                        فعالة لجذب المستثمرين والمشترين، وضمان الوصول لأفضل العوائد الاستثمارية.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <article class="s_saud_how_work_step h-100">
+                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">3.</div>
+                                <div class="s_saud_how_work_step_content">
+                                    <h3 class="s_saud_how_work_step_title fs-5 lh-sm  fw-semibold ">
+                                        التنفيذ والإدارة
+                                    </h3>
+                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                        نقوم بتنفيذ مشاريع العقارات مع الالتزام بأعلى معايير الجودة، ونتولى إدارة
+                                        الممتلكات وتوفير الخدمات المناسبة للمستأجرين والمشترين، مما يعزز رضا العملاء
+                                        ويحقق الاستدامة المالية.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="s_saud_how_work_testimonials mt-5 pt-lg-3">
+                        <div class="owl-carousel owl-theme s_saud_carousel s_saud_how_work_carousel"
+                             data-items="1" data-dots="true" data-autoplay="true"
+                             data-autoplay-timeout="6000">
+                            <div class="s_saud_how_work_testimonial_item">
+                                <article class="s_saud_how_work_testimonial text-center mx-auto">
+                                    <p class="s_saud_how_work_testimonial_text lh-base text-muted fst-italic mb-3">
+                                        اخترت الشركة لمساعدتي في استثمار أموالي في العقارات، قدموا لي استشارات دقيقة
+                                        ومفيدة ساعدتني في اتخاذ القرار الصحيح، وكل ذلك بفضل احترافيتهم وتفانيهم في
+                                        العمل.
+                                    </p>
+
+                                    <div class="s_saud_how_work_customer d-inline-flex align-items-center gap-3">
+                                        <img t-att-src="how_we_work_customer_image or '/theme_saud/static/src/img/Testimonial-1.webp'"
+                                             onerror="this.onerror=null;this.src='/theme_saud/static/src/img/testimonial_customer_placeholder.svg';"
+                                             alt="رائد فارس"
+                                             class="s_saud_how_work_customer_image rounded-circle"
+                                             loading="lazy"/>
+                                        <div class="s_saud_how_work_customer_meta text-start">
+                                            <h4 class=" fw-semibold small mb-1">رائد فارس</h4>
+                                            <p class=" s_saud_how_work_customer_title  text-muted mb-0">رجل أعمال</p>
+                                        </div>
+
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="s_saud_how_work_testimonial_item">
+                                <article class="s_saud_how_work_testimonial text-center mx-auto">
+                                    <p class="s_saud_how_work_testimonial_text lh-base text-muted fst-italic mb-4">
+                                        شعرت بالراحة والثقة. الفريق كان محترفاً وقدم لي جميع المعلومات التي أحتاجها،
+                                        مما جعل عملية شراء المنزل الجديد تجربة مريحة وسلسة. أنصح بشدة باستخدام
+                                        خدماتهم لأي شخص يبحث عن عقار.
+                                    </p>
+
+                                    <div class="s_saud_how_work_customer d-inline-flex align-items-center gap-3">
+                                        <img t-att-src="how_we_work_customer_image_2 or '/theme_saud/static/src/img/Testimonial-2.webp'"
+                                             onerror="this.onerror=null;this.src='/theme_saud/static/src/img/testimonial_customer_placeholder.svg';"
+                                             alt="الهنوف عبدالعزيز"
+                                             class="s_saud_how_work_customer_image rounded-circle"
+                                             loading="lazy"/>
+                                        <div class="s_saud_how_work_customer_meta text-start">
+                                            <h4 class=" fw-semibold small mb-1">الهنوف عبدالعزيز</h4>
+                                            <p class="s_saud_how_work_customer_title  text-muted mb-0">مدرسة</p>
+                                        </div>
+
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Services Cards -->
+        <template id="s_saud_service_card" name="Saud Service Card">
+            <div class="s_saud_services_cards__card card h-100 border-0 rounded-4 overflow-hidden bg-white">
+                <div class="s_saud_services_cards__card-media">
+                    <img
+                            t-att-src="service.get('image')"
+                            t-att-alt="service.get('alt')"
+                            class="w-100 d-block"
+                            loading="lazy"
+                    />
+                </div>
+
+                <div class="s_saud_services_cards__card-content card-body d-flex flex-column p-4">
+                    <h3 class="fw-semibold fs-5 lh-sm mb-3 text-dark" t-out="service.get('title')"/>
+
+                    <p class="text-muted small fw-normal lh-lg mb-4" t-out="service.get('description')"/>
+
+                    <a
+                            t-att-href="service.get('url')"
+                            class="text-primary text-decoration-none fw-semibold small "
+                    >
+                        المزيد
+                    </a>
+                </div>
+            </div>
+        </template>
+        <!-- Counter Up Section -->
+        <template id="counter_up_section" name="Saud Counter Up Section">
+            <section t-attf-class="s_saud_counter py-5 {{ counter_extra_class or '' }}" >
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="'أرقامنا في سوق العقار'"/>
+                    <t t-set="main_subtitle"
+                       t-value="'فخورون بإنجازاتنا ونجاحاتنا في المجال العقاري، وما كان ذلك إلا بفضل وتوفيق من الله تعالى، ثم بفضل التزامنا بقيمنا وأهدافنا.'"/>
+                </t>
+
+                <!-- Counter Items -->
+                <div class="container">
+                    <div class="row g-4 g-lg-5 justify-content-center s_saud_counter__items" dir="ltr">
+
+                        <!-- Item 1: حجم استثماراتنا -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="s_saud_counter__item text-center">
+                                <div class="s_saud_counter__icon text-primary">
+                                    <i class="fa-solid fa-coins" aria-hidden="true"/>
+                                </div>
+                                <div class="s_saud_counter__number fw-medium"
+                                     data-target="600"
+                                     data-prefix="M"
+                                     data-suffix="+">
+                                    M0+
+                                </div>
+                                <div class="s_saud_counter__label text-muted">
+                                    حجم استثماراتنا
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: عقار تم بيعه -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="s_saud_counter__item text-center">
+                                <div class="s_saud_counter__icon  text-primary">
+                                    <i class="fa-solid fa-house-chimney" aria-hidden="true"/>
+                                </div>
+                                <div class="s_saud_counter__number fw-medium"
+                                     data-target="21000"
+                                     data-suffix="+"
+                                     data-use-comma="true">
+                                    0+
+                                </div>
+                                <div class="s_saud_counter__label text-muted ">
+                                    عقار تم بيعه
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: مشروع تم إنجازه -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="s_saud_counter__item text-center">
+                                <div class="s_saud_counter__icon  text-primary">
+                                    <i class="fa-solid fa-hard-hat" aria-hidden="true"/>
+                                </div>
+                                <div class="s_saud_counter__number fw-medium"
+                                     data-target="211">
+                                    0
+                                </div>
+                                <div class="s_saud_counter__label text-muted ">
+                                    مشروع تم إنجازه
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: عاماً من الخبرة -->
+                        <div class="col-6 col-md-6 col-lg-3">
+                            <div class="s_saud_counter__item text-center">
+                                <div class="s_saud_counter__icon  text-primary">
+                                    <i class="fa-solid fa-lightbulb" aria-hidden="true"/>
+                                </div>
+                                <div class="s_saud_counter__number fw-medium"
+                                     data-target="40"
+                                     data-suffix="+">
+                                    0+
+                                </div>
+                                <div class="s_saud_counter__label text-muted">
+                                    عاماً من الخبرة
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </template>
+        <!-- Trusted By / Clients Section -->
+        <template id="trusted_by_section" name="Saud Trusted By Section">
+              <section t-attf-class="s_saud_trusted py-5 {{ trusted_extra_class or '' }}" >
+                <!-- Title / Subtitle -->
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="'هؤلاء يثقون بنا'"/>
+                    <t t-set="main_subtitle"
+                       t-value="'عملاؤنا هم قلب أعمالنا، حيث نسعى دائماً لتقديم أفضل الخدمات لهم وتلبية احتياجاتهم بفعالية وجودة عالية، مما يعزز من ثقتهم ورضاهم المستمر.'"/>
+                </t>
+
+                <div class="container">
+                    <div class="owl-carousel owl-theme s_saud_carousel s_saud_trusted__carousel  "
+                         data-items="2"
+                         data-items-md="2"
+                         data-items-lg="3"
+                         data-items-xl="5"
+                         data-margin="30"
+                         data-dots="false"
+                         data-nav="false"
+                         data-autoplay="true"
+                         data-autoplay-timeout="3000"
+                         data-smart-speed="500">
+
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/Al_Musbah_Logo.png"
+                                 alt="stc" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/Alahli_logo.webp"
+                                 alt="BSF" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/Alinma_logo.png"
+                                 alt="بنك الجزيرة" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/AlrajhiBank_logo.webp"
+                                 alt="بنك الرياض" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/ANB_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/BankAljazira_logo.png"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div> <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/BSF_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div> <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/MEWA_logo.png"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/Mobily_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>   <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/MOE_logo.png"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>   <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/MOI_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>   <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/RiyadBank_logo.png"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>   <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/SE_logo.png"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/SE_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div> <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/STC_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>
+                        <div class="s_saud_trusted__item">
+                            <img src="/theme_saud/static/src/img/clients/Zain_logo.webp"
+                                 alt="anb" class="img-fluid" loading="lazy"/>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </template>
+
+    </data>
+
+</odoo>

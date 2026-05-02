@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="home_page" inherit_id="website.homepage" name="Saud Home Page">
+        <xpath expr="//div[@id='wrap']" position="inside">
+
+            <!-- Hero Section -->
+            <t t-call="theme_saud.hero_section_component">
+                <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/home_hero.webp'"/>
+                <t t-set="hero_title" t-value="'هنا، تتحقق أحلامك العقارية'"/>
+                <t t-set="hero_subtitle" t-value="'معنا، تجد كل ما تحتاجه لتحقيق راحتك واستثمارك الأمثل.'"/>
+                <t t-set="hero_button_text" t-value="'تعرف على خدماتنا'"/>
+                <t t-set="hero_button_url" t-value="'/services'"/>
+                <t t-set="is_home_page" t-value="True"/>
+            </t>
+
+            <!--   main section title     -->
+            <t t-call="theme_saud.main_section_title">
+                <t t-set="main_title" t-value="'لماذا نحن؟'"/>
+                <t t-set="main_subtitle"
+                   t-value="'هناك العديد من الأسباب، لاختيار سعود الغسلان العقارية كشريكك العقاري.'"/>
+            </t>
+
+            <!--Benefits Section-->
+            <t t-call="theme_saud.benefits_component">
+                <t t-set="benefits" t-value="[
+                    {'icon': 'fa-solid fa-lightbulb',       'title': 'الخبرة والتخصص',      'desc': 'نتمتع بفريق من الخبراء والمتخصصين ذوي الخبرة الواسعة في مجال العقارات.'},
+                    {'icon': 'fa-solid fa-medal',           'title': 'الجودة والتميز',       'desc': 'نلتزم بأعلى معايير الجودة في جميع خدماتنا لضمان تحقيق رضا العملاء.'},
+                    {'icon': 'fa-solid fa-gem',            'title': 'الشفافية والنزاهة',     'desc': 'نتعامل بشفافية تامة ونلتزم بالنزاهة في جميع تعاملاتنا.'},
+                    {'icon': 'fa-solid fa-headset',          'title': 'خدمة العملاء',         'desc': 'نقدم دعمًا مستمرًا وخدمة عملاء متميزة تركز على احتياجات العملاء وتوقعاتهم.'},
+                    {'icon': 'fa-solid fa-bullhorn',         'title': 'التسويق الفعّال',      'desc': 'نستخدم أحدث استراتيجيات التسويق لجذب المشترين والمستثمرين.'},
+                    {'icon': 'fa-solid fa-stopwatch', 'title': 'الالتزام بالمواعيد',    'desc': 'نحرص على تنفيذ وتسليم المشاريع في الوقت المحدد دون تأخير.'},
+                ]"/>
+            </t>
+
+            <!-- Ruba Banner  -->
+            <t t-call="theme_saud.ruba_banner_component">
+                <t t-set="show_ruba_btn" t-value="True"/>
+            </t>
+
+            <!-- Who are we section -->
+            <t t-call="theme_saud.info_section_component">
+                <t t-set="image_position" t-value="'left'"/>
+                <t t-set="section_image" t-value="'/theme_saud/static/src/img/about.webp'"/>
+                <t t-set="section_image_alt" t-value="'من نحن'"/>
+                <t t-set="section_title" t-value="'من نحن'"/>
+                <t t-set="section_description"
+                   t-value="'سعود الغسلان العقارية، إحدى الشركات العقارية الطموحة للوصول إلى الريادة في مجال الاستثمار والتطوير العقاري، إذ تمتلك الشركة الكفاءات المهنية المؤهلة لتحقيق أهدافها من خلال خبراتهم وشغفهم للعمل.'"/>
+                <t t-set="section_button_text" t-value="'المزيد'"/>
+                <t t-set="section_button_url" t-value="'/about-us'"/>
+                <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25'"/>
+
+            </t>
+
+            <!-- How We Work section -->
+            <t t-call="theme_saud.how_we_work_section"/>
+
+            <!-- Services section -->
+            <section class="s_saud_services_section bg-body-tertiary bg-opacity-25 py-5">
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="'خدماتنا'"/>
+                    <t t-set="main_subtitle"
+                       t-value="'حرصاً منا على تحقيق الشمولية في مجال الاستثمار والتطوير العقاري نقدم العديد من الخدمات في مجالنا'"/>
+                </t>
+                <div class="container d-flex justify-content-center align-items-center">
+                    <t t-set="services_cards" t-value="[
+                        {
+                            'title': 'المبيعات',
+                            'description': 'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.',
+                            'image': '/theme_saud/static/src/img/serv-1.webp',
+                            'alt': 'المبيعات',
+                            'url': '/services'
+                        },
+                        {
+                            'title': 'إدارة الأملاك',
+                            'description': 'فور توقيع العقود، يقوم فريق إدارة الأملاك لدينا بوضع استراتيجية شاملة لجميع جوانب المشروع والنهوض بها، لضمان مورد آمن ورفع القيمة الإيجارية العادلة.',
+                            'image': '/theme_saud/static/src/img/serv-2.webp',
+                            'alt': 'إدارة الأملاك',
+                            'url': '/services'
+                        },
+                        {
+                            'title': 'إدارة المرافق',
+                            'description': 'تولي إدارة الشؤون الفنية للعقار نيابة عن المالك.',
+                            'image': '/theme_saud/static/src/img/serv-3.webp',
+                            'alt': 'إدارة المرافق',
+                            'url': '/services'
+                        },
+                        {
+                            'title': 'التقييم العقاري',
+                            'description': 'تكمن أهمية التقييم في كونه أحد أهم الركائز التي تعتمد عليها جميع العمليات العقارية، مثل العمليات الإيجارية، البيوع والاستثمارات.',
+                            'image': '/theme_saud/static/src/img/serv-4.webp',
+                            'alt': 'التقييم العقاري',
+                            'url': '/services'
+                        },
+                        {
+                            'title': 'المزادات العقارية',
+                            'description': 'فور استلام خطابات المحكمة، يقوم فريق المزادات العقارية لدينا بجميع العمليات الخاصة في المزادات والتي تكون تسلسلية حتى انتهاء افراغ الصكوك.',
+                            'image': '/theme_saud/static/src/img/serv-5.webp',
+                            'alt': 'المزادات العقارية',
+                            'url': '/services'
+                        },
+                        {
+                            'title': 'المقاولات',
+                            'description': 'تشمل التخطيط، التصميم، البناء، والإشراف على مشاريع البنية التحتية والمباني، بهدف تحقيق مواصفات الجودة والسلامة المطلوبة وضمان إنجاز المشاريع ضمن الوقت والميزانية المحددين.',
+                            'image': '/theme_saud/static/src/img/serv-6.webp',
+                            'alt': 'المقاولات',
+                            'url': '/services'
+                        }
+                    ]"/>
+                    <div class="s_saud_services_cards gap-5 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-5">
+                        <t t-foreach="services_cards" t-as="service">
+                            <t t-call="theme_saud.s_saud_service_card"/>
+                        </t>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- CounterUp section -->
+            <t t-call="theme_saud.counter_up_section"/>
+            <!-- Trusted By section -->
+            <t t-call="theme_saud.trusted_by_section"/>
+        </xpath>
+    </template>
+
+</odoo>

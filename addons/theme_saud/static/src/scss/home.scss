@@ -1,0 +1,24 @@
+.s_saud_services_cards {
+  .s_saud_services_cards {
+    &__card {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    &__card-media {
+      img {
+        height: 190px;
+        object-fit: cover;
+      }
+    }
+
+    &__card-content {
+      min-height: 250px;
+    }
+  }
+}

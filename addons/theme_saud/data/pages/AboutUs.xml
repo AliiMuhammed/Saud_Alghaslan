@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- === About Us Page === -->
+        <template id="s_saud_about_page" name="About Us">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- Hero Section -->
+                    <t t-call="theme_saud.hero_section_component">
+                        <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/hero_about.webp'"/>
+                        <t t-set="hero_title" t-value="'من نحن!'"/>
+                        <t t-set="hero_subtitle" t-value="'نؤمن بأن العقارات ليست مجرد مبانٍ؛ بل هي أماكن تنبض بالحياة وتصنع الذكريات.'"/>
+                        <t t-set="hero_button_text" t-value="'إنضم إلينا'"/>
+                        <t t-set="hero_button_url" t-value="'/aboutus#services'"/>
+                    </t>
+
+                </div>
+            </t>
+        </template>
+
+        <record id="s_saud_about_route" model="theme.website.page">
+            <field name="view_id" ref="s_saud_about_page"/>
+            <field name="is_published" eval="True"/>
+            <field name="url">/aboutus</field>
+        </record>
+
+        <record id="s_saud_about_menu" model="theme.website.menu">
+            <field name="name">من نحن</field>
+            <field name="url">/aboutus</field>
+            <field name="page_id" ref="s_saud_about_route"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+    </data>
+</odoo>

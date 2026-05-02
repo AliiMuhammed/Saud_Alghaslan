@@ -1,0 +1,50 @@
+@mixin generate-grid-columns($prefix: '', $breakpoint: null) {
+  $selector: if($prefix != '', '.#{$prefix}\\:grid-cols-', '.grid-cols-');
+
+  @for $i from 1 through 12 {
+    #{$selector}#{$i} {
+      grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+    }
+  }
+
+  // Special cases
+  #{$selector}none {
+    grid-template-columns: none;
+  }
+}
+
+// Base grid columns (no breakpoint)
+@include generate-grid-columns();
+
+// Responsive grid columns for each breakpoint
+@each $bp-name, $bp-value in $grid-breakpoints {
+  @media (min-width: $bp-value) {
+    @include generate-grid-columns($bp-name);
+  }
+}
+
+@mixin generate-col-span($prefix: '', $breakpoint: null) {
+  $selector: if($prefix != '', '.#{$prefix}\\:col-span-', '.col-span-');
+
+  @for $i from 1 through 12 {
+    #{$selector}#{$i} {
+      grid-column: span #{$i} / span #{$i};
+    }
+  }
+
+  #{$selector}full {
+    grid-column: 1 / -1;
+  }
+}
+
+@include generate-col-span();
+
+@each $bp-name, $bp-value in $grid-breakpoints {
+  @media (min-width: $bp-value) {
+    @include generate-col-span($bp-name);
+  }
+}
+
+
+
+

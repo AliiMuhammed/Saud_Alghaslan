@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+    <title id="title">Testimonial customer placeholder</title>
+    <desc id="desc">Rounded avatar placeholder illustration.</desc>
+    <defs>
+        <linearGradient id="bg" x1="12" y1="10" x2="86" y2="88" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#F7FAFC"/>
+            <stop offset="1" stop-color="#E4EEF5"/>
+        </linearGradient>
+    </defs>
+    <circle cx="48" cy="48" r="48" fill="url(#bg)"/>
+    <circle cx="48" cy="35" r="15" fill="#20A2DC" opacity="0.18"/>
+    <circle cx="48" cy="35" r="13.5" fill="#20A2DC" opacity="0.72"/>
+    <path d="M21 84V72C21 62.059 33.088 54 48 54C62.912 54 75 62.059 75 72V84Z" fill="#20A2DC" opacity="0.3"/>
+    <path d="M48 12C67.882 12 84 28.118 84 48C84 67.882 67.882 84 48 84C28.118 84 12 67.882 12 48C12 28.118 28.118 12 48 12ZM48 15C29.775 15 15 29.775 15 48C15 66.225 29.775 81 48 81C66.225 81 81 66.225 81 48C81 29.775 66.225 15 48 15Z"
+          fill="#05043D" opacity="0.08"/>
+</svg>

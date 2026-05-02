@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_social_media_inherit_theme_saud" inherit_id="website.s_social_media">
+        <xpath expr="//a[contains(@class, 's_social_media_youtube')]" position="after">
+            <a href="/website/social/snapchat" class="s_social_media_snapchat" target="_blank" aria-label="Snapchat">
+                <i class="fa fa-snapchat-ghost rounded shadow-sm o_editable_media"/>
+            </a>
+        </xpath>
+    </template>
+
+    <record id="view_website_form_inherit_theme_saud_social" model="ir.ui.view">
+        <field name="name">website.form.inherit.theme.saud.social</field>
+        <field name="model">website</field>
+        <field name="inherit_id" ref="website.view_website_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Social Media" name="theme_saud_social_media">
+                    <group>
+                        <group>
+                            <field name="social_linkedin"/>
+                            <field name="social_youtube"/>
+                            <field name="social_snapchat"/>
+                        </group>
+                        <group>
+                            <field name="social_instagram"/>
+                            <field name="social_facebook"/>
+                            <field name="social_twitter"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

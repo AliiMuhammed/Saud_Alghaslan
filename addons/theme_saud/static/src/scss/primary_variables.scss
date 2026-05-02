@@ -1,0 +1,224 @@
+//------------------------------------------------------------------------------
+// Fonts
+//------------------------------------------------------------------------------
+.rounded-top-lg {
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.rounded-lg {
+  border-radius: 2rem;
+}
+
+.flex-1 {
+  flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+$o-theme-h1-font-size-multiplier: (56 / 16);
+$o-theme-h2-font-size-multiplier: (40 / 16);
+$o-theme-h3-font-size-multiplier: (28 / 16);
+$o-theme-h4-font-size-multiplier: (24 / 16);
+$o-theme-h5-font-size-multiplier: (20 / 16);
+$o-theme-h6-font-size-multiplier: (18 / 16);
+$o-theme-headings-font-weight: 700;
+
+//------------------------------------------------------------------------------
+// Presets
+//------------------------------------------------------------------------------
+$o-website-values-palettes: (
+        (
+                // Typography
+                'headings-font': 'Almarai',
+                'font': 'Almarai',
+                'navbar-font': 'Almarai',
+                'buttons-font': 'Almarai',
+                'header-template': 'sgreco',
+                'header-font-size': 1rem,
+
+                // Brand preset
+                'color-palettes-name': 'saud-1',
+                'fixed-logo-height': 5rem,
+                'logo-height': 5rem,
+
+          // Links
+                'link-underline': 'never',
+
+          // Buttons - SGRECO uses rounded cyan CTAs
+                'btn-border-radius': 3rem,
+                'btn-border-radius-sm': 3rem,
+                'btn-border-radius-lg': 3rem,
+                'btn-font-size-sm': 0.875rem,
+                'btn-font-size-lg': 1.125rem,
+
+          // Display
+                'display-1-font-size': 64px,
+                'display-2-font-size': 48px,
+                'display-3-font-size': 32px,
+                'display-4-font-size': 24px,
+                'display-5-font-size': 18px,
+                'display-6-font-size': 16px,
+        ),
+);
+
+$container-xxl: 1340px;
+
+$container-max-widths: (
+        sm: $container-xxl * 0.4,
+        md: $container-xxl * 0.54,
+        lg: $container-xxl * 0.72,
+        xl: $container-xxl * 0.82,
+        xxl: $container-xxl
+) ;
+
+//------------------------------------------------------------------------------
+// Colors
+//------------------------------------------------------------------------------
+
+// SGRECO reference palette sampled from https://saudalghaslan.com/
+$o-enterprise-color: #F6A81B ;
+$o-brand-primary: #20A2DC ;
+$o-success: #20A2DC ;
+$o-secondary: #05043D ;
+$o-info: #20A2DC ;
+$o-light: #FFFFFF ;
+$o-warning: #F6A81B ;
+$o-danger: #DC3545 ;
+
+$o-black: #05043D ;
+
+$primary: $o-brand-primary ;
+$secondary: $o-secondary ;
+
+$theme-colors: (
+        "primary": $o-brand-primary,
+        "secondary": $o-secondary,
+        "success": $o-success,
+        "info": $o-info,
+        "warning": $o-warning,
+        "danger": $o-danger,
+        "light": $o-light,
+        "dark": $o-black
+) ;
+
+$custom-colors: (
+        'pcolor': #6B7280,
+        'sgreco-blue': #20A2DC,
+        'sgreco-navy': #05043D,
+        'sgreco-navy-soft': #212058,
+        'sgreco-light': #F7FAFC,
+        'sgreco-text': #1C2430,
+);
+
+//// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+
+.w-fit {
+  width: fit-content !important;
+}
+
+//.rounded-lg {
+//  border-radius: 2rem !important;
+//}
+
+// Fine-tune contextual text colors.
+$o-color-palettes: map-merge($o-color-palettes,
+(
+        'saud-1': (
+                // SGRECO: cyan CTA/top bar, deep navy hero/footer, light surfaces, white, dark text
+                'o-color-1': #20A2DC,
+                'o-color-2': #05043D,
+                'o-color-3': #F7FAFC,
+                'o-color-4': #FFFFFF,
+                'o-color-5': #1C2430,
+
+                // Default color-combination hints for Odoo blocks
+                'o-cc1-btn-primary': 'o-color-1',
+                'o-cc1-link': 'o-color-1',
+                'o-cc2-bg': 'o-color-2',
+                'o-cc2-text': 'o-color-4',
+                'o-cc2-headings': 'o-color-4',
+                'o-cc2-btn-primary': 'o-color-1',
+                'o-cc3-bg': 'o-color-3',
+                'o-cc3-text': 'o-color-5',
+                'o-cc3-headings': 'o-color-2',
+                'o-cc5-bg': 'o-color-2',
+                'o-cc5-text': 'o-color-4',
+                'o-cc5-link': 'o-color-1',
+        ),
+)
+);
+
+//// Compatibility
+$o-theme-color-palettes: map-merge($o-theme-color-palettes,
+(
+        'saud-1': (
+                'alpha': #20A2DC,
+                'beta': #F7FAFC,
+                'gamma': #F6A81B,
+                'delta': #05043D,
+                'epsilon': #FFFFFF,
+        ),
+)
+);
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'saud-1');
+
+$o-color-palettes-compatibility-indexes: (
+        1: 'saud-1',
+        2: 'figma-2',
+        3: 'figma-3',
+        4: 'figma-4',
+        5: 'figma-5',
+        6: 'figma-6',
+        7: 'generic-1',
+        8: 'generic-2',
+        9: 'generic-3',
+        10: 'generic-4',
+        11: 'generic-5',
+        12: 'generic-6',
+        13: 'generic-7',
+        14: 'generic-8',
+        15: 'generic-9',
+        16: 'generic-10',
+        17: 'generic-11',
+        18: 'generic-12',
+        19: 'generic-13',
+        20: 'generic-14',
+        21: 'generic-15',
+        22: 'generic-16',
+        23: 'generic-17',
+);
+//
+//
+////------------------------------------------------------------------------------
+//// Fonts
+////------------------------------------------------------------------------------
+
+$o-theme-font-configs: (
+        'Cairo': (
+                'family': ('Cairo', 'Arial', sans-serif),
+                'url': 'Cairo:300,400,500,600,700,800,900',
+                'properties': (
+                        'base': (
+                                'font-size-base': 1rem,
+                        ),
+                ),
+        ),
+        'Almarai': (
+                'family': ('Almarai', sans-serif),
+                'url': 'Almarai:300,400,700,900',
+        )
+
+);
+
+
+//------------------------------------------------------------------------------
+// Shapes
+//------------------------------------------------------------------------------
+
+$o-bg-shapes: change-shape-colors-mapping('web_editor', 'Wavy/21', (2: 1));
+$o-bg-shapes: change-shape-colors-mapping('web_editor', 'Bold/07_001', (2: 3));
+//$primary : #1E1E1E;
