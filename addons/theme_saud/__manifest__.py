@@ -10,6 +10,9 @@
     "license": "LGPL-3",
     "depends": ["website", "web",],
     "data": [
+        # Presets
+        "data/presets.xml",
+
         # Views
         "views/snippets.xml",
         "views/website_social.xml",
@@ -18,6 +21,7 @@
         # Pages
         "data/pages/Home.xml",
         "data/pages/AboutUs.xml",
+        "data/pages/Services.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -29,6 +33,8 @@
             # js files
             '/theme_saud/static/src/js/owl_carousel.js',
             '/theme_saud/static/src/js/counter_up_section.js',
+            '/theme_saud/static/src/js/services_toggle.js',
+            '/theme_saud/static/src/js/services_form.js',
 
             '/theme_saud/static/src/scss/snippets.scss',
             '/theme_saud/static/src/scss/components.scss',
@@ -36,6 +42,7 @@
             #pages style
             '/theme_saud/static/src/scss/home.scss',
             '/theme_saud/static/src/scss/aboutUs.scss',
+            '/theme_saud/static/src/scss/services.scss',
 
         ],
         'website.assets_wysiwyg': [],

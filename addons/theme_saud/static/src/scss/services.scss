@@ -1,0 +1,28 @@
+.s-saud-service-form {
+    margin-top: -200px; // overlap hero
+    z-index: 100;
+    &__card {
+        max-width: 1100px;
+    }
+
+    input,
+    select {
+        height: 52px;
+    }
+
+    &__error-msg {
+        font-size: 0.85rem;
+        margin-top: 4px;
+        margin-bottom: 0;
+        color: $o-danger;
+        display: none;
+    }
+
+    .is-invalid + &__error-msg {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        margin-top: -155px;
+    }
+}

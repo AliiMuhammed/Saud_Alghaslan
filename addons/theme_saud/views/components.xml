@@ -110,10 +110,10 @@
             <section t-attf-class="s_saud_info_section {{ section_extra_class or '' }}"
                      t-att-dir="section_dir or 'rtl'">
                 <div class="container d-flex justify-content-center align-items-center ">
-                    <div class=" s_saud_info_content  row align-items-center g-5 gy-5">
+                    <div class=" s_saud_info_content justify-content-center row align-items-center g-5 gy-5">
 
                         <!-- Image Column -->
-                        <div t-attf-class="col-lg-6 {{ 'order-lg-2' if image_position == 'left' else 'order-lg-1' }}">
+                        <div t-attf-class="col-lg-5 {{ 'order-lg-2' if image_position == 'left' else 'order-lg-1' }}">
                             <img t-att-src="section_image"
                                  t-att-alt="section_image_alt or ''"
                                  class="img-fluid rounded-4 w-100"
