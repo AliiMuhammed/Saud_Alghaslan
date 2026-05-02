@@ -9,21 +9,162 @@
                     <t t-call="theme_saud.hero_section_component">
                         <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/hero_about.webp'"/>
                         <t t-set="hero_title" t-value="'من نحن!'"/>
-                        <t t-set="hero_subtitle" t-value="'نؤمن بأن العقارات ليست مجرد مبانٍ؛ بل هي أماكن تنبض بالحياة وتصنع الذكريات.'"/>
+                        <t t-set="hero_subtitle"
+                           t-value="'نؤمن بأن العقارات ليست مجرد مبانٍ؛ بل هي أماكن تنبض بالحياة وتصنع الذكريات.'"/>
                         <t t-set="hero_button_text" t-value="'إنضم إلينا'"/>
                         <t t-set="hero_button_url" t-value="'/aboutus#services'"/>
                     </t>
+                    <!-- Our story Section-->
+                    <section class="s-saud-our-story py-5">
+                        <div class="container d-flex justify-content-center align-items-center">
+                            <div class="s-saud-our-story__content row align-items-center g-5 gy-5">
+                                <!-- Image Column -->
+                                <div class="col-lg-5">
+                                    <div class="s-saud-our-story__media overflow-hidden rounded-3">
+                                        <div class="row g-1">
+                                            <div class="col-6">
+                                                <div class="ratio ratio-4x3">
+                                                    <img src="/theme_saud/static/src/img/Our_story_2.webp"
+                                                         alt="Our story image 2"
+                                                         class="w-100 h-100 object-fit-cover gray-filter"
+                                                         loading="lazy"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="ratio ratio-4x3">
+                                                    <img src="/theme_saud/static/src/img/Our_story_1.webp"
+                                                         alt="Our story image 1"
+                                                         class="w-100 h-100 object-fit-cover"
+                                                         loading="lazy"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="ratio ratio-21x9">
+                                                    <img src="/theme_saud/static/src/img/Our_story_3.webp"
+                                                         alt="Our story image 3"
+                                                         class="w-100 h-100 object-fit-cover gray-filter"
+                                                         loading="lazy"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Content Column -->
+                                <div class="col-lg-6 text-center text-lg-start">
+                                    <!-- Title -->
+                                    <h2 class="text-primary fw-bold mb-3 s_saud_info_title">
+                                        قصتنا
+                                    </h2>
+                                    <!-- Description -->
+                                    <p class="text-muted lh-lg mb-4">
+                                        سعود الغسلان العقارية، إحدى الشركات العقارية الطموحة للوصول إلى الريادة في
+                                        مجال الاستثمار والتطوير العقاري، إذ تمتلك الشركة الكفاءات المهنية المؤهلة
+                                        لتحقيق أهدافها من خلال خبراتهم وشغفهم للعمل.
+                                    </p>
+                                    <p class="text-primary lh-lg">
+                                        تأسست شركة سعود الغسلان العقارية على يد الشيخ/ سليمان بن علي الغسلان رحمه
+                                        الله في سبعينيات القرن الماضي، وعلى امتداد أكثر من أربعين عامًا سعت الشركة
+                                        إلى تطوير أعمالها في مجال العقارات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Ambition Section -->
+                    <section class="s-saud-ambition-section py-5 bg-body-tertiary bg-opacity-25">
+                        <!--   main section title     -->
+                        <t t-call="theme_saud.main_section_title">
+                            <t t-set="main_title" t-value="'طموح ومسؤولية'"/>
+                            <t t-set="main_subtitle"
+                               t-value="'نحن نؤمن بأن الرؤية الطموحة والرسالة الواضحة والقيم الصادقة هي أساس نجاحنا.'"/>
+                        </t>
+                        <!--Benefits Section-->
+                        <t t-call="theme_saud.benefits_component">
+                            <t t-set="benefits" t-value="[
+                    {'icon': 'fa-solid fa-eye',       'title': 'روئيتنا',      'desc': 'نتطلع لأن نكون الرواد في تحقيق أفضل الاستثمارات وتقديم أنسب الحلول والخدمات العقارية بما يتناسب مع تطلعات عملاىنا.'},
+                    {'icon': 'fa-solid fa-envelope-circle-check',           'title': 'رسالتنا',       'desc': 'نسعى لخلق أفضل الفرص الاستثمارية عبر تقديم حلول متنوعة وتجارب مبتكرة تواكب حركة السوق النشط.'},
+                    {'icon': 'fa-solid fa-book',            'title': 'قيمنا',     'desc': 'في جميع ما نقوم به من أعمال لتحقيق, أهدافنا لا نتوانا عن القيم التالية:
 
++ الأمانة. + الشفافية. + الإحترام.
++ الإتقان. + الإبداع.
+
+نتعاون جميعًا لتحقيق رضا عملائنا، بما يخدم مصلحة مجتمعنا.'},
+                ]"/>
+                        </t>
+                    </section>
+                    <!-- How We Work section -->
+                    <t t-call="theme_saud.how_we_work_section"/>
+                    <!-- CounterUp section -->
+                    <section class="s-saud-our-numbers  bg-body-tertiary bg-opacity-25">
+                        <t t-call="theme_saud.counter_up_section"/>
+                    </section>
+                    <!--Speech of the Chairman-->
+                    <section class="s-saud-Speech py-5">
+                        <div class="container d-flex justify-content-center align-items-center">
+                            <div class="s-saud-Speech__content row align-items-center g-5 gy-5">
+                                <!-- Image Column -->
+                                <div class="col-lg-5">
+
+                                    <div class="s-saud-Speech__media overflow-hidden rounded-3">
+                                        <img src="/theme_saud/static/src/img/Chairman.webp"
+                                             alt="Chairman"
+                                             class="w-100 h-100 object-fit-cover "
+                                             loading="lazy"/>
+                                    </div>
+                                </div>
+                                <!-- Content Column -->
+                                <div class="col-lg-6 text-center text-lg-start">
+                                    <!-- Title -->
+                                    <h2 class="text-primary fw-bold mb-3 s_saud_info_title">
+                                        كلمة رئيس مجلس الإدارة
+                                    </h2>
+                                    <!-- Description -->
+                                    <p class=" fw-medium lh-lg mb-2">
+                                        بسم الله الرحمن الرحيم
+                                        <br/>
+                                        الحمد لله والصلاة والسلام على رسول الله، وبعد:
+                                    </p>
+                                    <p class=" fw-medium lh-lg mb-2">
+                                        نحمد الله تعالى أن مَنَّ علينا ببلوغ عامنا الخامس والأربعون في خدمة وطننا
+                                        الغالي، فمنذ سبعينيات القرن الماضي، أسس والدنا المغفور له بإذن الله تعالى الشيخ/
+                                        سليمان بن علي الغسلان، هذا الكيان الاستثماري الغالي، والذي أخذنا على عاتقنا
+                                        عهداً بالمحافظة عليه لتحقيق المهمة الأولى التي كلف الله بها الإنسان وهي عمارة
+                                        الأرض.
+                                    </p>
+                                    <p class="  fw-medium text-primary lh-lg mb-2">
+                                        منذ ذلك الحين؛ لم نألوا جهداً في تحقيق رؤيتنا المستقبلية، وذلك بتوفير مناخ
+                                        استثماري ملائم لنيل ثقة كبار المستثمرين، والذين نفخر بخدمتهم عبر العديد من
+                                        البرامج الاستثمارية التي تلائم تطلعاتهم، محافظين على قيمنا الراسخة، والتي كسبنا
+                                        من خلالها أيضاً ثقة عملاؤنا المستفيدون من خدماتنا المتنوعة التي تلبي إحتياجاتهم
+                                        وذلك من خلال فريق عمل مؤهل لتقديم جميع الخدمات العقارية بحوكمة منضبطة لتحقيق
+                                        معايير الجودة ملتزمين إلتزاماً كاملاً في جميع تعاملاتنا بضوابط الشريعة
+                                        الإسلامية.
+                                    </p>
+                                    <p class="  fw-medium lh-lg mb-2">
+                                        وفق الله الجميع لما يحبه ويرضاه، والسلام عليكم ورحمة الله وبركاته.
+                                    </p>
+                                    <p class="lh-lg fw-medium fs-5 text-primary m-0">
+                                        سعود بن سليمان الغسلان
+                                    </p>
+                                    <p class="lh-lg fw-medium small text-muted m-0">
+                                        رئيس مجلس الإدارة
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Trusted By section -->
+                    <section class="s-saud-trusted  bg-body-tertiary bg-opacity-25">
+                        <t t-call="theme_saud.trusted_by_section"/>
+                    </section>
                 </div>
             </t>
         </template>
-
         <record id="s_saud_about_route" model="theme.website.page">
             <field name="view_id" ref="s_saud_about_page"/>
             <field name="is_published" eval="True"/>
             <field name="url">/aboutus</field>
         </record>
-
         <record id="s_saud_about_menu" model="theme.website.menu">
             <field name="name">من نحن</field>
             <field name="url">/aboutus</field>
