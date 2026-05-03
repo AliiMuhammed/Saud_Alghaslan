@@ -107,7 +107,7 @@
     <template id="template_header_sgreco" inherit_id="website.layout" name="SGRECO Two Bar Header" active="False">
         <xpath expr="//header" position="replace">
             <header id="top" data-anchor="true"
-                    t-attf-class="o_header_standard #{(not is_view_active('website.header_visibility_standard')) and 'o_header_sidebar' or ''}"
+                    t-attf-class="o_header_standard #{(not is_view_active('website.header_visibility_standard')) and 'o_header_sidebar' or ''} #{is_view_active('website.header_hoverable_dropdown') and 'o_hoverable_dropdown' or ''}"
                     t-att-data-name="'SGRECO'">
             <t t-set="sgreco_phone" t-value="website.company_id.phone or website.company_id.mobile or '0165311111'"/>
             <t t-set="sgreco_phone_href" t-value="(sgreco_phone or '').replace(' ', '')"/>
