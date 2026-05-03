@@ -8,7 +8,7 @@
                     <!-- Hero Section -->
                     <t t-call="theme_saud.hero_section_component">
                         <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/hero_about.webp'"/>
-                        <t t-set="hero_title" t-value="'إالمزادات العقارية'"/>
+                        <t t-set="hero_title" t-value="'إلمزادات العقارية'"/>
                         <t t-set="hero_subtitle"
                            t-value="'المزادات العقارية هي عملية شفافة لبيع وشراء العقارات من خلال تقديم العروض العلنية وتحديد أفضل سعر.'"/>
                         <t t-set="hero_button_text" t-value="'اعرف أكثر'"/>
@@ -109,6 +109,8 @@
                             <t t-set="auction_booklet_url" t-value="'#'"/>
                             <t t-set="auction_platform_url" t-value="'#'"/>
                             <t t-set="auction_image_position" t-value="'left'"/>
+                            <t t-set="auction_extra_class" t-value="'s_saud_reveal s_saud_reveal--left'"/>
+
                         </t>
 
                         <t t-call="theme_saud.auction_card_component">
@@ -121,7 +123,8 @@
                             <t t-set="auction_booklet_url" t-value="'#'"/>
                             <t t-set="auction_platform_url" t-value="'#'"/>
                             <t t-set="auction_image_position" t-value="'right'"/>
-                            <t t-set="auction_extra_class" t-value="'py-5 bg-body-tertiary bg-opacity-25'"/>
+                            <t t-set="auction_extra_class"
+                               t-value="'py-5 bg-body-tertiary bg-opacity-25 s_saud_reveal s_saud_reveal--right'"/>
                         </t>
 
                         <t t-call="theme_saud.auction_card_component">
@@ -134,6 +137,8 @@
                             <t t-set="auction_booklet_url" t-value="'#'"/>
                             <t t-set="auction_platform_url" t-value="'#'"/>
                             <t t-set="auction_image_position" t-value="'left'"/>
+                            <t t-set="auction_extra_class" t-value="'s_saud_reveal s_saud_reveal--left'"/>
+
                         </t>
 
                         <t t-call="theme_saud.auction_card_component">
@@ -146,9 +151,15 @@
                             <t t-set="auction_booklet_url" t-value="'#'"/>
                             <t t-set="auction_platform_url" t-value="'#'"/>
                             <t t-set="auction_image_position" t-value="'right'"/>
-                            <t t-set="auction_extra_class" t-value="'py-5 bg-body-tertiary bg-opacity-25'"/>
+                            <t t-set="auction_extra_class"
+                               t-value="'py-5 bg-body-tertiary bg-opacity-25 s_saud_reveal s_saud_reveal--right'"/>
                         </t>
                     </div>
+                    <!-- Trusted By section -->
+                    <t t-call="theme_saud.trusted_by_section">
+                        <t t-set="trusted_extra_class"
+                           t-value="'s_saud_reveal s_saud_reveal--zoom'"/>
+                    </t>
 
                 </div>
             </t>

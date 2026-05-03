@@ -27,18 +27,19 @@
                 <div class="container position-relative h-100">
                     <div t-attf-class="s_saud_hero_content {{ 'text-center' if is_home_page else '' }}">
                         <!-- Title (always rendered) -->
-                        <h1 class="s_saud_hero_title text-white mb-3" t-out="hero_title"/>
+                        <h1 class="s_saud_hero_title text-white mb-3 s_saud_reveal s_saud_reveal--top s_saud_reveal--delay-1"
+                            t-out="hero_title"/>
 
                         <!-- Subtitle (conditional) -->
                         <p t-if="hero_subtitle"
-                           class="s_saud_hero_subtitle text-white mb-4"
+                           class="s_saud_hero_subtitle text-white mb-4 s_saud_reveal s_saud_reveal--top s_saud_reveal--delay-2"
                            t-out="hero_subtitle"/>
 
                         <!-- Button (conditional) -->
                         <a t-if="hero_button_text and hero_button_url"
                            t-att-href="hero_button_url"
                            t-att-target="hero_button_target or None"
-                           class="btn btn-primary s_saud_hero_btn"
+                           class="btn btn-primary s_saud_hero_btn s_saud_reveal s_saud_reveal--top s_saud_reveal--delay-3"
                            t-out="hero_button_text"/>
                     </div>
                 </div>
@@ -315,7 +316,7 @@
             -->
             <t t-set="auction_position" t-value="auction_image_position or 'left'"/>
 
-            <section t-attf-class="s_saud_auction_card mb-80 {{ auction_extra_class or '' }}" >
+            <section t-attf-class="s_saud_auction_card mb-80 {{ auction_extra_class or '' }}">
                 <div class="container">
                     <div class="row gx-5 align-items-start justify-content-center">
 

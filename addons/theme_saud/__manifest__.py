@@ -8,7 +8,7 @@
     "author": "Omar Ahmed Saeed / Ali Muhammed",
     "website": "",
     "license": "LGPL-3",
-    "depends": ["website", "web",],
+    "depends": ["website", "web", ],
     "data": [
         # Presets
         "data/presets.xml",
@@ -32,6 +32,7 @@
         "web.assets_frontend": [
             'theme_saud/static/lib/fontawesome/css/all.min.css',
             # js files
+            'theme_saud/static/src/js/scroll_reveal.js',
             '/theme_saud/static/src/js/owl_carousel.js',
             '/theme_saud/static/src/js/counter_up_section.js',
             '/theme_saud/static/src/js/services_toggle.js',
@@ -40,7 +41,8 @@
             '/theme_saud/static/src/scss/snippets.scss',
             '/theme_saud/static/src/scss/components.scss',
             '/theme_saud/static/src/scss/layout.scss',
-            #pages style
+            # pages style
+            'theme_saud/static/src/scss/scroll_reveal.scss',
             '/theme_saud/static/src/scss/home.scss',
             '/theme_saud/static/src/scss/aboutUs.scss',
             '/theme_saud/static/src/scss/services.scss',
