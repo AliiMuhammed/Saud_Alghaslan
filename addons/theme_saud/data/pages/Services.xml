@@ -87,6 +87,7 @@
                            t-value="'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.'"/>
 
                         <t t-set="image_position" t-value="'right'"/>
+                        <t t-set="section_extra_class" t-value="'mt-80'"/>
 
                         <t t-set="section_items" t-value="[
         {
@@ -123,7 +124,7 @@
                            t-value="'فور توقيع العقود, يقوم فريق إدارة الأملاك لدينا بوضع إستراتيجية شاملة لجميع جوانب المشروع والوقوف على العقار ومعاينته ووضع القيمة الإيجارية العادلة.'"/>
 
                         <t t-set="image_position" t-value="'left'"/>
-                        <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25'"/>
+                        <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25 py-5'"/>
                         <t t-set="section_items" t-value="[
         {
             'icon': 'fas fa-comment-dollar',
@@ -151,9 +152,7 @@
                         <t t-set="section_button_url" t-value="'/services/#'"/>
                     </t>
                     <!-- Trusted By section -->
-                    <section class="s-saud-trusted">
-                        <t t-call="theme_saud.trusted_by_section"/>
-                    </section>
+                    <t t-call="theme_saud.trusted_by_section"/>
 
                 </div>
             </t>

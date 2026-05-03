@@ -15,7 +15,7 @@
                         <t t-set="hero_button_url" t-value="'/aboutus#services'"/>
                     </t>
                     <!-- Our story Section-->
-                    <section class="s-saud-our-story py-5">
+                    <section class="s-saud-our-story mb-80">
                         <div class="container d-flex justify-content-center align-items-center">
                             <div class="s-saud-our-story__content row align-items-center g-5 gy-5">
                                 <!-- Image Column -->
@@ -71,7 +71,7 @@
                         </div>
                     </section>
                     <!-- Ambition Section -->
-                    <section class="s-saud-ambition-section py-5 bg-body-tertiary bg-opacity-25">
+                    <section class="s-saud-ambition-section mb-80 py-5 bg-body-tertiary bg-opacity-25">
                         <!--   main section title     -->
                         <t t-call="theme_saud.main_section_title">
                             <t t-set="main_title" t-value="'طموح ومسؤولية'"/>
@@ -95,11 +95,11 @@
                     <!-- How We Work section -->
                     <t t-call="theme_saud.how_we_work_section"/>
                     <!-- CounterUp section -->
-                    <section class="s-saud-our-numbers  bg-body-tertiary bg-opacity-25">
+                    <section class="s-saud-our-numbers py-5 mb-80 bg-body-tertiary bg-opacity-25">
                         <t t-call="theme_saud.counter_up_section"/>
                     </section>
                     <!--Speech of the Chairman-->
-                    <section class="s-saud-Speech py-5">
+                    <section class="s-saud-Speech mb-80">
                         <div class="container d-flex justify-content-center align-items-center">
                             <div class="s-saud-Speech__content row align-items-center g-5 gy-5">
                                 <!-- Image Column -->
@@ -154,9 +154,10 @@
                         </div>
                     </section>
                     <!-- Trusted By section -->
-                    <section class="s-saud-trusted  bg-body-tertiary bg-opacity-25">
-                        <t t-call="theme_saud.trusted_by_section"/>
-                    </section>
+                    <t t-call="theme_saud.trusted_by_section">
+                        <t t-set="trusted_extra_class" t-value="'py-5 bg-body-tertiary bg-opacity-25'"/>
+                    </t>
+
                 </div>
             </t>
         </template>

@@ -11,7 +11,6 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow: hidden;
-  margin-bottom: 5rem;
   // ── Home variant (centered, taller) ──
   &.is-home {
     min-height: 80vh;
@@ -171,7 +170,6 @@
 //------------------------------------------------------------------------------
 
 .s_saud_ruba_banner {
-  margin-top: 2rem;
   background-image: url("/theme_saud/static/src/img/ruba_section.png");
   background-repeat: no-repeat;
   background-size: contain;
@@ -192,8 +190,6 @@
 //------------------------------------------------------------------------------
 
 .s_saud_info_section {
-  padding: 5rem 0;
-
   .s_saud_info_title {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
   }
@@ -237,9 +233,7 @@
 //------------------------------------------------------------------------------
 
 .s_saud_how_work {
-  .s_saud_section_title {
-    margin-bottom: clamp(2.5rem, 5vw, 3rem);
-  }
+
 
   .s_saud_how_work_step {
     display: grid;
@@ -316,10 +310,6 @@
 //------------------------------------------------------------------------------
 
 .s_saud_counter {
-  .s_saud_section_title {
-    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  }
-
   .s_saud_counter__icon {
     font-size: 40px;
   }
@@ -342,12 +332,6 @@
 //------------------------------------------------------------------------------
 
 .s_saud_trusted {
-  padding-top: 5rem !important;
-
-  .s_saud_section_title {
-    margin-bottom: clamp(1rem, 2vw, 2.5rem);
-  }
-
   .s_saud_trusted__item {
     display: flex;
     align-items: center;
@@ -355,7 +339,6 @@
     min-height: 80px;
     padding: 0.75rem 1rem;
     cursor: pointer;
-
     img {
       max-height: 8rem;
       width: auto;

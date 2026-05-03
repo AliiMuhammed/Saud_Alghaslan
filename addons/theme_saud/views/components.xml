@@ -18,7 +18,7 @@
             hero_extra_class (optional) : Additional CSS classes on the wrapper
     -->
             <section
-                    t-attf-class="s_saud_hero {{ 'is-home' if is_home_page else 'is-inner' }} {{ hero_extra_class or '' }}"
+                    t-attf-class="s_saud_hero mb-80 {{ 'is-home' if is_home_page else 'is-inner' }} {{ hero_extra_class or '' }}"
                     t-attf-style="background-image: url('{{ hero_bg_image }}');"
             >
                 <!-- Dark navy overlay -->
@@ -46,14 +46,14 @@
         </template>
         <!--   main section title     -->
         <template id="main_section_title" name="Saud Section Title">
-            <div class="s_saud_section_title container  d-flex justify-content-center align-items-center flex-column">
+            <div class="s_saud_section_title pb-5 container  d-flex justify-content-center align-items-center flex-column">
                 <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0" t-out="main_title"/>
                 <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0" t-out="main_subtitle"/>
             </div>
         </template>
         <!--Benefits Section-->
         <template id="benefits_component" name="Saud Benefits Section">
-            <section t-attf-class="s_saud_benefits py-5 {{ benefits_extra_class or '' }}">
+            <section t-attf-class="s_saud_benefits mb-80 {{ benefits_extra_class or '' }}">
                 <div class="container">
                     <div class="row g-5">
                         <div t-foreach="benefits" t-as="benefit" class="col-lg-4 col-md-6">
@@ -75,9 +75,9 @@
         <!-- Ruba Banner  -->
         <template id="ruba_banner_component" name="Saud Ruba Banner Section">
             <section
-                    class="s_saud_ruba_banner position-relative overflow-hidden bg-primary d-flex justify-content-center align-items-center">
+                    class="s_saud_ruba_banner mb-80 position-relative overflow-hidden bg-primary d-flex justify-content-center align-items-center">
                 <!-- Content -->
-                <div class="container position-relative text-center text-white py-4">
+                <div class="container position-relative text-center text-white py-5">
                     <p class="mb-2 fw-medium fs-5">مخطط رُبــــــى</p>
                     <h2 class="fw-bold mb-4">وجهة الحياة في قلب حائل</h2>
                     <a t-if="show_ruba_btn"
@@ -107,7 +107,7 @@
                     section_extra_class (optional) : Additional CSS classes
             -->
 
-            <section t-attf-class="s_saud_info_section {{ section_extra_class or '' }}"
+            <section t-attf-class="s_saud_info_section mb-80 {{ section_extra_class or '' }}"
                      t-att-dir="section_dir or 'rtl'">
                 <div class="container d-flex justify-content-center align-items-center ">
                     <div class=" s_saud_info_content justify-content-center row align-items-center g-5 gy-5">
@@ -161,7 +161,7 @@
         </template>
         <!-- How We Work section -->
         <template id="how_we_work_section" name="Saud How We Work Section">
-            <section t-attf-class="s_saud_how_work py-5 bg-white {{ how_we_work_extra_class or '' }}" >
+            <section t-attf-class="s_saud_how_work mb-80 bg-white {{ how_we_work_extra_class or '' }}" >
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'كيف نعمل؟'"/>
                     <t t-set="main_subtitle"
@@ -272,7 +272,7 @@
         </template>
         <!-- Services Cards -->
         <template id="s_saud_service_card" name="Saud Service Card">
-            <div class="s_saud_services_cards__card card h-100 border-0 rounded-4 overflow-hidden bg-white">
+            <div class="s_saud_services_cards__card card mb-80 h-100 border-0 rounded-4 overflow-hidden bg-white">
                 <div class="s_saud_services_cards__card-media">
                     <img
                             t-att-src="service.get('image')"
@@ -298,7 +298,7 @@
         </template>
         <!-- Counter Up Section -->
         <template id="counter_up_section" name="Saud Counter Up Section">
-            <section t-attf-class="s_saud_counter py-5 {{ counter_extra_class or '' }}" >
+            <section t-attf-class="s_saud_counter mb-80 {{ counter_extra_class or '' }}" >
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'أرقامنا في سوق العقار'"/>
                     <t t-set="main_subtitle"
@@ -384,7 +384,7 @@
         </template>
         <!-- Trusted By / Clients Section -->
         <template id="trusted_by_section" name="Saud Trusted By Section">
-              <section t-attf-class="s_saud_trusted py-5 {{ trusted_extra_class or '' }}" >
+              <section t-attf-class="s_saud_trusted  {{ trusted_extra_class or '' }}" >
                 <!-- Title / Subtitle -->
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'هؤلاء يثقون بنا'"/>
