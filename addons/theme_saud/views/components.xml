@@ -130,7 +130,7 @@
                             <p class="text-muted lh-lg mb-4" t-out="section_description"/>
 
                             <!-- Feature Items Grid (optional) -->
-                            <div t-if="section_items" class="row g-4 mb-4" >
+                            <div t-if="section_items" class="row g-4 mb-4">
                                 <div t-foreach="section_items" t-as="item" class="col-sm-6">
                                     <div class="d-flex align-items-start gap-3">
                                         <div t-if="item.get('icon')" class="text-primary flex-shrink-0 mt-1">
@@ -161,7 +161,7 @@
         </template>
         <!-- How We Work section -->
         <template id="how_we_work_section" name="Saud How We Work Section">
-            <section t-attf-class="s_saud_how_work mb-80 bg-white {{ how_we_work_extra_class or '' }}" >
+            <section t-attf-class="s_saud_how_work mb-80 bg-white {{ how_we_work_extra_class or '' }}">
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'كيف نعمل؟'"/>
                     <t t-set="main_subtitle"
@@ -296,84 +296,82 @@
                 </div>
             </div>
         </template>
-        <!-- Counter Up Section -->
-        <template id="counter_up_section" name="Saud Counter Up Section">
-            <section t-attf-class="s_saud_counter mb-80 {{ counter_extra_class or '' }}" >
-                <t t-call="theme_saud.main_section_title">
-                    <t t-set="main_title" t-value="'أرقامنا في سوق العقار'"/>
-                    <t t-set="main_subtitle"
-                       t-value="'فخورون بإنجازاتنا ونجاحاتنا في المجال العقاري، وما كان ذلك إلا بفضل وتوفيق من الله تعالى، ثم بفضل التزامنا بقيمنا وأهدافنا.'"/>
-                </t>
+        <!-- Auction Card Section -->
+        <template id="auction_card_component" name="Saud Auction Card Component">
+            <!--
+                Reusable Auction Card Component
+                ===============================
+                Variables:
+                    auction_status              (required) : Auction status text
+                    auction_title               (required) : Auction title
+                    auction_opportunities_count (optional) : Dynamic number inside the static subtitle
+                    auction_image               (required) : Auction image path
+                    auction_image_alt           (optional) : Auction image alt text, defaults to auction title
+                    auction_video_url           (optional) : Video button URL
+                    auction_booklet_url         (optional) : Booklet button URL
+                    auction_platform_url        (optional) : Platform button URL
+                    auction_image_position      (optional) : 'left' or 'right' (default: 'left')
+                    auction_extra_class         (optional) : Additional CSS classes
+            -->
+            <t t-set="auction_position" t-value="auction_image_position or 'left'"/>
 
-                <!-- Counter Items -->
+            <section t-attf-class="s_saud_auction_card mb-80 {{ auction_extra_class or '' }}" >
                 <div class="container">
-                    <div class="row g-4 g-lg-5 justify-content-center s_saud_counter__items" dir="ltr">
+                    <div class="row gx-5 align-items-start justify-content-center">
 
-                        <!-- Item 1: حجم استثماراتنا -->
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="s_saud_counter__item text-center">
-                                <div class="s_saud_counter__icon text-primary">
-                                    <i class="fa-solid fa-coins" aria-hidden="true"/>
-                                </div>
-                                <div class="s_saud_counter__number fw-medium"
-                                     data-target="600"
-                                     data-prefix="M"
-                                     data-suffix="+">
-                                    M0+
-                                </div>
-                                <div class="s_saud_counter__label text-muted">
-                                    حجم استثماراتنا
-                                </div>
+                        <!-- Image Column -->
+                        <div t-attf-class="col-lg-5 {{ 'order-lg-2' if auction_position == 'left' else 'order-lg-1' }}">
+                            <div class="s_saud_auction_card__media rounded-4 overflow-hidden ">
+                                <img t-if="auction_image"
+                                     t-att-src="auction_image"
+                                     t-att-alt="auction_image_alt or auction_title or 'Auction image'"
+                                     class="s_saud_auction_card__image img-fluid w-100 d-block"
+                                     loading="lazy"/>
                             </div>
                         </div>
 
-                        <!-- Item 2: عقار تم بيعه -->
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="s_saud_counter__item text-center">
-                                <div class="s_saud_counter__icon  text-primary">
-                                    <i class="fa-solid fa-house-chimney" aria-hidden="true"/>
-                                </div>
-                                <div class="s_saud_counter__number fw-medium"
-                                     data-target="21000"
-                                     data-suffix="+"
-                                     data-use-comma="true">
-                                    0+
-                                </div>
-                                <div class="s_saud_counter__label text-muted ">
-                                    عقار تم بيعه
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Content Column -->
+                        <div t-attf-class="col-lg-5 {{ 'order-lg-1' if auction_position == 'left' else 'order-lg-2' }}">
+                            <div class="s_saud_auction_card__content  mx-auto">
+                                <p class="s_saud_auction_card__status text-muted fs-5 fw-semibold mb-3"
+                                   t-out="auction_status"/>
 
-                        <!-- Item 3: مشروع تم إنجازه -->
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="s_saud_counter__item text-center">
-                                <div class="s_saud_counter__icon  text-primary">
-                                    <i class="fa-solid fa-hard-hat" aria-hidden="true"/>
-                                </div>
-                                <div class="s_saud_counter__number fw-medium"
-                                     data-target="211">
-                                    0
-                                </div>
-                                <div class="s_saud_counter__label text-muted ">
-                                    مشروع تم إنجازه
-                                </div>
-                            </div>
-                        </div>
+                                <h2 class="s_saud_auction_card__title text-primary fw-bold " t-out="auction_title"/>
 
-                        <!-- Item 4: عاماً من الخبرة -->
-                        <div class="col-6 col-md-6 col-lg-3">
-                            <div class="s_saud_counter__item text-center">
-                                <div class="s_saud_counter__icon  text-primary">
-                                    <i class="fa-solid fa-lightbulb" aria-hidden="true"/>
+                                <p class="s_saud_auction_card__subtitle text-muted lh-base mb-5">
+                                    عدد
+                                    <t t-out="auction_opportunities_count or 0"/>
+                                    فرص نوعية استثمارية، يشرف عليها إنفاذ.
+                                </p>
+
+                                <div class="s_saud_auction_card__actions d-flex flex-column align-items-start gap-4 mb-5">
+                                    <a t-att-href="auction_video_url or '#'"
+                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_video_url else '' }}"
+                                       t-att-aria-disabled="'true' if not auction_video_url else None">
+                                        فيديو المزاد
+                                    </a>
+                                    <a t-att-href="auction_booklet_url or '#'"
+                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_booklet_url else '' }}"
+                                       t-att-aria-disabled="'true' if not auction_booklet_url else None">
+                                        كتيب المزاد
+                                    </a>
+                                    <a t-att-href="auction_platform_url or '#'"
+                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_platform_url else '' }}"
+                                       t-att-aria-disabled="'true' if not auction_platform_url else None">
+                                        منصة المزاد
+                                    </a>
                                 </div>
-                                <div class="s_saud_counter__number fw-medium"
-                                     data-target="40"
-                                     data-suffix="+">
-                                    0+
-                                </div>
-                                <div class="s_saud_counter__label text-muted">
-                                    عاماً من الخبرة
+
+                                <div class="s_saud_auction_card__contact d-inline-flex align-items-start gap-3">
+                                    <i class="fa-solid fa-phone-flip text-primary fs-3" aria-hidden="true"/>
+
+                                    <div class="s_saud_auction_card__contact-title ">
+                                        <span class=" fw-bold ">للتواصل والاستفسار:</span>
+                                        <p class="s_saud_auction_card__phones text-muted mt-2">
+                                            0505156760 - 0504871111
+                                        </p>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -382,9 +380,46 @@
                 </div>
             </section>
         </template>
+        <!-- Counter Up Section -->
+        <template id="counter_up_section" name="Saud Counter Up Section">
+            <section t-attf-class="s_saud_counter mb-80 {{ counter_extra_class or '' }}">
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="counter_main_title"/>
+                    <t t-set="main_subtitle" t-value="counter_main_subtitle"/>
+                </t>
+
+                <div class="container">
+                    <div class="row g-4 g-lg-5 justify-content-center s_saud_counter__items" dir="ltr">
+                        <t t-foreach="counter_items" t-as="item" t-key="item.get('title')">
+                            <div class="col-6 col-md-6 col-lg-3">
+                                <div class="s_saud_counter__item text-center">
+                                    <div class="s_saud_counter__icon text-primary">
+                                        <i t-attf-class="{{ item.get('icon') or '' }}"
+                                           aria-hidden="true"/>
+                                    </div>
+
+                                    <div class="s_saud_counter__number fw-semibold"
+                                         t-att-data-target="item.get('target') or 0"
+                                         t-att-data-prefix="item.get('prefix') or None"
+                                         t-att-data-suffix="item.get('suffix') or None"
+                                         t-att-data-use-comma="'true' if item.get('use_comma') else None">
+                                        <t t-out="item.get('prefix') or ''"/>0
+                                        <t t-out="item.get('suffix') or ''"/>
+                                    </div>
+
+                                    <div class="s_saud_counter__label text-muted">
+                                        <t t-out="item.get('title')"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </section>
+        </template>
         <!-- Trusted By / Clients Section -->
         <template id="trusted_by_section" name="Saud Trusted By Section">
-              <section t-attf-class="s_saud_trusted  {{ trusted_extra_class or '' }}" >
+            <section t-attf-class="s_saud_trusted  {{ trusted_extra_class or '' }}">
                 <!-- Title / Subtitle -->
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'هؤلاء يثقون بنا'"/>
@@ -428,33 +463,40 @@
                         <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/BankAljazira_logo.png"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div> <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/BSF_logo.webp"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div> <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/MEWA_logo.png"
                                  alt="anb" class="img-fluid" loading="lazy"/>
                         </div>
                         <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/Mobily_logo.webp"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div>   <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/MOE_logo.png"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div>   <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/MOI_logo.webp"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div>   <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/RiyadBank_logo.png"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div>   <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/SE_logo.png"
                                  alt="anb" class="img-fluid" loading="lazy"/>
                         </div>
                         <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/SE_logo.webp"
                                  alt="anb" class="img-fluid" loading="lazy"/>
-                        </div> <div class="s_saud_trusted__item">
+                        </div>
+                        <div class="s_saud_trusted__item">
                             <img src="/theme_saud/static/src/img/clients/STC_logo.webp"
                                  alt="anb" class="img-fluid" loading="lazy"/>
                         </div>

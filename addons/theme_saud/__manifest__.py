@@ -22,6 +22,7 @@
         "data/pages/Home.xml",
         "data/pages/AboutUs.xml",
         "data/pages/Services.xml",
+        "data/pages/Auctions.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -43,6 +44,7 @@
             '/theme_saud/static/src/scss/home.scss',
             '/theme_saud/static/src/scss/aboutUs.scss',
             '/theme_saud/static/src/scss/services.scss',
+            '/theme_saud/static/src/scss/auctions.scss',
 
         ],
         'website.assets_wysiwyg': [],

@@ -358,3 +358,83 @@
     display: none;
   }
 }
+
+//------------------------------------------------------------------------------
+// Auction Card Component
+//------------------------------------------------------------------------------
+
+.s_saud_auction_card {
+  .s_saud_auction_card__media {
+    max-width: 455px;
+    background-color: $o-light;
+    box-shadow: 0 1rem 2rem rgba($o-black, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .s_saud_auction_card__image {
+    aspect-ratio: 455 / 683;
+    object-fit: cover;
+    transition: transform 0.35s ease-in-out;
+  }
+
+  .s_saud_auction_card__media:hover {
+    box-shadow: 0 1.25rem 2.5rem rgba($o-black, 0.12);
+
+    .s_saud_auction_card__image {
+      transform: scale(1.035);
+    }
+  }
+
+
+
+
+
+  .s_saud_auction_card__title {
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height:1.4em;
+    margin-bottom: 20px;
+  }
+
+  .s_saud_auction_card__actions .btn {
+    min-width: 128px;
+    border-width: 1px;
+    padding:11px 23px;
+    &:hover,
+    &:focus {
+      color: $o-light;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.55;
+    }
+  }
+
+  .s_saud_auction_card__contact-title {
+    color: $o-black;
+  }
+
+  .s_saud_auction_card__contact-title i {
+    font-size: 1.5rem;
+  }
+
+  .s_saud_auction_card__phones {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+  }
+
+  @media (max-width: 991.98px) {
+    .s_saud_auction_card__content {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .s_saud_auction_card__subtitle {
+      margin-bottom: 2rem !important;
+    }
+
+    .s_saud_auction_card__actions {
+      margin-bottom: 2rem !important;
+    }
+  }
+}

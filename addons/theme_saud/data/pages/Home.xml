@@ -116,8 +116,46 @@
 
             </section>
             <!-- CounterUp section -->
-            <t t-call="theme_saud.counter_up_section"/>
-            <!-- Trusted By section -->
+            <t t-call="theme_saud.counter_up_section">
+                <t t-set="counter_main_title" t-value="'أرقامنا في سوق العقار'"/>
+                <t t-set="counter_main_subtitle"
+                   t-value="'فخورون بإنجازاتنا ونجاحاتنا في المجال العقاري، وما كان ذلك إلا بفضل وتوفيق من الله تعالى، ثم بفضل التزامنا بقيمنا وأهدافنا.'"/>
+
+                <t t-set="counter_items" t-value="[
+        {
+            'icon': 'fa-solid fa-coins',
+            'target': 600,
+            'prefix': 'M',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'حجم استثماراتنا'
+        },
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'target': 21000,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': True,
+            'title': 'عقار تم بيعه'
+        },
+        {
+            'icon': 'fa-solid fa-hard-hat',
+            'target': 211,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'مشروع تم إنجازه'
+        },
+        {
+            'icon': 'fa-solid fa-lightbulb',
+            'target': 40,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'عاماً من الخبرة'
+        }
+    ]"/>
+            </t>            <!-- Trusted By section -->
             <t t-call="theme_saud.trusted_by_section"/>
         </xpath>
     </template>
