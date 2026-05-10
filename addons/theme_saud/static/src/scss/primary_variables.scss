@@ -222,3 +222,20 @@ $o-theme-font-configs: (
 $o-bg-shapes: change-shape-colors-mapping('web_editor', 'Wavy/21', (2: 1));
 $o-bg-shapes: change-shape-colors-mapping('web_editor', 'Bold/07_001', (2: 3));
 //$primary : #1E1E1E;
+.gray-filter {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease; /* Optional: smooth transition */
+}
+
+.gray-filter:hover {
+    filter: grayscale(0%);
+}
+.mt-80{
+  margin-top: 80px !important;
+}
+.mb-80{
+  margin-bottom: 80px !important;
+}
+.text-muted{
+  color:#999999 !important ;
+}

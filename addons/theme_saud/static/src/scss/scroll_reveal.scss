@@ -1,0 +1,104 @@
+/* Prevent horizontal scroll caused by reveal translateX */
+html,
+body,
+#wrapwrap {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    html,
+    body,
+    #wrapwrap {
+        overflow-x: hidden;
+    }
+}
+
+/*
+   Fail-safe:
+   Components are visible by default.
+   They only become hidden/animated after JS adds .s_saud_reveal--ready.
+*/
+.s_saud_reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* Base reveal animation - slow and smooth */
+.s_saud_reveal.s_saud_reveal--ready {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+    transition:
+        opacity 1.45s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.45s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.s_saud_reveal.s_saud_reveal--ready.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    will-change: auto;
+}
+
+/* Fade from top */
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--top {
+    transform: translate3d(0, -32px, 0);
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--top.is-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Fade from left - small value avoids horizontal overflow */
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--left {
+    transform: translate3d(-18px, 0, 0);
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--left.is-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Fade from right - small value avoids horizontal overflow */
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--right {
+    transform: translate3d(18px, 0, 0);
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--right.is-visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* Zoom fade */
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--zoom {
+    transform: scale(0.97);
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--zoom.is-visible {
+    transform: scale(1);
+}
+
+/* Stagger delay classes */
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--delay-1 {
+    transition-delay: 0.12s;
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--delay-2 {
+    transition-delay: 0.24s;
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--delay-3 {
+    transition-delay: 0.36s;
+}
+
+.s_saud_reveal.s_saud_reveal--ready.s_saud_reveal--delay-4 {
+    transition-delay: 0.48s;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .s_saud_reveal,
+    .s_saud_reveal.s_saud_reveal--ready {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

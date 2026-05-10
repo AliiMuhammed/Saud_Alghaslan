@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- === Auctions Page === -->
+        <template id="s_saud_auctions_page" name="Auctions">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- Hero Section -->
+                    <t t-call="theme_saud.hero_section_component">
+                        <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/hero_about.webp'"/>
+                        <t t-set="hero_title" t-value="'إلمزادات العقارية'"/>
+                        <t t-set="hero_subtitle"
+                           t-value="'المزادات العقارية هي عملية شفافة لبيع وشراء العقارات من خلال تقديم العروض العلنية وتحديد أفضل سعر.'"/>
+                        <t t-set="hero_button_text" t-value="'اعرف أكثر'"/>
+                        <t t-set="hero_button_url" t-value="'/auctions/#statistics'"/>
+                        <t t-set="hero_extra_class" t-value="'s_saud_auctions_hero'"/>
+                    </t>
+                    <!-- CounterUp section -->
+                    <section class="s-saud-our-numbers py-5 mb-80 bg-body-tertiary bg-opacity-25">
+                        <t t-call="theme_saud.counter_up_section">
+                            <t t-set="counter_main_title" t-value="'مزاداتنا في أرقام'"/>
+                            <t t-set="counter_main_subtitle"
+                               t-value="'بعون الله أستطعنا أن نحقق نجاحًا بارزًا في مجال المزادات العقارية، مسجلين أرقامًا مميزة في المبيعات.'"/>
+
+                            <t t-set="counter_items" t-value="[
+        {
+            'icon': 'fa-solid fa-coins',
+            'target': 260,
+            'prefix': 'M',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'حجم استثماراتنا'
+        },
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'target': 400,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'عقار تم بيعه'
+        },
+        {
+            'icon': 'fas fa-gavel',
+            'target': 30,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'مزاد تم إنجازه'
+        },
+        {
+            'icon': 'fa-solid fa-lightbulb',
+            'target': 15,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'عاماً من الخبرة'
+        }
+    ]"/>
+                        </t>
+                    </section>
+                    <!-- services -->
+                    <t t-call="theme_saud.info_section_component">
+                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Real-estate-sales.webp'"/>
+                        <t t-set="section_image_alt" t-value="'Our story image'"/>
+
+                        <t t-set="section_title" t-value="'المزادات العقارية'"/>
+                        <t t-set="section_description"
+                           t-value="'تُعتبر المزادات العقارية إحدى الوسائل الشائعة لشراء أو بيع العقارات بطريقة شفافة ومباشرة.'"/>
+
+                        <t t-set="image_position" t-value="'right'"/>
+                        <t t-set="section_extra_class" t-value="'mt-80'"/>
+
+                        <t t-set="section_items" t-value="[
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'title': 'تحضير العقار',
+            'description': 'يتم تقييم العقار من قبل مختصين، ثم تجهيز كل الوثائق اللازمة مثل الصك وخلافه.'
+        },
+        {
+            'icon': 'fas fa-bullhorn',
+            'title': 'الإعلان والترويج للمزاد',
+            'description': 'يتم الإعلان عن المزاد عبر منصات مختلفة مثل الإعلانات الرقمية أو الجرائد المحلية.'
+        },
+        {
+            'icon': 'fas fa-window-restore',
+            'title': 'إدارة المزاد',
+            'description': 'تُقام جلسة المزاد في موعد محدد مسبقًا تحت إشراف الجهة المسؤولة وتكون علنية وشفافة'
+        },
+        {
+            'icon': 'fas fa-file-signature',
+            'title': 'إكمال الصفقة',
+            'description': 'بعد انتهاء المزاد، يتم توقيع العقود وتحويل الملكية رسميًا بعد دفع المبلغ المتفق عليه.'
+        }
+    ]"/>
+
+                        <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
+                        <t t-set="section_button_url" t-value="'/services/#'"/>
+                    </t>
+
+                    <!-- Auctions Cards -->
+                    <div class="s_saud_auctions_list py-5">
+                        <t t-call="theme_saud.auction_card_component">
+                            <t t-set="auction_status" t-value="'مزاد قادم'"/>
+                            <t t-set="auction_title" t-value="'مزاد شروق الرياض'"/>
+                            <t t-set="auction_opportunities_count" t-value="3"/>
+                            <t t-set="auction_image" t-value="'/theme_saud/static/src/img/auction_1.webp'"/>
+                            <t t-set="auction_image_alt" t-value="'مزاد شروق الرياض'"/>
+                            <t t-set="auction_video_url" t-value="'#'"/>
+                            <t t-set="auction_booklet_url" t-value="'#'"/>
+                            <t t-set="auction_platform_url" t-value="'#'"/>
+                            <t t-set="auction_image_position" t-value="'left'"/>
+                            <t t-set="auction_extra_class" t-value="'s_saud_reveal s_saud_reveal--left'"/>
+
+                        </t>
+
+                        <t t-call="theme_saud.auction_card_component">
+                            <t t-set="auction_status" t-value="'مزاد منتهي'"/>
+                            <t t-set="auction_title" t-value="'مـزاد أملاك حائل'"/>
+                            <t t-set="auction_opportunities_count" t-value="16"/>
+                            <t t-set="auction_image" t-value="'/theme_saud/static/src/img/auction_2.webp'"/>
+                            <t t-set="auction_image_alt" t-value="'مـزاد أملاك حائل'"/>
+                            <t t-set="auction_video_url" t-value="'#'"/>
+                            <t t-set="auction_booklet_url" t-value="'#'"/>
+                            <t t-set="auction_platform_url" t-value="'#'"/>
+                            <t t-set="auction_image_position" t-value="'right'"/>
+                            <t t-set="auction_extra_class"
+                               t-value="'py-5 bg-body-tertiary bg-opacity-25 s_saud_reveal s_saud_reveal--right'"/>
+                        </t>
+
+                        <t t-call="theme_saud.auction_card_component">
+                            <t t-set="auction_status" t-value="'مزاد منتهي'"/>
+                            <t t-set="auction_title" t-value="'مـزاد ربوع الشمال'"/>
+                            <t t-set="auction_opportunities_count" t-value="14"/>
+                            <t t-set="auction_image" t-value="'/theme_saud/static/src/img/auction_3.webp'"/>
+                            <t t-set="auction_image_alt" t-value="'مـزاد ربوع الشمال'"/>
+                            <t t-set="auction_video_url" t-value="'#'"/>
+                            <t t-set="auction_booklet_url" t-value="'#'"/>
+                            <t t-set="auction_platform_url" t-value="'#'"/>
+                            <t t-set="auction_image_position" t-value="'left'"/>
+                            <t t-set="auction_extra_class" t-value="'s_saud_reveal s_saud_reveal--left'"/>
+
+                        </t>
+
+                        <t t-call="theme_saud.auction_card_component">
+                            <t t-set="auction_status" t-value="'مزاد منتهي'"/>
+                            <t t-set="auction_title" t-value="'مـزاد صفوة بريدة'"/>
+                            <t t-set="auction_opportunities_count" t-value="18"/>
+                            <t t-set="auction_image" t-value="'/theme_saud/static/src/img/auction_4.webp'"/>
+                            <t t-set="auction_image_alt" t-value="'مـزاد صفوة بريدة'"/>
+                            <t t-set="auction_video_url" t-value="'#'"/>
+                            <t t-set="auction_booklet_url" t-value="'#'"/>
+                            <t t-set="auction_platform_url" t-value="'#'"/>
+                            <t t-set="auction_image_position" t-value="'right'"/>
+                            <t t-set="auction_extra_class"
+                               t-value="'py-5 bg-body-tertiary bg-opacity-25 s_saud_reveal s_saud_reveal--right'"/>
+                        </t>
+                    </div>
+                    <!-- Trusted By section -->
+                    <t t-call="theme_saud.trusted_by_section">
+                        <t t-set="trusted_extra_class"
+                           t-value="'s_saud_reveal s_saud_reveal--zoom'"/>
+                    </t>
+
+                </div>
+            </t>
+        </template>
+        <record id="s_saud_auctions_route" model="theme.website.page">
+            <field name="view_id" ref="s_saud_auctions_page"/>
+            <field name="is_published" eval="True"/>
+            <field name="url">/auctions</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- === Contact Us Page === -->
+        <template id="s_saud_contactus_page"
+                  inherit_id="website.contactus"
+                  name="Contact Us">
+
+            <xpath expr="//div[@id='wrap']" position="replace">
+                <div id="wrap" class="oe_structure">
+
+                    <!-- Hero Section -->
+                    <t t-call="theme_saud.hero_section_component">
+                        <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/contactus_hero.webp'"/>
+                        <t t-set="hero_title" t-value="'اتصل بنــــا'"/>
+                        <t t-set="hero_subtitle"
+                           t-value="'نحن هنا للاستماع إليكم ومساعدتكم. لا تترددوا في الاتصال بنا لأي استفسار أو طلب.'"/>
+                        <t t-set="hero_extra_class" t-value="'mb-0'"/>
+                    </t>
+
+                    <!-- Contact form Section -->
+                    <section class="s_saud_contactus mb-80 py-5 bg-body-tertiary bg-opacity-25"
+                             data-snippet="s_saud_contactus"
+                             data-name="Saud Contact Us">
+                        <div class="container">
+                            <div class="s_saud_contactus_form row gx-5 align-items-start justify-content-center">
+                                <div class="left col-lg-5">
+                                    <div class="contact-info">
+                                        <h2 class=" fw-bold text-primary mb-3">نحن نقدر اقتراحاتك</h2>
+
+                                        <p class="small text-muted mb-5">
+                                            نحرص دائمًا على تطوير خدماتنا بما يرضي عملائنا الكرام. ندعوكم لتقديم
+                                            مقترحاتكم وآرائكم الثمينة، فهي مفتاح التطوير والابتكار. شكرًا
+                                            لتعاونكم وثقتكم بنا.
+                                        </p>
+
+                                        <div class="info-block d-flex align-items-start">
+                                            <i class="fas fa-map-marker-alt me-2 text-primary fs-4"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-2">العنوان</h6>
+                                                <p class="text-muted small">
+                                                    6762 طريق الأمير مقرن بن عبدالعزيز، حائل 55425، المملكة العربية
+                                                    السعودية
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-block d-flex align-items-start">
+                                            <i class="fas fa-phone me-2 text-primary fs-4"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-2">الهاتف</h6>
+                                                <p class="text-muted small">0165311111</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="info-block d-flex align-items-start">
+                                            <i class="fas fa-clock me-2 text-primary fs-4"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-2">مواعيد العمل</h6>
+                                                <p class="d-flex flex-column gap-2 small text-muted">
+                                                    <span>من السبت إلى الأربعاء</span>
+                                                    <span>الفترة الصباحية من 08:30 ص إلى 12:30 م</span>
+                                                    <span>الفترة المسائية من 04:00 م إلى 08:30 م</span>
+                                                    <span>الخميس</span>
+                                                    <span>الفترة الصباحية من 09:00 ص إلى 12:30 م</span>
+                                                    <span>الفترة المسائية من 04:00 م إلى 07:00 م</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right bg-white shadow-sm p-5 col-lg-5">
+                                    <form class="contact-card js-saud-contactus-form d-flex flex-column gap-4"
+                                          method="post"
+                                          action="/saud/contactus/lead"
+                                          novalidate="novalidate">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <div class="text-center mb-4">
+                                            <h2 class="form-title mb-3">رأيك أو سؤالك</h2>
+                                            <span class="title-line"></span>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="text"
+                                                   name="contact_name"
+                                                   class="form-control"
+                                                   placeholder="الاسم"
+                                                   autocomplete="name"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="tel"
+                                                   name="contact_phone"
+                                                   class="form-control"
+                                                   placeholder="الهاتف"
+                                                   autocomplete="tel"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="email"
+                                                   name="contact_email"
+                                                   class="form-control"
+                                                   placeholder="البريد الإلكتروني"
+                                                   autocomplete="email"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <select name="contact_topic" class="form-select">
+                                                <option value="" selected="selected" disabled="disabled">بخصوص</option>
+                                                <option value="المبيعات">المبيعات</option>
+                                                <option value="إدارة الأملاك">إدارة الأملاك</option>
+                                                <option value="إدارة المرافق">إدارة المرافق</option>
+                                                <option value="التقيم العقاري">التقيم العقاري</option>
+                                                <option value="المزادات العقارية">المزادات العقارية</option>
+                                                <option value="المقاولات">المقاولات</option>
+                                                <option value="أخري">أخري</option>
+                                            </select>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <textarea name="contact_message"
+                                                      class="form-control"
+                                                      rows="5"
+                                                      placeholder="رسالتك"></textarea>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary text-white contact-submit">
+                                                ارسل رسالتك
+                                            </button>
+                                        </div>
+
+                                        <p class="js-saud-contactus-feedback saud-contactus-feedback text-center mb-0 d-none"></p>
+
+                                        <p class="small text-muted text-center mb-0">
+                                            بالنقر فوق زر أعلاه، أوافق على شروط الاستخدام وسياسة الخصوصية الخاصة
+                                            بموقعكم،
+                                            وأوافق على تلقي الرسائل النصية القصيرة ورسائل البريد الإلكتروني.
+                                        </p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Map Section -->
+                    <section class="s_saud_map mb-80">
+                        <div class="container d-flex justify-content-center">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0004327097245!2d41.7049945!3d27.500362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1576471489d91b59%3A0xbfff8ebe3a388a2b!2z2LTYsdmD2Kkg2LPYudmI2K8g2KfZhNi62LPZhNin2YYg2KfZhNi52YLYp9ix2YrYqSBTR1JFQ08!5e0!3m2!1sen!2seg!4v1778345321457!5m2!1sen!2seg"
+                                    height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </section>
+
+                    <!-- Support Section -->
+                    <section class="s_saud_support py-5 bg-body-tertiary bg-opacity-25 ">
+                        <t t-call="theme_saud.main_section_title">
+                            <t t-set="main_title" t-value="'الدعم والمساعدة'"/>
+                            <t t-set="main_subtitle"
+                               t-value="'نحن هنا لدعمكم في كل خطوة. تواصلوا معنا لأي استفسار أو حاجة، فنحن ملتزمون بتقديم أفضل المساعدة لكم. شكراً لثقتكم بنا.'"/>
+                        </t>
+                        <div class="container">
+                            <div class="s_saud_support_cards d-grid gap-4 gap-md-4 gap-lg-5 grid-cols-1 md:grid-cols-3">
+
+                                <div class="s_saud_support_card">
+                                    <div class="card h-100 border-0 rounded-0 shadow-sm overflow-hidden">
+                                        <img src="/theme_saud/static/src/img/serv-1.webp"
+                                             class="card-img-top"
+                                             alt="المزادات العقارية"/>
+
+                                        <div class="card-body text-muted text-start gap-2 d-flex flex-column">
+                                            <h5 class="card-title text-primary fw-bold">المزادات العقارية</h5>
+
+                                            <div class="support-info d-flex">
+                                                <i class="fa fa-envelope me-3 me-md-2 me-lg-4"></i>
+                                                <span class="mail-text">auctions@saudalghaslan.com</span>
+                                            </div>
+
+                                            <div class="support-info">
+                                                <i class="fa fa-phone me-3 me-md-2 me-lg-4"></i>
+                                                <span>0504871111</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="s_saud_support_card">
+                                    <div class="card h-100 border-0 rounded-0 shadow-sm overflow-hidden">
+                                        <img src="/theme_saud/static/src/img/serv-2.webp"
+                                             class="card-img-top"
+                                             alt="إدارة الأملاك"/>
+
+                                        <div class="card-body text-muted text-start gap-2 d-flex flex-column">
+                                            <h5 class="card-title text-primary fw-bold">إدارة الأملاك</h5>
+
+                                            <div class="support-info d-flex">
+                                                <i class="fa fa-envelope me-3 me-md-2 me-lg-4"></i>
+                                                <span class="mail-text">info@saudalghaslan.com</span>
+                                            </div>
+
+                                            <div class="support-info ">
+                                                <i class="fa fa-phone me-2 me-md-3 me-lg-4"></i>
+                                                <span>0554871111</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="s_saud_support_card">
+                                    <div class="card h-100 border-0 rounded-0 shadow-sm overflow-hidden">
+                                        <img src="/theme_saud/static/src/img/serv-5.webp"
+                                             class="card-img-top"
+                                             alt="التسويق العقاري"/>
+
+                                        <div class="card-body text-muted text-start gap-2 d-flex flex-column">
+                                            <h5 class="card-title text-primary fw-bold">التسويق العقاري</h5>
+
+                                            <div class="support-info d-flex ">
+                                                <i class="fa fa-envelope me-3 me-md-2 me-lg-4"></i>
+                                                <span class="mail-text">marketing@saudalghaslan.com</span>
+                                            </div>
+
+                                            <div class="support-info">
+                                                <i class="fa fa-phone me-2 me-md-3 me-lg-4"></i>
+                                                <span>0553487111</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

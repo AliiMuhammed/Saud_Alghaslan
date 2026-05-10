@@ -194,8 +194,9 @@
     &:hover,
     &:focus,
     &.active {
-      color: $secondary;
-      background-color: rgba($o-brand-primary, 0.1);
+      color: $o-light ;
+      background-color: rgba($o-brand-primary, 0.08);
+
     }
   }
 }

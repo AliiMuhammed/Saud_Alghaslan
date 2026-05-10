@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- === Services Page === -->
+        <template id="s_saud_services_page" name="Services">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- Hero Section -->
+                    <t t-call="theme_saud.hero_section_component">
+                        <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/home_hero.webp'"/>
+                        <t t-set="hero_title" t-value="'خدمات عقارية فريدة'"/>
+                        <t t-set="hero_subtitle"
+                           t-value="'حرصاً منا على تحقيق الشمولية في مجال الاستثمار والتطوير العقاري نقدم لعملائنا العديد من الخدمات في مجالنا.'"/>
+                        <t t-set="is_home_page" t-value="True"/>
+
+                    </t>
+                    <section class="s-saud-service-form position-relative">
+                        <div class="container">
+                            <div class="s-saud-service-form__card mx-auto shadow rounded-4 p-4 p-md-5 bg-white">
+
+                                <form class="s-saud-service-form__form" novalidate="novalidate">
+                                    <div class="row g-3">
+
+                                        <!-- Name -->
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <input type="text"
+                                                   class="form-control text-muted rounded-pill"
+                                                   placeholder="*الاسم"
+                                                   name="name"
+                                                   required="required"/>
+                                            <p class="s-saud-service-form__error-msg"></p>
+                                        </div>
+
+                                        <!-- Phone -->
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <input type="tel"
+                                                   class="form-control text-muted rounded-pill"
+                                                   placeholder="الهاتف*"
+                                                   name="phone"
+                                                   required="required"/>
+                                            <p class="s-saud-service-form__error-msg"></p>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <input type="email"
+                                                   class="form-control text-muted rounded-pill"
+                                                   placeholder="البريد الإلكتروني"
+                                                   name="email"/>
+                                            <p class="s-saud-service-form__error-msg"></p>
+                                        </div>
+
+                                        <!-- Select -->
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <select class="form-select text-muted rounded-pill"
+                                                    name="service"
+                                                    required="required">
+                                                <option value="">الخدمة المطلوبة</option>
+                                                <option value="sales">المبيعات</option>
+                                                <option value="management">إدارة الأملاك</option>
+                                                <option value="investment">الاستثمار العقاري</option>
+                                            </select>
+                                            <p class="s-saud-service-form__error-msg"></p>
+                                        </div>
+
+                                        <!-- Submit -->
+                                        <div class="col-12 col-md-6 col-lg-6 d-flex align-items-stretch">
+                                            <button type="submit"
+                                                    class="btn btn-primary text-white w-100 rounded-pill">
+                                                اطلب الخدمة
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- services -->
+                    <t t-call="theme_saud.info_section_component">
+                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Real-estate-sales.webp'"/>
+                        <t t-set="section_image_alt" t-value="'Our story image'"/>
+
+                        <t t-set="section_title" t-value="'المبيعات'"/>
+                        <t t-set="section_description"
+                           t-value="'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.'"/>
+
+                        <t t-set="image_position" t-value="'right'"/>
+                        <t t-set="section_extra_class" t-value="'mt-80'"/>
+
+                        <t t-set="section_items" t-value="[
+        {
+            'icon': 'fas fa-money-bill-wave',
+            'title': 'تحديد السعر',
+            'description': 'دراسة السوق المحلي وتحديد السعر العادل.'
+        },
+        {
+            'icon': 'fas fa-bullhorn',
+            'title': 'التسويق والإعلان',
+            'description': 'حملة تسويقية تشمل التصوير، الوصف الجذاب، والإعلانات.'
+        },
+        {
+            'icon': 'fas fa-paste',
+            'title': 'تقديم العروض',
+            'description': 'استقبال العروض والتفاوض للوصول إلى أفضل صفقة.'
+        },
+        {
+            'icon': 'fas fa-file-signature',
+            'title': 'إكمال الصفقة',
+            'description': 'بعد انتهاء المزاد، يتم توقيع العقود وتحويل الملكية رسميًا بعد دفع المبلغ المتفق عليه.'
+        }
+    ]"/>
+
+                        <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
+                        <t t-set="section_button_url" t-value="'/services/#'"/>
+                    </t>
+                    <t t-call="theme_saud.info_section_component">
+                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Property-management.webp'"/>
+                        <t t-set="section_image_alt" t-value="'Our story image'"/>
+
+                        <t t-set="section_title" t-value="'إدارة الأملاك'"/>
+                        <t t-set="section_description"
+                           t-value="'فور توقيع العقود, يقوم فريق إدارة الأملاك لدينا بوضع إستراتيجية شاملة لجميع جوانب المشروع والوقوف على العقار ومعاينته ووضع القيمة الإيجارية العادلة.'"/>
+
+                        <t t-set="image_position" t-value="'left'"/>
+                        <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25 py-5'"/>
+                        <t t-set="section_items" t-value="[
+        {
+            'icon': 'fas fa-comment-dollar',
+            'title': 'تقييم الممتلكات',
+            'description': 'تحليل حالة العقار وتحديد القيمة السوقية.'
+        },
+        {
+            'icon': 'fas fa-bullhorn',
+            'title': 'التسويق والإعلان',
+            'description': 'الإعلان عن العقار لجذب المستأجرين المحتملين.'
+        },
+        {
+            'icon': 'fas fa-key',
+            'title': 'التأجير وإدارة العقود',
+            'description': 'مقابلة المستأجرين وإعداد العقود.'
+        },
+        {
+            'icon': 'fas fa-tools',
+            'title': 'الصيانة والإدارة المستمرة',
+            'description': 'إدارة الصيانة والتواصل المستمر مع المستأجرين'
+        }
+    ]"/>
+
+                        <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
+                        <t t-set="section_button_url" t-value="'/services/#'"/>
+                    </t>
+                    <!-- Trusted By section -->
+                    <t t-call="theme_saud.trusted_by_section"/>
+
+                </div>
+            </t>
+
+
+        </template>
+        <record id="s_saud_services_route" model="theme.website.page">
+            <field name="view_id" ref="s_saud_services_page"/>
+            <field name="is_published" eval="True"/>
+            <field name="url">/services</field>
+        </record>
+        <record id="s_saud_services_menu" model="theme.website.menu">
+            <field name="name">خدماتنا</field>
+            <field name="url">/services</field>
+            <field name="page_id" ref="s_saud_services_route"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+        <record id="s_saud_auctions_menu" model="theme.website.menu">
+            <field name="name">المزادات العقارية</field>
+            <field name="url">/auctions</field>
+            <field name="parent_id" ref="s_saud_services_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+
+
+    </data>
+</odoo>

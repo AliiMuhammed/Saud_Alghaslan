@@ -48,15 +48,14 @@
                    t-value="'سعود الغسلان العقارية، إحدى الشركات العقارية الطموحة للوصول إلى الريادة في مجال الاستثمار والتطوير العقاري، إذ تمتلك الشركة الكفاءات المهنية المؤهلة لتحقيق أهدافها من خلال خبراتهم وشغفهم للعمل.'"/>
                 <t t-set="section_button_text" t-value="'المزيد'"/>
                 <t t-set="section_button_url" t-value="'/about-us'"/>
-                <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25'"/>
-
+                <t t-set="section_extra_class" t-value="'bg-body-tertiary py-5 bg-opacity-25'"/>
             </t>
 
             <!-- How We Work section -->
             <t t-call="theme_saud.how_we_work_section"/>
 
             <!-- Services section -->
-            <section class="s_saud_services_section bg-body-tertiary bg-opacity-25 py-5">
+            <section class="s_saud_services_section bg-body-tertiary bg-opacity-25 py-5 mb-80">
                 <t t-call="theme_saud.main_section_title">
                     <t t-set="main_title" t-value="'خدماتنا'"/>
                     <t t-set="main_subtitle"
@@ -107,7 +106,7 @@
                             'url': '/services'
                         }
                     ]"/>
-                    <div class="s_saud_services_cards gap-5 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-5">
+                    <div class="s_saud_services_cards column-gap-5 row-gap-0 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <t t-foreach="services_cards" t-as="service">
                             <t t-call="theme_saud.s_saud_service_card"/>
                         </t>
@@ -117,8 +116,46 @@
 
             </section>
             <!-- CounterUp section -->
-            <t t-call="theme_saud.counter_up_section"/>
-            <!-- Trusted By section -->
+            <t t-call="theme_saud.counter_up_section">
+                <t t-set="counter_main_title" t-value="'أرقامنا في سوق العقار'"/>
+                <t t-set="counter_main_subtitle"
+                   t-value="'فخورون بإنجازاتنا ونجاحاتنا في المجال العقاري، وما كان ذلك إلا بفضل وتوفيق من الله تعالى، ثم بفضل التزامنا بقيمنا وأهدافنا.'"/>
+
+                <t t-set="counter_items" t-value="[
+        {
+            'icon': 'fa-solid fa-coins',
+            'target': 600,
+            'prefix': 'M',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'حجم استثماراتنا'
+        },
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'target': 21000,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': True,
+            'title': 'عقار تم بيعه'
+        },
+        {
+            'icon': 'fa-solid fa-hard-hat',
+            'target': 211,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'مشروع تم إنجازه'
+        },
+        {
+            'icon': 'fa-solid fa-lightbulb',
+            'target': 40,
+            'prefix': '',
+            'suffix': '+',
+            'use_comma': False,
+            'title': 'عاماً من الخبرة'
+        }
+    ]"/>
+            </t>            <!-- Trusted By section -->
             <t t-call="theme_saud.trusted_by_section"/>
         </xpath>
     </template>
