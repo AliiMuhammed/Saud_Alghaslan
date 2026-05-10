@@ -8,7 +8,7 @@
     "author": "Omar Ahmed Saeed / Ali Muhammed",
     "website": "",
     "license": "LGPL-3",
-    "depends": ["website", "web", ],
+    "depends": ["website", "web", "crm"],
     "data": [
         # Presets
         "data/presets.xml",
@@ -23,6 +23,7 @@
         "data/pages/AboutUs.xml",
         "data/pages/Services.xml",
         "data/pages/Auctions.xml",
+        "data/pages/ContactUs.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -37,6 +38,7 @@
             '/theme_saud/static/src/js/counter_up_section.js',
             '/theme_saud/static/src/js/services_toggle.js',
             '/theme_saud/static/src/js/services_form.js',
+            '/theme_saud/static/src/js/contactus_form.js',
 
             '/theme_saud/static/src/scss/snippets.scss',
             '/theme_saud/static/src/scss/components.scss',
@@ -47,6 +49,7 @@
             '/theme_saud/static/src/scss/aboutUs.scss',
             '/theme_saud/static/src/scss/services.scss',
             '/theme_saud/static/src/scss/auctions.scss',
+            '/theme_saud/static/src/scss/contactus.scss',
 
         ],
         'website.assets_wysiwyg': [],

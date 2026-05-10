@@ -106,7 +106,7 @@
                             'url': '/services'
                         }
                     ]"/>
-                    <div class="s_saud_services_cards gap-5 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+                    <div class="s_saud_services_cards column-gap-5 row-gap-0 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <t t-foreach="services_cards" t-as="service">
                             <t t-call="theme_saud.s_saud_service_card"/>
                         </t>
