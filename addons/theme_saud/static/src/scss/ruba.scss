@@ -22,7 +22,7 @@
 
 .s_saud_ruba_booking_form_title.form-title {
   &:after {
-    bottom: -4.5rem !important;
+    bottom: -4.9rem !important;
     @media (max-width: 991.98px) {
       bottom: -5.5rem !important;
     }
@@ -40,6 +40,47 @@
   }
 }
 
+.s_saud_ruba_details_title {
+  padding-bottom: 1.5rem !important;
+
+  .s_saud_main_subtitle {
+    color: $o-secondary !important;
+  }
+}
+
+.s_saud_ruba_details_content {
+  .s_saud_ruba_details_media {
+
+    img {
+      width: 100%;
+      aspect-ratio: 294 / 435;
+      object-fit: cover;
+    }
+  }
+
+  .s_saud_ruba_details_item {
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  // On mobile stack nicely as single column
+
+  @media (max-width: 991.98px) {
+    .s_saud_ruba_details_item, .s_saud_ruba_details_media {
+      max-width: 36rem;
+      margin-inline: auto;
+    }
+      @media (max-width: 767.98px) {
+    .s_saud_ruba_details_media {
+      max-width: 30rem;
+      margin-inline: auto;
+    }
+  }
+  }
+
+}
+
 @keyframes hoverScaleAnimation {
   0% {
     transform: scale(1);
@@ -51,4 +92,3 @@
     transform: scale(1);
   }
 }
-

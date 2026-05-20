@@ -48,7 +48,7 @@
         </template>
         <!--   main section title     -->
         <template id="main_section_title" name="Saud Section Title">
-            <div class="s_saud_section_title pb-5 container  d-flex justify-content-center align-items-center flex-column">
+            <div t-attf-class="s_saud_section_title pb-5 container d-flex justify-content-center align-items-center flex-column {{ main_title_extra_class or '' }}">
                 <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0" t-out="main_title"/>
                 <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0" t-out="main_subtitle"/>
             </div>
