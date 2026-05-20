@@ -24,6 +24,7 @@
         "data/pages/Services.xml",
         "data/pages/Auctions.xml",
         "data/pages/ContactUs.xml",
+        "data/pages/Ruba.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -31,30 +32,37 @@
     ],
     "assets": {
         "web.assets_frontend": [
+            # ── Vendor CSS ────────────────────────────────────────────────────
+            # FontAwesome icons
             'theme_saud/static/lib/fontawesome/css/all.min.css',
-            # js files
-            'theme_saud/static/src/js/scroll_reveal.js',
-            '/theme_saud/static/src/js/owl_carousel.js',
-            '/theme_saud/static/src/js/counter_up_section.js',
-            '/theme_saud/static/src/js/services_toggle.js',
-            '/theme_saud/static/src/js/services_form.js',
-            '/theme_saud/static/src/js/contactus_form.js',
-
-            '/theme_saud/static/src/scss/snippets.scss',
-            '/theme_saud/static/src/scss/components.scss',
-            '/theme_saud/static/src/scss/layout.scss',
-            # pages style
+            'theme_saud/static/src/css/owl.carousel.min.css',
+            'theme_saud/static/src/css/owl.theme.default.min.css',
+            # ── Vendor JS ─────────────────────────────────────────────────────
+            'theme_saud/static/lib/OwlCarousel/dist/owl.carousel.min.js',
+            # ── Theme SCSS ────────────────────────────────────────────────────
+            'theme_saud/static/src/scss/snippets.scss',
+            'theme_saud/static/src/scss/components.scss',
+            'theme_saud/static/src/scss/layout.scss',
+            # Page-level styles
             'theme_saud/static/src/scss/scroll_reveal.scss',
-            '/theme_saud/static/src/scss/home.scss',
-            '/theme_saud/static/src/scss/aboutUs.scss',
-            '/theme_saud/static/src/scss/services.scss',
-            '/theme_saud/static/src/scss/auctions.scss',
-            '/theme_saud/static/src/scss/contactus.scss',
-
+            'theme_saud/static/src/scss/home.scss',
+            'theme_saud/static/src/scss/aboutUs.scss',
+            'theme_saud/static/src/scss/services.scss',
+            'theme_saud/static/src/scss/auctions.scss',
+            'theme_saud/static/src/scss/contactus.scss',
+            'theme_saud/static/src/scss/ruba.scss',
+            # ── Theme JS ──────────────────────────────────────────────────────
+            'theme_saud/static/src/js/scroll_reveal.js',
+            'theme_saud/static/src/js/owl_carousel.js',
+            'theme_saud/static/src/js/counter_up_section.js',
+            'theme_saud/static/src/js/services_toggle.js',
+            'theme_saud/static/src/js/services_form.js',
+            'theme_saud/static/src/js/contactus_form.js',
+            'theme_saud/static/src/js/ruba_booking_form.js',
         ],
         'website.assets_wysiwyg': [],
         'web._assets_primary_variables': [
-            '/theme_saud/static/src/scss/primary_variables.scss',
+            'theme_saud/static/src/scss/primary_variables.scss',
         ],
     },
 }

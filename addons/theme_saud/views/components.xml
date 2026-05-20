@@ -16,13 +16,14 @@
             hero_button_target (optional) : Link target, e.g. '_blank'
             is_home_page     (optional) : True for centered 80vh hero, False/unset for inner-page 60vh hero
             hero_extra_class (optional) : Additional CSS classes on the wrapper
+            hero_show_overlay (optional) : Set to False to hide the overlay; shown by default
     -->
             <section
                     t-attf-class="s_saud_hero mb-80 {{ 'is-home' if is_home_page else 'is-inner' }} {{ hero_extra_class or '' }}"
                     t-attf-style="background-image: url('{{ hero_bg_image }}');"
             >
                 <!-- Dark navy overlay -->
-                <div class="s_saud_hero_overlay"/>
+                <div t-if="hero_show_overlay is not False" class="s_saud_hero_overlay"/>
 
                 <div class="container position-relative h-100">
                     <div t-attf-class="s_saud_hero_content {{ 'text-center' if is_home_page else '' }}">
@@ -47,7 +48,7 @@
         </template>
         <!--   main section title     -->
         <template id="main_section_title" name="Saud Section Title">
-            <div class="s_saud_section_title pb-5 container  d-flex justify-content-center align-items-center flex-column">
+            <div t-attf-class="s_saud_section_title pb-5 container d-flex justify-content-center align-items-center flex-column {{ main_title_extra_class or '' }}">
                 <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0" t-out="main_title"/>
                 <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0" t-out="main_subtitle"/>
             </div>

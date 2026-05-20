@@ -15,6 +15,7 @@ const READY_CLASS = "s_saud_reveal--ready";
 const VISIBLE_CLASS = "is-visible";
 const ONCE_ATTR = "data-reveal-once";
 const INITIALIZED_ATTR = "data-saud-reveal-initialized";
+const ELEMENT_ONLY_EXCLUDE_SELECTOR = ".s_saud_hero";
 
 const MANUAL_REVEAL_SELECTOR = [
     ".s_saud_reveal",
@@ -26,8 +27,8 @@ const MANUAL_REVEAL_SELECTOR = [
 
 const AUTO_REVEAL_SELECTOR = [
     /* Main theme sections */
-    "#wrap section[class^='s_saud_']",
-    "#wrap section[class*=' s_saud_']",
+    "#wrap section[class^='s_saud_']:not(.s_saud_hero)",
+    "#wrap section[class*=' s_saud_']:not(.s_saud_hero)",
     "#wrap section[class^='s-saud-']",
     "#wrap section[class*=' s-saud-']",
 
@@ -73,6 +74,10 @@ function isRevealAllowed(element) {
         return false;
     }
 
+    if (element.matches(ELEMENT_ONLY_EXCLUDE_SELECTOR)) {
+        return false;
+    }
+
     if (element.matches(EXCLUDE_SELECTOR) || element.closest(EXCLUDE_SELECTOR)) {
         return false;
     }
@@ -95,7 +100,6 @@ function getRevealDirection(element, index) {
     }
 
     if (
-        element.matches(".s_saud_hero") ||
         element.matches(".s_saud_services_cards__card") ||
         element.matches(".s_saud_counter__item") ||
         element.matches(".s_saud_how_work_step")

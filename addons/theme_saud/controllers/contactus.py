@@ -40,7 +40,7 @@ class SaudContactUsController(http.Controller):
 
     def _build_description(self, *, topic, message):
         rows = [
-            ("Topic", topic),
+            ("Concerning", topic),
             ("Message", message),
         ]
         return Markup("\n").join(
@@ -78,7 +78,7 @@ class SaudContactUsController(http.Controller):
         if field_errors:
             return self._json_response({"success": False, "errors": field_errors}, status=400)
 
-        lead_title = f"{topic}: {message}" if message else topic
+        lead_title = f"Contact Us: {message}" if message else "Contact Us"
         description = self._build_description(
             topic=topic,
             message=message,

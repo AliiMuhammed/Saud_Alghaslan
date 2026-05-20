@@ -40,8 +40,8 @@ function setFormFeedback(widget, type, message) {
     }
 }
 
-publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
-    selector: ".js-saud-contactus-form",
+publicWidget.registry.SaudRubaBookingForm = publicWidget.Widget.extend({
+    selector: ".js-saud-ruba-booking-form",
     disabledInEditableMode: true,
 
     events: {
@@ -56,7 +56,7 @@ publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
     },
 
     _getFeedback() {
-        return this.el.querySelector(".js-saud-contactus-feedback");
+        return this.el.querySelector(".js-saud-ruba-booking-feedback");
     },
 
     _showError(field, message) {
@@ -88,17 +88,17 @@ publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
     _validateField(field) {
         const value = field.value.trim();
 
-        if (field.name === "contact_name" && !value) {
+        if (field.name === "ruba_name" && !value) {
             this._showError(field, "الاسم مطلوب");
             return false;
         }
 
-        if (field.name === "contact_phone" && !value) {
+        if (field.name === "ruba_phone" && !value) {
             this._showError(field, "الهاتف مطلوب");
             return false;
         }
 
-        if (field.name === "contact_email") {
+        if (field.name === "ruba_email") {
             if (!value) {
                 this._showError(field, "البريد الإلكتروني مطلوب");
                 return false;
@@ -109,8 +109,13 @@ publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
             }
         }
 
-        if (field.name === "contact_topic" && !value) {
-            this._showError(field, "يرجى اختيار القسم");
+        if (field.name === "ruba_purchase_interest" && !value) {
+            this._showError(field, "يرجى اختيار رغبة الشراء");
+            return false;
+        }
+
+        if (field.name === "ruba_source" && !value) {
+            this._showError(field, "يرجى اختيار كيف تعرفت على مخطط رُبـــى");
             return false;
         }
 
@@ -120,10 +125,11 @@ publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
 
     _validateForm() {
         const requiredFields = [
-            this._getField("contact_name"),
-            this._getField("contact_phone"),
-            this._getField("contact_email"),
-            this._getField("contact_topic"),
+            this._getField("ruba_name"),
+            this._getField("ruba_phone"),
+            this._getField("ruba_email"),
+            this._getField("ruba_purchase_interest"),
+            this._getField("ruba_source"),
         ].filter(Boolean);
 
         let isValid = true;
@@ -182,16 +188,16 @@ publicWidget.registry.SaudContactUsForm = publicWidget.Widget.extend({
                 this._applyServerErrors(result.errors);
                 this._setFeedback(
                     "error",
-                    result.message || "حدث خطأ أثناء إرسال الرسالة، يرجى المحاولة مرة أخرى."
+                    result.message || "حدث خطأ أثناء إرسال الطلب، يرجى المحاولة مرة أخرى."
                 );
                 return;
             }
 
             this.el.reset();
             this._clearAllErrors();
-            this._setFeedback("success", result.message || "تم إرسال رسالتك بنجاح، وسنتواصل معك قريبًا.");
+            this._setFeedback("success", result.message || "تم إرسال طلبك بنجاح، وسنتواصل معك قريبًا.");
         } catch {
-            this._setFeedback("error", "حدث خطأ أثناء إرسال الرسالة، يرجى المحاولة مرة أخرى.");
+            this._setFeedback("error", "حدث خطأ أثناء إرسال الطلب، يرجى المحاولة مرة أخرى.");
         } finally {
             if (submitButton) {
                 submitButton.disabled = false;
