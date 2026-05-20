@@ -16,13 +16,14 @@
             hero_button_target (optional) : Link target, e.g. '_blank'
             is_home_page     (optional) : True for centered 80vh hero, False/unset for inner-page 60vh hero
             hero_extra_class (optional) : Additional CSS classes on the wrapper
+            hero_show_overlay (optional) : Set to False to hide the overlay; shown by default
     -->
             <section
                     t-attf-class="s_saud_hero mb-80 {{ 'is-home' if is_home_page else 'is-inner' }} {{ hero_extra_class or '' }}"
                     t-attf-style="background-image: url('{{ hero_bg_image }}');"
             >
                 <!-- Dark navy overlay -->
-                <div class="s_saud_hero_overlay"/>
+                <div t-if="hero_show_overlay is not False" class="s_saud_hero_overlay"/>
 
                 <div class="container position-relative h-100">
                     <div t-attf-class="s_saud_hero_content {{ 'text-center' if is_home_page else '' }}">

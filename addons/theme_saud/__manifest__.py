@@ -24,6 +24,7 @@
         "data/pages/Services.xml",
         "data/pages/Auctions.xml",
         "data/pages/ContactUs.xml",
+        "data/pages/Ruba.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -49,6 +50,7 @@
             'theme_saud/static/src/scss/services.scss',
             'theme_saud/static/src/scss/auctions.scss',
             'theme_saud/static/src/scss/contactus.scss',
+            'theme_saud/static/src/scss/ruba.scss',
             # ── Theme JS ──────────────────────────────────────────────────────
             'theme_saud/static/src/js/scroll_reveal.js',
             'theme_saud/static/src/js/owl_carousel.js',
@@ -56,6 +58,7 @@
             'theme_saud/static/src/js/services_toggle.js',
             'theme_saud/static/src/js/services_form.js',
             'theme_saud/static/src/js/contactus_form.js',
+            'theme_saud/static/src/js/ruba_booking_form.js',
         ],
         'website.assets_wysiwyg': [],
         'web._assets_primary_variables': [

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- === Ruba Page === -->
+        <template id="s_saud_ruba_page" name="Ruba Plan">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- Hero Section -->
+                    <t t-call="theme_saud.hero_section_component">
+                        <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/ruba_hero.webp'"/>
+                        <t t-set="hero_title" t-value="'مخطط رُبـــى'"/>
+                        <t t-set="hero_subtitle" t-value="'فخامـــة المـــكان.'"/>
+                        <t t-set="hero_button_text" t-value="'احجز الآن'"/>
+                        <t t-set="hero_button_url" t-value="'/#booking'"/>
+                        <t t-set="hero_extra_class" t-value="'s_saud_ruba_hero mb-0'"/>
+                        <!--<t t-set="hero_show_overlay" t-value="False"/>-->
+                    </t>
+                    <!--Booking Form-->
+                    <section class="s_saud_ruba_booking mb-80 py-5 bg-body-tertiary bg-opacity-25">
+                        <div class="container">
+                            <div class="s_saud_ruba_booking_form row gx-5 align-items-stretch justify-content-center">
+                                <div class="left  col-lg-5">
+                                    <form class="contact-card bg-white shadow-sm p-4 p-md-5 mb-3 js-saud-ruba-booking-form d-flex flex-column gap-4"
+                                          method="post"
+                                          action="/saud/ruba/lead"
+                                          novalidate="novalidate">
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                        <div class="text-start mb-4">
+                                            <h1 class="form-title s_saud_ruba_booking_form_title fw-bold text-primary  mb-3">
+                                                احجــــــز الآن
+                                            </h1>
+                                            <p class="text-muted mb-3">نحن هنا لنحوّل طموحاتك إلى واقع. تواصل معنا الآن
+                                                لتبدأ رحلتك في رُبى.
+                                            </p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="text"
+                                                   name="ruba_name"
+                                                   class="form-control"
+                                                   placeholder="الاسم"
+                                                   autocomplete="name"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="tel"
+                                                   name="ruba_phone"
+                                                   class="form-control"
+                                                   placeholder="الهاتف"
+                                                   autocomplete="tel"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <input type="email"
+                                                   name="ruba_email"
+                                                   class="form-control"
+                                                   placeholder="البريد الإلكتروني"
+                                                   autocomplete="email"/>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <select name="ruba_purchase_interest" class="form-select">
+                                                <option value="" selected="selected" disabled="disabled">رغبة الشراء
+                                                </option>
+                                                <option value="قطعة سكنية">قطعة سكنية</option>
+                                                <option value="قطعة تجارية">قطعة تجارية</option>
+                                                <option value="أكثر من قطعة سكنية">أكثر من قطعة سكنية</option>
+                                                <option value="أكثر من قطعة تجارية">أكثر من قطعة تجارية</option>
+                                                <option value="أخري">أخري</option>
+                                            </select>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <select name="ruba_source" class="form-select">
+                                                <option value="" selected="selected" disabled="disabled">كيف تعرفت علي
+                                                    مخطط رُبـــى؟
+                                                </option>
+                                                <option value="لينكد إن">لينكد إن</option>
+                                                <option value="يوتيوب">يوتيوب</option>
+                                                <option value="سناب شات">سناب شات</option>
+                                                <option value="إنستغرام">إنستغرام</option>
+                                                <option value="فيسبوك">فيسبوك</option>
+                                                <option value="اكس (تويتر سابقًا)">اكس (تويتر سابقًا)</option>
+                                                <option value="أخري">أخري</option>
+                                            </select>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="form-input">
+                                            <textarea name="ruba_notes"
+                                                      class="form-control"
+                                                      rows="5"
+                                                      placeholder="ملاحظات"></textarea>
+                                            <p class="form-error"></p>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100 py-2 text-white contact-submit">
+                                                إرسال
+                                            </button>
+                                        </div>
+
+                                        <p class="js-saud-ruba-booking-feedback saud-contactus-feedback text-center mb-0 d-none"></p>
+
+                                        <p class="small text-muted text-center mb-0">
+                                            بالنقر فوق الزر أعلاه، أوافق على شروط الاستخدام وسياسة الخصوصية الخاصة
+                                            بموقعك وأوافق على تلقي الرسائل النصية القصيرة ورسائل البريد الإلكتروني.
+                                        </p>
+                                    </form>
+                                    <div class="s_saud_contact_info d-flex gap-4 p-4 ">
+                                        <a href="https://wa.me/966165311111" target="_blank"
+                                           class="s_saud_whatsApp_icon d-flex align-items-center justify-content-center text-white bg-primary fs-4 p-2 rounded-circle">
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                        <div class="d-flex flex-column gap-2">
+                                            <a class="fw-medium fs-5 text-secondary" href="https://wa.me/966165311111"
+                                               target="_blank">
+                                                للتواصل والاستفسار:
+                                            </a>
+                                            <p class="text-muted fs-5">0165311111 - 0553487111</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right col-lg-5">
+                                    <div class="s_saud_ruba_map h-100">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.0004327097245!2d41.7049945!3d27.500362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1576471489d91b59%3A0xbfff8ebe3a388a2b!2z2LTYsdmD2Kkg2LPYudmI2K8g2KfZhNi62LPZhNin2YYg2KfZhNi52YLYp9ix2YrYqSBTR1JFQ08!5e0!3m2!1sen!2seg!4v1778345321457!5m2!1sen!2seg"
+                                                class="h-100 w-100"
+                                                height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </div>
+            </t>
+        </template>
+        <record id="s_saud_ruba_route" model="theme.website.page">
+            <field name="view_id" ref="s_saud_ruba_page"/>
+            <field name="is_published" eval="True"/>
+            <field name="url">/ruba</field>
+        </record>
+        <record id="s_saud_ruba_menu" model="theme.website.menu">
+            <field name="name">مخطط رُبـــى</field>
+            <field name="url">/ruba</field>
+            <field name="page_id" ref="s_saud_ruba_route"/>
+            <field name="sequence" type="int">30</field>
+        </record>
+    </data>
+</odoo>
