@@ -277,6 +277,11 @@
                group="saud_snippets">
                 <keywords>saud, sales, status, progress, card, ruba, real estate</keywords>
             </t>
+            <t t-snippet="theme_saud.s_saud_cta_banner"
+               string="Saud CTA Banner"
+               group="saud_snippets">
+                <keywords>saud, cta, banner, footer, contact, contact us, call to action</keywords>
+            </t>
         </xpath>
 
     </template>

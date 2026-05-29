@@ -165,7 +165,7 @@
                             <t t-set="main_subtitle"
                                t-value="'نحن هنا لدعمكم في كل خطوة. تواصلوا معنا لأي استفسار أو حاجة، فنحن ملتزمون بتقديم أفضل المساعدة لكم. شكراً لثقتكم بنا.'"/>
                         </t>
-                        <div class="container">
+                        <div class="container mb-5">
                             <div class="s_saud_support_cards d-grid gap-4 gap-md-4 gap-lg-5 grid-cols-1 md:grid-cols-3">
 
                                 <div class="s_saud_support_card">
@@ -234,6 +234,26 @@
                                     </div>
                                 </div>
 
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                            class="s_saud_cta_banner o_colored_level oe_img_bg o_bg_img_center position-relative overflow-hidden text-center text-white d-flex align-items-center justify-content-center py-5"
+                            data-snippet="s_saud_cta_banner" data-name="Saud CTA Banner"
+                            style="background-image: url('/theme_saud/static/src/img/hero_about.webp'); background-position: 50% 50%;">
+                        <div class="s_saud_cta_banner__overlay"/>
+                        <div class="container s_allow_columns position-relative">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-lg-8 o_colored_level">
+                                    <h2 class="text-white fw-bold mb-3 o_default_snippet_text">نحن هنا لخدمتك</h2>
+                                    <p class="text-white small mb-4 o_default_snippet_text">تواصل معنا الآن لتحقيق
+                                        طموحاتك العقارية!
+                                    </p>
+                                    <a href="/contactus"
+                                       class="btn btn-primary px-5 py-2 d-inline-flex align-items-center justify-content-center o_default_snippet_text">
+                                        اتصل بنا
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </section>

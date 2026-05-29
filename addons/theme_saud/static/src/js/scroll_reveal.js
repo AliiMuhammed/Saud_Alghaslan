@@ -15,7 +15,7 @@ const READY_CLASS = "s_saud_reveal--ready";
 const VISIBLE_CLASS = "is-visible";
 const ONCE_ATTR = "data-reveal-once";
 const INITIALIZED_ATTR = "data-saud-reveal-initialized";
-const ELEMENT_ONLY_EXCLUDE_SELECTOR = ".s_saud_hero";
+const ELEMENT_ONLY_EXCLUDE_SELECTOR = ".s_saud_hero, .s_saud_cta_banner";
 
 const MANUAL_REVEAL_SELECTOR = [
     ".s_saud_reveal",
@@ -26,9 +26,9 @@ const MANUAL_REVEAL_SELECTOR = [
 ].join(",");
 
 const AUTO_REVEAL_SELECTOR = [
-    /* Main theme sections */
-    "#wrap section[class^='s_saud_']:not(.s_saud_hero)",
-    "#wrap section[class*=' s_saud_']:not(.s_saud_hero)",
+    /* Main theme sections — CTA banner excluded here; its inner content is targeted below */
+    "#wrap section[class^='s_saud_']:not(.s_saud_hero):not(.s_saud_cta_banner)",
+    "#wrap section[class*=' s_saud_']:not(.s_saud_hero):not(.s_saud_cta_banner)",
     "#wrap section[class^='s-saud-']",
     "#wrap section[class*=' s-saud-']",
 
@@ -37,6 +37,11 @@ const AUTO_REVEAL_SELECTOR = [
     ".s_saud_hero_subtitle",
     ".s_saud_hero_btn",
     ".s_saud_hero_content > *",
+
+    /* CTA Banner inner content (animated individually, not as a whole section) */
+    ".s_saud_cta_banner h2",
+    ".s_saud_cta_banner p",
+    ".s_saud_cta_banner .btn",
 
     /* Reusable component parts */
     ".s_saud_info_section .row > [class*='col-']",
@@ -123,7 +128,10 @@ function getRevealDirection(element, index) {
         element.matches(".s_saud_hero_title") ||
         element.matches(".s_saud_hero_subtitle") ||
         element.matches(".s_saud_hero_btn") ||
-        element.matches(".s_saud_hero_content > *")
+        element.matches(".s_saud_hero_content > *") ||
+        element.matches(".s_saud_cta_banner h2") ||
+        element.matches(".s_saud_cta_banner p") ||
+        element.matches(".s_saud_cta_banner .btn")
     ) {
         element.classList.add("s_saud_reveal--top");
         return;
@@ -181,6 +189,22 @@ function addStaggerDelay(element, index) {
         element.matches(".s_saud_hero_btn") ||
         element.matches(".s_saud_hero_content > *:nth-child(3)")
     ) {
+        element.classList.add("s_saud_reveal--delay-3");
+        return;
+    }
+
+    /* CTA Banner — staggered: h2 → delay-1, p → delay-2, .btn → delay-3 */
+    if (element.matches(".s_saud_cta_banner h2")) {
+        element.classList.add("s_saud_reveal--delay-1");
+        return;
+    }
+
+    if (element.matches(".s_saud_cta_banner p")) {
+        element.classList.add("s_saud_reveal--delay-2");
+        return;
+    }
+
+    if (element.matches(".s_saud_cta_banner .btn")) {
         element.classList.add("s_saud_reveal--delay-3");
     }
 }

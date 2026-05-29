@@ -124,7 +124,30 @@
                         </div>
                     </main>
                     <!-- Trusted By section -->
-                    <t t-call="theme_saud.trusted_by_section"/>
+                    <t t-call="theme_saud.trusted_by_section">
+                        <t t-set="trusted_extra_class" t-value="'pb-5'"/>
+                    </t>
+                    <section
+                            class="s_saud_cta_banner o_colored_level oe_img_bg o_bg_img_center position-relative overflow-hidden text-center text-white d-flex align-items-center justify-content-center py-5 s_saud_reveal s_saud_reveal--top s_saud_reveal--ready is-visible"
+                            data-snippet="s_saud_cta_banner" data-name="Saud CTA Banner"
+                            style="background-image: url('/theme_saud/static/src/img/hero_about.webp'); background-position: 50% 50%;" data-saud-reveal-initialized="true">
+                        <div class="s_saud_cta_banner__overlay"/>
+                        <div class="container s_allow_columns position-relative">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-lg-8 o_colored_level">
+                                    <h2 class="text-white fw-bold mb-3">انضم إلينا،&amp;nbsp;إذا كنت من الكفاءات</h2>
+                                    <p class="text-white small mb-4">تسعي للانضمام إلي فريق عمل مبدع وداعم،&amp;nbsp;ندعوك
+                                        لتقديم طلبك والانضمام إلينا لبناء مستقبل مشرق ومُثمر معًا.
+                                    </p>
+                                    <a href="/jobs"
+                                       class="px-5 d-inline-flex align-items-center justify-content-center btn btn-primary">
+                                        انضـم إلينـا
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                 </div>
             </t>
         </template>

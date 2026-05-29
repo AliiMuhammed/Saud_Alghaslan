@@ -360,6 +360,47 @@
 }
 
 //------------------------------------------------------------------------------
+// Saud CTA Banner snippet
+//------------------------------------------------------------------------------
+
+.s_saud_cta_banner {
+  min-height: 390px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .s_saud_cta_banner__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba($o-secondary, 0.86);
+    pointer-events: none;
+  }
+
+  > .container {
+    z-index: 2;
+  }
+
+  .btn {
+    min-height: 30px !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .s_saud_cta_banner {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .s_saud_cta_banner {
+    min-height: 300px;
+    background-attachment: scroll;
+  }
+}
+
+//------------------------------------------------------------------------------
 // Saud Footer Template
 //------------------------------------------------------------------------------
 
