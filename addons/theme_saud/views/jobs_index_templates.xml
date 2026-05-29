@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================ -->
+    <!-- Jobs listing page : /jobs                                        -->
+    <!-- ================================================================ -->
+    <template id="jobs_index" name="Saud Jobs Index">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <t t-set="additional_title" t-value="'التوظيف'"/>
+                <!-- Hero Section -->
+                <t t-call="theme_saud.hero_section_component">
+                    <t t-set="hero_bg_image" t-value="'/theme_saud/static/src/img/Jobs_Hero.webp'"/>
+                    <t t-set="hero_title" t-value="'نحن نبحث عنك!'"/>
+                    <t t-set="hero_subtitle"
+                       t-value="'نبحث عن أفراد مبدعين ومتحمسين ينضمون إلى فريقنا. قدم الآن وكن جزءًا من نجاحنا المستمر.'"/>
+                    <t t-set="hero_button_text" t-value="'إنضم إلينا'"/>
+                    <t t-set="hero_button_url" t-value="'/jobs'"/>
+                </t>
+                <!--   main section title     -->
+                <t t-call="theme_saud.main_section_title">
+                    <t t-set="main_title" t-value="'مميزات العمل معنا'"/>
+                    <t t-set="main_subtitle"
+                       t-value="'انضم إلى ببيئة عمل مبتكرة وداعمة، الانضمام إلى عائلة سعود الغسلان العقارية يعني تحقيق التوازن بين الحياة المهنية والشخصية.'"/>
+                </t>
+                <!--Benefits Section-->
+                <t t-call="theme_saud.benefits_component">
+                    <t t-set="benefits" t-value="[
+    {
+        'icon': 'fas fa-smile-wink',
+        'title': 'بيئة عمل مريحة وداعمة',
+        'desc': 'نحن نؤمن بأهمية توفير بيئة عمل تعزز من رفاهية الموظفين وتدعم تنمية مهاراتهم.'
+    },
+    {
+        'icon': 'fa-solid fa-rocket',
+        'title': 'النمو والتطوير المهني',
+        'desc': 'نحن نقدم برامج تدريبية مستمرة وفرص لتطوير المهارات لضمان تحسين مستواك المهني.'
+    },
+    {
+        'icon': 'fas fa-money-bill-wave',
+        'title': 'حوافز ومكافآت مغرية',
+        'desc': 'لدينا نظام مكافآت وحوافز يناسب جميع الموظفين ويحفزهم على تحقيق أهدافهم المهنية.'
+    },
+    {
+        'icon': 'fa-solid fa-mug-hot',
+        'title': 'مرونة في العمل',
+        'desc': 'نحن نوفر خيارات العمل عن بُعد وساعات عمل مرنة لضمان توازن بين الحياة المهنية والشخصية.'
+    },
+    {
+        'icon': 'fas fa-hands-helping',
+        'title': 'تعاون وتكامل',
+        'desc': 'العمل الجماعي وروح الفريق هما أساس عملنا، حيث نشجع على التعاون والتكامل بين جميع أعضاء الفريق.'
+    },
+    {
+        'icon': 'fa-solid fa-palette',
+        'title': 'بيئة مبتكرة',
+        'desc': 'نسعى دائماً للابتكار وتحقيق التميز في مجال عملنا من خلال تشجيع الأفكار الجديدة والإبداع.'
+    },
+]"/>
+                </t>
+                <!-- Who are we section -->
+                <t t-call="theme_saud.info_section_component">
+                    <t t-set="image_position" t-value="'left'"/>
+                    <t t-set="section_image" t-value="'/theme_saud/static/src/img/about.webp'"/>
+                    <t t-set="section_image_alt" t-value="'من نحن'"/>
+                    <t t-set="section_title" t-value="'من نحن'"/>
+                    <t t-set="section_description"
+                       t-value="'سعود الغسلان العقارية، إحدى الشركات العقارية الطموحة للوصول إلى الريادة في مجال الاستثمار والتطوير العقاري، إذ تمتلك الشركة الكفاءات المهنية المؤهلة لتحقيق أهدافها من خلال خبراتهم وشغفهم للعمل.'"/>
+                    <t t-set="section_button_text" t-value="'المزيد'"/>
+                    <t t-set="section_button_url" t-value="'/about-us'"/>
+                    <t t-set="section_extra_class" t-value="'bg-body-tertiary py-5 bg-opacity-25'"/>
+                </t>
+                <main class="s_saud_jobs_page ">
+                    <div class="container">
+                        <!--   main section title     -->
+                        <t t-call="theme_saud.main_section_title">
+                            <t t-set="main_title" t-value="'نحن نبحث عنك!'"/>
+                            <t t-set="main_subtitle"
+                               t-value="'نسعى لتوظيف الأفراد الذين يتمتعون بروح الابتكار والحماس، والذين يساهمون في تعزيز بيئة العمل.'"/>
+                        </t>
+
+                        <t t-if="not jobs">
+                            <div class="alert alert-info text-center" role="alert">
+                                لا توجد وظائف متاحة حاليًا.
+                            </div>
+                        </t>
+
+                        <div class="row g-4 g-lg-5 justify-content-center">
+                            <t t-foreach="jobs" t-as="job">
+                                <div class="col-12 col-md-6 col-lg-3">
+
+                                    <!-- Resolve card image source: custom field, else standard image_1920 -->
+                                    <t t-set="has_standard_image"
+                                       t-value="'image_1920' in job._fields and job.image_1920"/>
+                                    <t t-set="img_field"
+                                       t-value="'saud_card_image' if job.saud_card_image else ('image_1920' if has_standard_image else False)"/>
+                                    <t t-set="img_src"
+                                       t-value="'/web/image/hr.job/%s/%s' % (job.id, img_field) if img_field else '/theme_saud/static/src/img/serv-1.webp'"/>
+
+                                    <div
+                                            class="s_saud_job_card d-block rounded-4 overflow-hidden position-relative text-decoration-none shadow-sm">
+
+                                        <!-- Background image -->
+                                        <img t-att-src="img_src"
+                                             t-att-alt="job.name"
+                                             class="s_saud_job_card__img"/>
+
+                                        <!-- Default-state info: title + contract type, bottom of card -->
+                                        <div class="s_saud_job_card__default text-white">
+                                            <h3 class="h4 fw-bold mb-1" t-esc="job.name"/>
+                                            <t t-if="job.contract_type_id">
+                                                <div class="small opacity-75" t-esc="job.contract_type_id.sudo().name"/>
+                                            </t>
+                                        </div>
+
+                                        <!-- Hover overlay (full blue) -->
+                                        <div class="s_saud_job_card__overlay text-white">
+                                            <div class="s_saud_job_card__overlay-inner d-flex align-items-start justify-content-end flex-column">
+                                                <h3 class="fs-5 fw-bold mb-3" t-esc="job.name"/>
+                                                <p class="mb-3 small ">
+                                                    <t t-if="job.saud_card_short_description">
+                                                        <t t-esc="job.saud_card_short_description"/>
+                                                    </t>
+                                                    <t t-elif="job.contract_type_id">
+                                                        <t t-esc="job.contract_type_id.sudo().name"/>
+                                                    </t>
+                                                </p>
+                                                <a t-attf-href="/jobs/#{slug(job)}"
+                                                   class="btn btn-light">المزيد
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div t-if="pager" class="navbar mt-5 w-100">
+                            <t t-call="website.pager">
+                                <t t-set="classname" t-valuef="mx-auto"/>
+                            </t>
+                        </div>
+
+                    </div>
+                </main>
+            </div>
+        </t>
+    </template>
+    <record id="jobs_index" model="theme.ir.ui.view">
+        <field name="arch_fs">theme_saud/views/jobs_index_templates.xml</field>
+    </record>
+</odoo>

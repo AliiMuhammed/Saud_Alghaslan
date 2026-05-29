@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        Inherit the standard hr.job form and add a new tab AFTER
+        the existing "Application Info" tab. Standard tabs are kept intact.
+    -->
+    <record id="hr_job_view_form_inherit_theme_saud" model="ir.ui.view">
+        <field name="name">hr.job.form.inherit.theme.saud</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="website_hr_recruitment.hr_job_form_inherit"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//page[field[@name='job_details']]" position="after">
+                <page string="Website Job Details" name="theme_saud_website_job_details">
+                    <group>
+                        <group string="Website Image and Card Content">
+                            <field name="saud_card_image" widget="image"
+                                   options="{'preview_image': 'saud_card_image', 'size': [200, 200]}"/>
+                            <field name="saud_card_short_description"
+                                   placeholder="Short text shown on job card hover..."/>
+                        </group>
+                    </group>
+
+                    <group string="Job Duties">
+                        <field name="saud_job_duties"
+                               nolabel="1"
+                               placeholder="Job Duties (use bullet list)..."/>
+                    </group>
+
+                    <group string="Academic Qualifications">
+                        <field name="saud_qualifications_intro"
+                               placeholder="Minimum requirements: Bachelor's degree in one of the following fields:"/>
+                        <field name="saud_qualifications_fields"
+                               nolabel="1"
+                               placeholder="Accepted fields of study (use bullet list)..."/>
+                    </group>
+
+                    <group string="Experiences">
+                        <field name="saud_experiences"
+                               nolabel="1"
+                               placeholder="Required experiences (use bullet list)..."/>
+                    </group>
+
+                    <group string="Key Skills">
+                        <field name="saud_key_skills"
+                               nolabel="1"
+                               placeholder="Key skills (use bullet list)..."/>
+                    </group>
+
+                    <group string="Application Process Timeline">
+                        <group>
+                            <field name="saud_application_deadline"/>
+                            <field name="saud_screening_start"/>
+                            <field name="saud_screening_end"/>
+                            <field name="saud_contact_start"/>
+                        </group>
+                        <group>
+                            <field name="saud_contact_end"/>
+                            <field name="saud_interviews_start"/>
+                            <field name="saud_interviews_end"/>
+                            <field name="saud_results_date"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

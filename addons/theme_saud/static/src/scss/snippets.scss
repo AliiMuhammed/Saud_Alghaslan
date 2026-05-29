@@ -194,7 +194,7 @@
     &:hover,
     &:focus,
     &.active {
-      color: $o-light ;
+      color: $o-light;
       background-color: rgba($o-brand-primary, 0.08);
 
     }
@@ -224,6 +224,7 @@
   background-color: rgba($o-brand-primary, 0.1) !important;
   color: $secondary !important;
   box-shadow: none !important;
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 
   &:hover,
   &:focus {
@@ -233,24 +234,10 @@
 }
 
 .s_sgreco_nav_cta {
-  min-height: 3rem;
-  padding-inline: 1.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
-  border-radius: 999px;
-  background-color: $o-brand-primary;
-  color: $o-light;
-  font-family: $o-theme-buttons-font;
-  font-weight: 700;
   white-space: nowrap;
-
-  &:hover,
-  &:focus {
-    background-color: $secondary;
-    color: $o-light;
-  }
 }
 
 @media (max-width: 1399.98px) {
@@ -315,6 +302,183 @@
   }
 }
 
+//------------------------------------------------------------------------------
+// Sales Status Card snippet
+//------------------------------------------------------------------------------
+
+.s_saud_sales_status_card {
+
+    .sales-progress-title {
+        font-size: 18px;
+    }
+
+    // The track
+    .sales-progress {
+        position: relative;
+        display: flex;
+        height: 30px;
+        background-color: #f8f8f8;
+        border-radius: 0;
+        overflow: visible;
+    }
+
+    // The fill
+    .sales-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background-color: #5ecb6d; // default, overridden by status modifiers
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 30px;
+        white-space: nowrap;
+        overflow: visible;
+        transition: width 0.3s ease;
+    }
+
+    .sales-progress-percent {
+        width: fit-content;
+    }
+
+    .sales-progress-item.is-empty {
+        .sales-progress-percent {
+            color: #1f2933;
+        }
+    }
+
+    .sales-progress-item.is-label-overflow {
+        .sales-progress-percent {
+            visibility: hidden;
+        }
+    }
+
+    .sales-progress-available { background-color: #5ecb6d; color: #fff; }    // green
+    .sales-progress-reserved  { background-color: #FFDE5B; color: #3f3200; } // yellow
+    .sales-progress-sold      { background-color: #ff0000; color: #fff; }    // red
+}
+
+//------------------------------------------------------------------------------
+// Saud Footer Template
+//------------------------------------------------------------------------------
+
+.s_saud_footer {
+  color: $o-light;
+
+  .s_saud_footer_main {
+    min-height: 340px;
+    padding-block: 3rem 2.75rem;
+    background-color: $o-brand-primary;
+  }
+
+  .s_saud_footer_logo {
+    width: auto;
+    max-width: 7rem;
+    max-height: 5.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .s_saud_footer_description {
+    max-width: 27rem;
+    margin-inline: auto;
+
+
+  }
+
+
+
+
+
+  .s_saud_footer_link {
+    display: inline-block;
+    transition:  transform 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: #131740 !important;
+      transform: translateY(-1px);
+    }
+  }
+
+  .s_saud_footer_social {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: nowrap;
+    gap: 0.7rem;
+    margin-top: 2.25rem;
+
+    a {
+      width: 1.35rem;
+      height: 1.35rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      color: $o-light !important;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &:hover,
+      &:focus {
+        color: $o-light !important;
+        opacity: 0.82;
+        transform: translateY(-2px);
+      }
+    }
+
+    i,
+    span.fa {
+      width: auto;
+      height: auto;
+      color: inherit !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      font-size: 1rem;
+      line-height: 1;
+    }
+  }
+
+  .s_saud_footer_copyright {
+    min-height: 2.15rem;
+    padding-block: 0.45rem;
+    background-color: $o-secondary;
+    color: $o-light;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .s_saud_footer {
+    .s_saud_footer_main {
+      min-height: auto;
+      padding-block: 2.75rem;
+    }
+
+    .s_saud_footer_description {
+      max-width: 32rem;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .s_saud_footer {
+    .s_saud_footer_main {
+      padding-block: 2.5rem;
+    }
+
+    .s_saud_footer_logo {
+      max-width: 8rem;
+    }
+
+    .s_saud_footer_social {
+      gap: 0.6rem;
+    }
+  }
+}
 //------------------------------------------------------------------------------
 // Future Snippets
 //------------------------------------------------------------------------------

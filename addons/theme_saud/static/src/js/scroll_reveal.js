@@ -48,6 +48,16 @@ const AUTO_REVEAL_SELECTOR = [
     ".s_saud_auction_card__media",
     ".s_saud_auction_card__content",
     ".s_saud_trusted__carousel",
+
+    /* Jobs listing and detail pages */
+    ".s_saud_jobs_page .s_saud_section_title",
+    ".s_saud_jobs_page > .container > .row > [class*='col-']",
+    ".s_saud_jobs_page .alert",
+    ".s_saud_job_details_page aside",
+    ".s_saud_job_details_page > .container > .row > section > .d-flex",
+    ".s_saud_job_details_page__hero",
+    ".s_saud_job_details_page .s_saud_job_timeline__item",
+    ".s_saud_job_details_page > .container > .row > section > section",
 ].join(",");
 
 const EXCLUDE_SELECTOR = [
@@ -102,7 +112,8 @@ function getRevealDirection(element, index) {
     if (
         element.matches(".s_saud_services_cards__card") ||
         element.matches(".s_saud_counter__item") ||
-        element.matches(".s_saud_how_work_step")
+        element.matches(".s_saud_how_work_step") ||
+        element.matches(".s_saud_jobs_page > .container > .row > [class*='col-']")
     ) {
         element.classList.add("s_saud_reveal--zoom");
         return;
@@ -141,7 +152,10 @@ function addStaggerDelay(element, index) {
         element.matches(".s_saud_services_cards__card") ||
         element.matches(".s_saud_counter__item") ||
         element.matches(".s_saud_how_work_step") ||
-        element.matches(".s_saud_benefits .row > [class*='col-']")
+        element.matches(".s_saud_benefits .row > [class*='col-']") ||
+        element.matches(".s_saud_jobs_page > .container > .row > [class*='col-']") ||
+        element.matches(".s_saud_job_details_page .s_saud_job_timeline__item") ||
+        element.matches(".s_saud_job_details_page > .container > .row > section > section")
     ) {
         element.classList.add(`s_saud_reveal--delay-${(index % 4) + 1}`);
         return;

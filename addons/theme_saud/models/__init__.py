@@ -2,3 +2,4 @@
 from . import theme_saud
 from . import page
 from . import website_social
+from . import hr_job

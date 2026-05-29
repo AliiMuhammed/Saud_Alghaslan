@@ -84,7 +84,7 @@
                     <h2 class="fw-bold mb-4">وجهة الحياة في قلب حائل</h2>
                     <a t-if="show_ruba_btn"
                        href="/roba-plan"
-                       class="btn btn-light text-primary fw-bold rounded-pill px-5 py-2">استكشف الآن
+                       class="btn btn-light">استكشف الآن
                     </a>
                 </div>
 
@@ -152,7 +152,7 @@
                             <a t-if="section_button_text and section_button_url"
                                t-att-href="section_button_url"
                                t-att-target="section_button_target or None"
-                               class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold"
+                               class="btn btn-outline-primary"
                                t-out="section_button_text"/>
 
                         </div>
@@ -348,17 +348,17 @@
 
                                 <div class="s_saud_auction_card__actions d-flex flex-column align-items-start gap-4 mb-5">
                                     <a t-att-href="auction_video_url or '#'"
-                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_video_url else '' }}"
+                                       t-attf-class="btn btn-outline-primary {{ 'disabled' if not auction_video_url else '' }}"
                                        t-att-aria-disabled="'true' if not auction_video_url else None">
                                         فيديو المزاد
                                     </a>
                                     <a t-att-href="auction_booklet_url or '#'"
-                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_booklet_url else '' }}"
+                                       t-attf-class="btn btn-outline-primary {{ 'disabled' if not auction_booklet_url else '' }}"
                                        t-att-aria-disabled="'true' if not auction_booklet_url else None">
                                         كتيب المزاد
                                     </a>
                                     <a t-att-href="auction_platform_url or '#'"
-                                       t-attf-class="btn btn-outline-primary rounded-pill fw-semibold  {{ 'disabled' if not auction_platform_url else '' }}"
+                                       t-attf-class="btn btn-outline-primary {{ 'disabled' if not auction_platform_url else '' }}"
                                        t-att-aria-disabled="'true' if not auction_platform_url else None">
                                         منصة المزاد
                                     </a>
@@ -384,20 +384,24 @@
         </template>
         <!-- Counter Up Section -->
         <template id="counter_up_section" name="Saud Counter Up Section">
-            <section t-attf-class="s_saud_counter mb-80 {{ counter_extra_class or '' }}">
-                <t t-call="theme_saud.main_section_title">
-                    <t t-set="main_title" t-value="counter_main_title"/>
-                    <t t-set="main_subtitle" t-value="counter_main_subtitle"/>
+            <section
+                    t-attf-class="s_saud_counter {{ counter_margin_class or 'mb-80' }} {{ counter_extra_class or '' }}">
+                <t t-if="counter_main_title or counter_main_subtitle">
+                    <t t-call="theme_saud.main_section_title">
+                        <t t-set="main_title" t-value="counter_main_title"/>
+                        <t t-set="main_subtitle" t-value="counter_main_subtitle"/>
+                    </t>
                 </t>
 
                 <div class="container">
                     <div class="row g-4 g-lg-5 justify-content-center s_saud_counter__items" dir="ltr">
-                        <t t-foreach="counter_items" t-as="item" t-key="item.get('title')">
+
+                        <t t-foreach="counter_items" t-as="item">
                             <div class="col-6 col-md-6 col-lg-3">
                                 <div class="s_saud_counter__item text-center">
+
                                     <div class="s_saud_counter__icon text-primary">
-                                        <i t-attf-class="{{ item.get('icon') or '' }}"
-                                           aria-hidden="true"/>
+                                        <i t-attf-class="{{ item.get('icon') or '' }}" aria-hidden="true"/>
                                     </div>
 
                                     <div class="s_saud_counter__number fw-semibold"
@@ -405,18 +409,23 @@
                                          t-att-data-prefix="item.get('prefix') or None"
                                          t-att-data-suffix="item.get('suffix') or None"
                                          t-att-data-use-comma="'true' if item.get('use_comma') else None">
+
                                         <t t-out="item.get('prefix') or ''"/>0
                                         <t t-out="item.get('suffix') or ''"/>
+
                                     </div>
 
                                     <div class="s_saud_counter__label text-muted">
                                         <t t-out="item.get('title')"/>
                                     </div>
+
                                 </div>
                             </div>
                         </t>
+
                     </div>
                 </div>
+
             </section>
         </template>
         <!-- Trusted By / Clients Section -->

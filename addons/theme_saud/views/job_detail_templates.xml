@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="job_detail" name="Saud Job Detail">
+            <t t-call="website.layout">
+                <t t-set="additional_title" t-value="job.name"/>
+                <div id="wrap" class="oe_structure">
+                    <!-- Resolve image: custom card image, else standard image_1920 -->
+                    <t t-set="has_standard_image" t-value="'image_1920' in job._fields and job.image_1920"/>
+                    <t t-set="img_field"
+                       t-value="'saud_card_image' if job.saud_card_image else ('image_1920' if has_standard_image else False)"/>
+                    <t t-set="img_src"
+                       t-value="'/web/image/hr.job/%s/%s' % (job.id, img_field) if img_field else '/theme_saud/static/src/img/serv-1.webp'"/>
+                    <t t-set="is_arabic" t-value="(request.env.lang or '').startswith('ar')"/>
+                    <t t-set="date_fallback"
+                       t-value="'سيتم التحديد لاحقًا' if is_arabic else 'To be determined later'"/>
+
+                    <main class="s_saud_job_details_page py-5 mb-80">
+
+                        <div class="container">
+                            <div class="row g-5 justify-content-between">
+
+                                <!-- Sidebar: timeline -->
+                                <aside class="col-12 col-lg-3 order-2 order-lg-2 bg-body-tertiary mt-0  bg-opacity-25 pb-3 pt-5">
+                                    <div class="s_saud_job_timeline">
+                                        <t t-call="theme_saud.job_timeline_step">
+                                            <t t-set="label">نهاية التقديم</t>
+                                            <t t-set="start_date" t-value="job.saud_application_deadline"/>
+                                            <t t-set="end_date" t-value="False"/>
+                                        </t>
+                                        <t t-call="theme_saud.job_timeline_step">
+                                            <t t-set="label">فرز المتقدمين</t>
+                                            <t t-set="start_date" t-value="job.saud_screening_start"/>
+                                            <t t-set="end_date" t-value="job.saud_screening_end"/>
+                                        </t>
+                                        <t t-call="theme_saud.job_timeline_step">
+                                            <t t-set="label">التواصل مع المتقدمين</t>
+                                            <t t-set="start_date" t-value="job.saud_contact_start"/>
+                                            <t t-set="end_date" t-value="job.saud_contact_end"/>
+                                        </t>
+                                        <t t-call="theme_saud.job_timeline_step">
+                                            <t t-set="label">بداية المقابلات</t>
+                                            <t t-set="start_date" t-value="job.saud_interviews_start"/>
+                                            <t t-set="end_date" t-value="job.saud_interviews_end"/>
+                                        </t>
+                                        <t t-call="theme_saud.job_timeline_step">
+                                            <t t-set="label">إعلان النتائج النهائية</t>
+                                            <t t-set="start_date" t-value="job.saud_results_date"/>
+                                            <t t-set="end_date" t-value="False"/>
+                                        </t>
+
+                                        <div class="mt-4 d-grid gap-3">
+                                            <a href="/jobs"
+                                               class="btn btn-primary w-100">
+                                                كل الوظائف
+                                            </a>
+                                        </div>
+                                    </div>
+                                </aside>
+
+                                <!-- Main column -->
+                                <section class="col-12 col-lg-8 mt-0 order-1 order-lg-1 pt-5">
+                                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-3 mb-5">
+                                        <h2 class="text-primary fw-bold mb-0 " t-esc="job.name"/>
+                                        <a role="button"
+                                           t-attf-href="/jobs/apply/#{slug(job)}"
+                                           class="btn btn-primary">
+                                            قدّم الآن
+                                        </a>
+                                    </div>
+
+                                    <div class="mb-5">
+                                        <img t-att-src="img_src"
+                                             t-att-alt="job.name"
+                                             class="img-fluid rounded-4 w-100 s_saud_job_details_page__hero"/>
+                                    </div>
+
+                                    <t t-if="job.saud_job_duties">
+                                        <section class="mb-5 ">
+                                            <h2 class="fs-5 fw-bold mb-4">المهام الوظيفية</h2>
+                                            <div class="s_saud_job_section_content text-muted"
+                                                 t-out="job.saud_job_duties"/>
+                                        </section>
+                                    </t>
+
+                                    <t t-if="job.saud_qualifications_intro or job.saud_qualifications_fields">
+                                        <section class="mb-5 ">
+                                            <h2 class="fs-5 fw-bold mb-4">المؤهلات العلمية</h2>
+                                            <t t-if="job.saud_qualifications_intro">
+                                                <p class="mb-3 text-muted" t-esc="job.saud_qualifications_intro"/>
+                                            </t>
+                                            <t t-if="job.saud_qualifications_fields">
+                                                <div class="s_saud_job_section_content text-muted"
+                                                     t-out="job.saud_qualifications_fields"/>
+                                            </t>
+                                        </section>
+                                    </t>
+
+                                    <t t-if="job.saud_experiences">
+                                        <section class="mb-5 ">
+                                            <h2 class="fs-5 fw-bold mb-4">الخبرات</h2>
+                                            <div class="s_saud_job_section_content text-muted"
+                                                 t-out="job.saud_experiences"/>
+                                        </section>
+                                    </t>
+
+                                    <t t-if="job.saud_key_skills">
+                                        <section class="mb-5 ">
+                                            <h2 class="fs-5 fw-bold mb-4">المهارات الرئيسية</h2>
+                                            <div class="s_saud_job_section_content text-muted"
+                                                 t-out="job.saud_key_skills"/>
+                                        </section>
+                                    </t>
+
+                                    <t t-if="not (job.saud_job_duties or job.saud_qualifications_intro or job.saud_qualifications_fields or job.saud_experiences or job.saud_key_skills) and job.website_description">
+                                        <section class="mb-5 ">
+                                            <div class="s_saud_job_section_content text-muted"
+                                                 t-out="job.website_description"/>
+                                        </section>
+                                    </t>
+                                </section>
+
+                            </div>
+                        </div>
+                    </main>
+                    <!-- Trusted By section -->
+                    <t t-call="theme_saud.trusted_by_section"/>
+                </div>
+            </t>
+        </template>
+        <!-- Reusable timeline step -->
+        <template id="job_timeline_step" name="Saud Job Timeline Step">
+            <div class="s_saud_job_timeline__item d-flex flex-column mb-4">
+                <div class="s_saud_job_timeline__label d-flex align-items-start gap-2 mb-1">
+                    <i class="far fa-calendar-alt text-primary pt-1" aria-hidden="true"/>
+                    <div class="s_saud_job_label_time gap-2 d-flex flex-column ">
+                        <span class=" fw-bold text-muted" t-esc="label"/>
+                        <div class="s_saud_job_timeline__date text-muted small">
+                            <t t-if="start_date and end_date">
+                                <t t-if="start_date == end_date">
+                                    <span t-out="saud_format_date(start_date)"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-out="saud_format_date(start_date)"/>
+                                    <span>-</span>
+                                    <span t-out="saud_format_date(end_date)"/>
+                                </t>
+                            </t>
+                            <t t-elif="start_date or end_date">
+                                <span t-out="saud_format_date(start_date or end_date)"/>
+                            </t>
+                            <t t-else="">
+                                <span t-out="date_fallback"/>
+                            </t>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+        <record id="job_detail" model="theme.ir.ui.view">
+            <field name="arch_fs">theme_saud/views/job_detail_templates.xml</field>
+        </record>
+
+        <record id="job_timeline_step" model="theme.ir.ui.view">
+            <field name="arch_fs">theme_saud/views/job_detail_templates.xml</field>
+        </record>
+
+        <record id="job_detail_route" model="theme.website.page">
+            <field name="view_id" ref="job_detail"/>
+            <field name="is_published" eval="True"/>
+            <field name="url">/jobs</field>
+        </record>
+        <record id="job_detail_menu" model="theme.website.menu">
+            <field name="name">التوظيف</field>
+            <field name="url">/jobs</field>
+            <field name="page_id" ref="job_detail_route"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+    </data>
+
+</odoo>

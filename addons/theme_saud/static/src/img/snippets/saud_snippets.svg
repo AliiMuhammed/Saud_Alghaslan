@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120" role="img" aria-label="Saud Snippets">
+  <rect width="200" height="120" rx="10" fill="#FFFFFF"/>
+  <rect x="12" y="12" width="176" height="96" rx="8" fill="#F7FBFE" stroke="#D8EEF8" stroke-width="2"/>
+  <path d="M12 84h176v16a8 8 0 0 1-8 8H20a8 8 0 0 1-8-8V84z" fill="#05043D"/>
+  <rect x="30" y="28" width="58" height="38" rx="5" fill="#20A2DC"/>
+  <rect x="98" y="28" width="72" height="12" rx="3" fill="#05043D"/>
+  <rect x="98" y="48" width="54" height="8" rx="3" fill="#20A2DC" opacity=".35"/>
+  <rect x="98" y="62" width="42" height="8" rx="3" fill="#20A2DC" opacity=".35"/>
+  <path d="M42 57l12-14 10 11 8-8 10 11v9H42z" fill="#FFFFFF" opacity=".92"/>
+  <circle cx="68" cy="40" r="5" fill="#F6A81B"/>
+  <rect x="32" y="92" width="34" height="6" rx="3" fill="#20A2DC"/>
+  <rect x="74" y="92" width="34" height="6" rx="3" fill="#F6A81B"/>
+  <rect x="116" y="92" width="52" height="6" rx="3" fill="#FFFFFF" opacity=".9"/>
+  <circle cx="158" cy="71" r="15" fill="#F6A81B"/>
+  <path d="M158 62v18M149 71h18" stroke="#05043D" stroke-width="5" stroke-linecap="round"/>
+</svg>

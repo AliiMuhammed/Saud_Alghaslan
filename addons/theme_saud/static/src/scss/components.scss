@@ -61,25 +61,6 @@
   opacity: 0.9;
 }
 
-// ── CTA Button ──
-.s_saud_hero_btn {
-  font-weight: 700;
-  padding: 0.75rem 2rem;
-  border-radius: 999px;
-  font-size: clamp(0.875rem, 1.2vw, 1.05rem);
-  min-height: 3rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-  color: $o-light;
-
-  &:hover,
-  &:focus {
-    transform: translateY(-1px);
-  }
-}
-
 //------------------------------------------------------------------------------
 // Responsive
 //------------------------------------------------------------------------------
@@ -144,10 +125,6 @@
     line-height: 1.6;
   }
 
-  .s_saud_hero_btn {
-    padding: 0.65rem 1.75rem;
-    min-height: 2.75rem;
-  }
 }
 
 //------------------------------------------------------------------------------
@@ -280,14 +257,6 @@
   img {
     max-height: 370px;
     object-fit: cover;
-  }
-
-  .btn {
-    &:hover {
-      color: $o-light;
-
-    }
-
   }
 
   @media (max-width: 575.98px) {
@@ -480,17 +449,6 @@
 
   .s_saud_auction_card__actions .btn {
     min-width: 128px;
-    border-width: 1px;
-    padding:11px 23px;
-    &:hover,
-    &:focus {
-      color: $o-light;
-    }
-
-    &.disabled {
-      pointer-events: none;
-      opacity: 0.55;
-    }
   }
 
   .s_saud_auction_card__contact-title {
@@ -521,3 +479,230 @@
     }
   }
 }
+//------------------------------------------------------------------------------
+// Zoomable Image Snippet Style
+//------------------------------------------------------------------------------
+
+.s_zoomable_image {
+    .s_zoomable_image_wrap {
+        max-width: 100%;
+        aspect-ratio: 800 / 430;
+        overflow: hidden;
+        cursor: zoom-in;
+    }
+
+    .s_zoomable_img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+//------------------------------------------------------------------------------
+// Theme Button System
+//------------------------------------------------------------------------------
+
+#wrapwrap {
+  .btn {
+    border-radius: 3rem;
+    font-family: $o-theme-buttons-font;
+    font-weight: 700;
+    line-height: 1.4;
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease,
+      box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline-primary,
+  .btn-outline-secondary,
+  .btn-light,
+  .btn-dark {
+    min-height: 3rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0.65rem 1.25rem rgba($o-black, 0.14);
+      text-decoration: none;
+    }
+
+    &:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 0.2rem rgba($o-brand-primary, 0.24),
+        0 0.65rem 1.25rem rgba($o-black, 0.14);
+      text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+      transform: translateY(0);
+      box-shadow: 0 0.35rem 0.85rem rgba($o-black, 0.12);
+    }
+
+    &:disabled,
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.65;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  fieldset:disabled .btn {
+    pointer-events: none;
+    opacity: 0.65;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-sm {
+    min-height: 2.5rem;
+    padding: 0.55rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-lg {
+    min-height: 3.35rem;
+    padding: 0.9rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .btn-primary {
+    color: $o-light;
+    background-color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $o-light;
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+
+  .btn-secondary {
+    color: $o-light;
+    background-color: $secondary;
+    border-color: $secondary;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $o-light;
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+
+  .btn-outline-primary {
+    color: $primary;
+    border-color: $primary;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $o-light;
+      background-color: $primary;
+      border-color: $primary;
+    }
+  }
+
+  .btn-outline-secondary {
+    color: $secondary;
+    border-color: $secondary;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $o-light;
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+
+  .btn-light {
+    color: $primary;
+    background-color: $o-light;
+    border-color: $o-light;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $secondary;
+      background-color: $o-light;
+      border-color: $o-light;
+    }
+  }
+
+  .btn-dark {
+    color: $o-light;
+    background-color: $o-black;
+    border-color: $o-black;
+
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &.active {
+      color: $o-light;
+      background-color: $secondary;
+      border-color: $secondary;
+    }
+  }
+
+  .show > .btn-primary.dropdown-toggle,
+  .btn-check:checked + .btn-primary,
+  .show > .btn-secondary.dropdown-toggle,
+  .btn-check:checked + .btn-secondary,
+  .show > .btn-outline-secondary.dropdown-toggle,
+  .btn-check:checked + .btn-outline-secondary,
+  .show > .btn-dark.dropdown-toggle,
+  .btn-check:checked + .btn-dark {
+    color: $o-light;
+    background-color: $secondary;
+    border-color: $secondary;
+  }
+
+  .show > .btn-outline-primary.dropdown-toggle,
+  .btn-check:checked + .btn-outline-primary {
+    color: $o-light;
+    background-color: $primary;
+    border-color: $primary;
+  }
+
+  .show > .btn-light.dropdown-toggle,
+  .btn-check:checked + .btn-light {
+    color: $secondary;
+    background-color: $o-light;
+    border-color: $o-light;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wrapwrap {
+    .btn {
+      transition: none;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline-primary,
+    .btn-outline-secondary,
+    .btn-light,
+    .btn-dark {
+      &:hover,
+      &:focus-visible {
+        transform: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Footer Templates -->
+    <template id="template_footer_sgreco_option" inherit_id="website.snippet_options"
+              name="SGRECO Footer Template Option" priority="90">
+        <xpath expr="//we-select[@data-variable='footer-template']" position="inside">
+            <we-button title="SGRECO Footer"
+                       data-name="footer_sgreco_opt"
+                       data-customize-website-views="theme_saud.template_footer_sgreco"
+                       data-customize-website-variable="'sgreco_footer'"
+                       data-img="/theme_saud/static/src/img/template_footer_sgreco.svg"/>
+        </xpath>
+    </template>
+
+    <template id="template_footer_sgreco" inherit_id="website.layout" name="SGRECO Footer" active="False">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo s_saud_footer" t-ignore="true" t-if="not no_footer">
+                <section class="s_saud_footer_main s_text_block o_colored_level" data-snippet="s_text_block"
+                         data-name="SGRECO Footer">
+                    <div class="container">
+                        <div class="row gy-4 gx-lg-4 align-items-start justify-content-between">
+                            <div class="col-12 col-lg-4 s_saud_footer_brand ">
+                                <a href="/" class="d-inline-block s_saud_footer_logo_link"
+                                   aria-label="Saud Al-Ghaslan Real Estate">
+                                    <img src="/theme_saud/static/src/img/SGRECO-logo-w.png"
+                                         class="s_saud_footer_logo img-fluid"
+                                         alt="شركة سعود الغسلان العقارية"/>
+                                </a>
+                                <p class="s_saud_footer_description small text-white lh-lg mb-0">
+                                    سعود الغسلان العقارية إحدى الشركات العقارية الطموحة للوصول إلى الريادة في مجال
+                                    الاستثمار والتطوير العقاري، إذ تملك الشركة الكفاءات المهنية المؤهلة لتحقيق أهدافها
+                                    من خلال خبراتهم وتخصصهم للعمل
+                                </p>
+                                <div class="s_social_media s_saud_footer_social no_icon_color justify-content-center text-md-start "
+                                     data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                                    <h5 class="s_social_media_title d-none" contenteditable="true">تابعنا</h5>
+                                    <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank"
+                                       aria-label="X">
+                                        <i class="fa fa-brands fa-x-twitter o_editable_media fs-6"/>
+                                    </a>
+                                    <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank"
+                                       aria-label="Facebook">
+                                        <i class="fa fa-brands fa-facebook o_editable_media fs-6"/>
+                                    </a>
+                                    <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank"
+                                       aria-label="Instagram">
+                                        <i class="fa fa-brands fa-instagram o_editable_media fs-6"/>
+                                    </a>
+                                    <a href="/website/social/snapchat" class="s_social_media_snapchat" target="_blank"
+                                       aria-label="Snapchat">
+                                        <i class="fa fa-brands fa-snapchat-ghost o_editable_media fs-6"/>
+                                    </a>
+                                    <a href="/website/social/youtube" class="s_social_media_youtube" target="_blank"
+                                       aria-label="YouTube">
+                                        <i class="fa fa-brands fa-youtube o_editable_media fs-6"/>
+                                    </a>
+                                    <a href="/website/social/linkedin" class="s_social_media_linkedin" target="_blank"
+                                       aria-label="LinkedIn">
+                                        <i class="fa fa-brands fa-linkedin o_editable_media fs-6"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 col-lg-2 s_saud_footer_column ">
+                                <h5 class="s_saud_footer_title fs-6 fw-bolder  mb-3">روابط سريعة</h5>
+                                <ul class="s_saud_footer_links small list-unstyled mb-0">
+                                    <li>
+                                        <a href="/" class="s_saud_footer_link mb-2 lh-base text-white">الرئيسية</a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus" class="s_saud_footer_link mb-2 lh-base text-white">من نحن</a>
+                                    </li>
+                                    <li>
+                                        <a href="/services" class="s_saud_footer_link mb-2 lh-base text-white">خدماتنا
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/jobs" class="s_saud_footer_link mb-2 lh-base text-white">التوظيف</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-sm-4 col-lg-2 s_saud_footer_column ">
+                                <h5 class="s_saud_footer_title fs-6  fw-bolder  mb-3">روابط ذات صلة</h5>
+                                <ul class="s_saud_footer_links small list-unstyled mb-0">
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link mb-2 lh-base text-white">وزارة البلديات
+                                            والإسكان
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link mb-2 lh-base text-white">صندوق التنمية
+                                            العقارية
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link mb-2 lh-base text-white">إمارة حائل</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link mb-2 lh-base text-white">أمانة حائل</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-sm-4 col-lg-2 s_saud_footer_column ">
+                                <h5 class="s_saud_footer_title fs-6 fw-bolder   mb-3">مركز الدعم</h5>
+                                <ul class="s_saud_footer_links small list-unstyled mb-0">
+                                    <li>
+                                        <a href="/contactus" class="s_saud_footer_link mb-2 lh-base text-white">اتصل
+                                            بنا
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link  mb-2 lh-base text-white">أسئلة شائعة</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link  mb-2 lh-base text-white">شروط الاستخدام
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="s_saud_footer_link  mb-2 lh-base text-white">سياسة الخصوصية
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="s_saud_footer_copyright o_colored_level" data-name="SGRECO Copyright">
+                    <div class="container">
+                        <p class="mb-0 text-center">
+                            شركة سعود الغسلان العقارية، جميع الحقوق محفوظة
+                            <span class="o_force_ltr d-inline-block">© 2026</span>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="before">
+            <t t-set="no_copyright" t-value="True"/>
+        </xpath>
+    </template>
+
+</odoo>

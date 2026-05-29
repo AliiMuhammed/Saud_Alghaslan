@@ -101,7 +101,7 @@
 
                                         <div class="text-center">
                                             <button type="submit"
-                                                    class="btn btn-primary w-100 py-2 text-white contact-submit">
+                                                    class="btn btn-primary w-100 contact-submit">
                                                 إرسال
                                             </button>
                                         </div>
@@ -149,7 +149,8 @@
                                        t-value="'مكان يحتضن الأحلام'"/>
                                     <t t-set="main_title_extra_class" t-value="'s_saud_ruba_details_title'"/>
                                 </t>
-                                <p class="text-muted text-center lh-base mb-4 mb-md-5">وُلد مشروع رُبى ليجسّد مفهوم المكان الذي يجمع
+                                <p class="text-muted text-center lh-base mb-4 mb-md-5">وُلد مشروع رُبى ليجسّد مفهوم
+                                    المكان الذي يجمع
                                     كل ما يحتاجه الإنسان
                                     ليعيش، يعمل، ويطمح. مكان يحرّك الخيال، ويمنح الفرص، ويعكس هوية متكاملة تجمع بين
                                     الهدوء
@@ -249,7 +250,432 @@
 
 
                     </section>
+                    <!-- Ruba Locations -->
+                    <section
+                            class="s_saud_ruba_locations position-relative overflow-hidden bg-primary d-flex flex-column justify-content-center align-items-center">
 
+                        <div class="s_saud_ruba_locations_background w-100">
+                            <div class="container position-relative text-center text-white py-5">
+
+                                <div class="s_saud_ruba_locations_header">
+                                    <h2 class="fw-bold mb-2">مخطط رُبـــى</h2>
+                                    <p class="fw-medium small mb-0">موقعٌ ليس له مثيل</p>
+                                </div>
+
+                                <div class="s_saud_ruba_locations_paragraphs row g-4 pt-5 pb-0 py-md-5">
+                                    <p class="col-12 col-md-6 small text-start mb-0 lh-lg">
+                                        يتميز هذا الموقع الاستراتيجي بكونه نقطة محورية في قلب مدينة حائل، حيث يجمع بين
+                                        الحيوية والراحة في آنٍ واحد. يقع بالقرب من مجموعة من المدارس المرموقة التي تلبي
+                                        احتياجات مختلف المراحل التعليمية، مما يجعله خيارًا مثاليًا للعائلات الباحثة عن
+                                        بيئة تعليمية متكاملة لأبنائها. كما تحيط به مجموعة من المراكز التجارية الحديثة
+                                        التي توفر تجربة تسوق متميزة، بالإضافة إلى مطاعم ومقاهي متنوعة تلبي مختلف
+                                        الأذواق، مما يعزز من جودة الحياة اليومية للسكان.
+                                    </p>
+
+                                    <p class="col-12 col-md-6 small text-start mb-0 lh-lg">
+                                        لا يقتصر تميز الموقع على الجانب التعليمي والتجاري فحسب، بل يمتد ليشمل القرب من
+                                        المرافق الصحية المتطورة، مثل المستشفيات والمراكز الطبية، التي تضمن سهولة الوصول
+                                        إلى خدمات الرعاية الصحية عند الحاجة. هذا الموقع يجمع بين الراحة والعملية، ويمنح
+                                        سكانه فرصة الاستمتاع بحياة متوازنة تجمع بين العمل، التعليم، والترفيه، في بيئة
+                                        حضرية نابضة بالحياة وآمنة في الوقت ذاته.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <t t-set="ruba_locations" t-value="[
+        {'distance': '1', 'unit': 'كلم', 'title': 'حديقة البساتين'},
+        {'distance': '1', 'unit': 'كلم', 'title': 'مدارس المسارات العالمية'},
+        {'distance': '2', 'unit': 'كلم', 'title': 'مسجد الراجحي'},
+        {'distance': '2', 'unit': 'كلم', 'title': 'طريق الملك عبدالله'},
+        {'distance': '2', 'unit': 'كلم', 'title': 'مجمع حائل سكوير'},
+        {'distance': '3', 'unit': 'كلم', 'title': 'مركز الدفاع المدني'},
+        {'distance': '4', 'unit': 'كلم', 'title': 'مستشفى حائل العام'},
+        {'distance': '7', 'unit': 'كلم', 'title': 'مجمع الدوائر الحكومية'},
+        {'distance': '10', 'unit': 'كلم', 'title': 'منطقة جبال عقدة السياحية'},
+        {'distance': '13', 'unit': 'كلم', 'title': 'مطار حائل الدولي'}
+    ]"/>
+
+                        <div class="container py-5">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                                <t t-foreach="ruba_locations" t-as="location">
+                                    <div class="col">
+                                        <div class="s_saud_location_card d-flex gap-4 align-items-center fs-6 text-white p-3 p-md-4">
+                                            <div class="s_saud_location_card_distance fw-bold lh-sm text-center">
+                                                <span class="d-block" t-out="location['distance']"/>
+                                                <span class="d-block" t-out="location['unit']"/>
+                                            </div>
+
+                                            <p class="s_saud_location_card_title fs-6 fw-medium mb-0"
+                                               t-out="location['title']"/>
+                                        </div>
+                                    </div>
+                                </t>
+
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- Ruba Map -->
+                    <section class="s_saud_ruba_map_location ">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d14158.027056144201!2d41.655333!3d27.484611000000005!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjfCsDI5JzA0LjYiTiA0McKwMzknMTkuMiJF!5e0!3m2!1sen!2sus!4v1779462834509!5m2!1sen!2sus"
+                                height="550" style="border:0;" allowfullscreen="" loading="lazy"
+                                class=" w-100"
+                                referrerpolicy="no-referrer-when-downgrade">
+
+                        </iframe>
+                    </section>
+                    <!-- Ruba Banner  -->
+                    <t t-call="theme_saud.ruba_banner_component"/>
+                    <!-- Ruba 1 States -->
+                    <section class="s_saud_ruba_states mb-80">
+                        <div class="container d-flex justify-content-center align-items-center flex-column">
+                            <div class="s_saud_ruba_header_img py-3">
+                                <img src="/theme_saud/static/src/img/RUBA-1.webp" class="w-100"
+                                     alt="ruba header photo"/>
+                            </div>
+                            <!-- CounterUp section -->
+                            <t t-call="theme_saud.counter_up_section">
+                                <t t-set="counter_extra_class" t-value="''"/>
+                                <t t-set="counter_main_title" t-value="''"/>
+                                <t t-set="counter_main_subtitle" t-value="''"/>
+                                <t t-set="counter_extra_class" t-value="'w-100 mt-0 mt-lg-5 mb-3  pt-5'"/>
+                                <t t-set="counter_items" t-value="[
+        {
+            'icon': 'fas fa-mosque',
+            'target': 11,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'خــــــدمي'
+        },
+        {
+            'icon': 'fas fa-store',
+            'target': 50,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'تجــــاري'
+        },
+        {
+            'icon': 'fas fa-store-alt',
+            'target': 40,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'تجاري سكني'
+        },
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'target': 219,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'ســكني'
+        }
+    ]"/>
+                            </t>
+                            <!-- Plan image -->
+                            <section class="s_zoomable_image o_colored_level pt-5 pb-5" data-snippet="s_zoomable_image"
+                                     data-name="Zoomable Image">
+                                <div class="container">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="s_zoomable_image_wrap position-relative d-inline-block">
+                                            <img src="/theme_saud/static/src/img/Ruba-plan-1.webp"
+                                                 class="s_zoomable_img" alt="Image" loading="lazy"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- Ruba Plan 1 btn link -->
+                            <div class="s_saud_ruba_link d-flex align-items-center justify-content-center py-4 text-white">
+                                <a class="btn btn-outline-primary"
+                                   href="https://drive.google.com/file/d/1AuGniQQi2uUyjiYCRBrGKoW2ZktV02Wl/view"
+                                   target="_blank">كتيب
+                                    المخطط
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Sales status -->
+                    <section
+                            class="s_saud_ruba_sales_status s_saud_sales_status_card mb-80 py-5 bg-body-tertiary bg-opacity-25"
+                    >
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center g-4 g-lg-5">
+
+                                <!-- Right Content -->
+                                <div class="col-12 col-lg-5">
+                                    <div class="d-flex gap-4 flex-column text-center text-lg-start">
+                                        <h2 class="text-primary fw-bolder">
+                                            حالة مبيعات رُبى 1
+                                        </h2>
+                                        <p class="mb-3 lh-lg">
+                                            <span class="fw-semibold d-block">الفرص تقل مع الوقت...</span>
+                                            مبيعات الأراضي في المخطط تشهد إقبالاً كبيراً، مع نفاذ عدد كبير من القطع خلال
+                                            أيام!
+                                            <br/>
+                                            اغتنم الفرصة الآن وكن جزءاً من مجتمع واعد في موقع استراتيجي.
+                                        </p>
+
+                                        <a href="https://drive.google.com/file/d/1fYT2ULMk3pq8ZKzehe58fNjWY2ljMnT8/view"
+                                           target="_blank"
+                                           class="btn btn-outline-primary w-100 sales-status-btn">
+                                            تقرير المبيعات
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Left Card -->
+                                <div class="col-12 col-lg-5">
+                                    <section
+                                            class="s_saud_sales_status_card o_colored_level bg-white p-4 s_saud_reveal s_saud_reveal--top is-visible"
+                                            data-snippet="s_saud_sales_status_card" data-name="Sales Status Card"
+                                            data-saud-reveal-initialized="true">
+                                        <div class="sales-progress-item mb-4" data-status-key="available"
+                                             data-label="القطع المتوفرة" data-current="215" data-total="309">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المتوفرة 215 من 309
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المتوفرة"
+                                                 aria-valuenow="69.58" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-progress-available sales-bar" style="width: 69.58%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">69.58%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sales-progress-item mb-4 is-label-overflow"
+                                             data-status-key="reserved" data-label="القطع المحجوزة" data-current="2"
+                                             data-total="309">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المحجوزة 2 من 309
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المحجوزة"
+                                                 aria-valuenow="0.65" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-progress-reserved sales-bar" style="width: 0.65%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">0.65%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sales-progress-item" data-status-key="sold"
+                                             data-label="القطع المباعة" data-current="92" data-total="309">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المباعة 92 من 309
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المباعة"
+                                                 aria-valuenow="29.77" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-progress-sold sales-bar" style="width: 29.77%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">29.77%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Ruba 2 States -->
+                    <section class="s_saud_ruba_states mb-80">
+                        <div class="container d-flex justify-content-center align-items-center flex-column">
+                            <div class="s_saud_ruba_header_img py-3">
+                                <img src="/theme_saud/static/src/img/RUBA-2.webp" class="w-100"
+                                     alt="ruba header photo"/>
+                            </div>
+                            <!-- CounterUp section -->
+                            <t t-call="theme_saud.counter_up_section">
+                                <t t-set="counter_extra_class" t-value="''"/>
+                                <t t-set="counter_main_title" t-value="''"/>
+                                <t t-set="counter_main_subtitle" t-value="''"/>
+                                <t t-set="counter_extra_class" t-value="'w-100 mt-0 mt-lg-5 mb-3  pt-5'"/>
+                                <t t-set="counter_items" t-value="[
+        {
+            'icon': 'fas fa-mosque',
+            'target': 7,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'خــــــدمي'
+        },
+        {
+            'icon': 'fas fa-store',
+            'target': 44,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'تجــــاري'
+        },
+        {
+            'icon': 'fas fa-store-alt',
+            'target': 33,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'تجاري سكني'
+        },
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'target': 73,
+            'prefix': '',
+            'suffix': '',
+            'use_comma': False,
+            'title': 'ســكني'
+        }
+    ]"/>
+                            </t>
+                            <!-- Plan image -->
+                            <section class="s_zoomable_image o_colored_level pt-5 pb-5" data-snippet="s_zoomable_image"
+                                     data-name="Zoomable Image">
+                                <div class="container">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="s_zoomable_image_wrap position-relative d-inline-block">
+                                            <img src="/theme_saud/static/src/img/Ruba-plan-02.webp"
+                                                 class="s_zoomable_img" alt="Image" loading="lazy"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Ruba Plan 1 btn link -->
+                            <div class="s_saud_ruba_link d-flex align-items-center justify-content-center py-4 text-white">
+                                <a class="btn btn-outline-primary"
+                                   href="https://drive.google.com/file/d/1VBzUYsWYkE6wixRYSGyu7QGNMbX_QrMx/view"
+                                   target="_blank">كتيب
+                                    المخطط
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Sales status -->
+                    <section
+                            class="s_saud_ruba_sales_status s_saud_sales_status_card mb-80 py-5 bg-body-tertiary bg-opacity-25"
+                    >
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center g-4 g-lg-5">
+
+                                <!-- Right Content -->
+                                <div class="col-12 col-lg-5">
+                                    <div class="d-flex gap-4 flex-column text-center text-lg-start">
+                                        <h2 class="text-primary fw-bolder">
+                                            حالة مبيعات رُبى 2
+                                        </h2>
+                                        <p class="mb-3 lh-lg">
+                                            <span class="fw-semibold d-block">الفرص تقل مع الوقت...</span>
+                                            مبيعات الأراضي في المخطط تشهد إقبالاً كبيراً، مع نفاذ عدد كبير من القطع خلال
+                                            أيام!
+                                            <br/>
+                                            اغتنم الفرصة الآن وكن جزءاً من مجتمع واعد في موقع استراتيجي.
+                                        </p>
+
+                                        <a href="https://drive.google.com/file/d/1cGL_tEJNl7ayGpp-bLWSZ_Hz8Kknp_-t/view"
+                                           target="_blank"
+                                           class="btn btn-outline-primary w-100 sales-status-btn">
+                                            تقرير المبيعات
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <!-- Left Card -->
+                                <div class="col-12 col-lg-5">
+                                    <section class="s_saud_sales_status_card o_colored_level bg-white p-4" dir="rtl"
+                                             data-snippet="s_saud_sales_status_card" data-name="Sales Status Card">
+                                        <div class="sales-progress-item mb-4" data-status-key="available"
+                                             data-label="القطع المتوفرة" data-current="146" data-total="150">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المتوفرة 146 من 150
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المتوفرة"
+                                                 aria-valuenow="97.33" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-bar sales-progress-available" style="width: 97.33%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">97.33%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sales-progress-item is-empty mb-4 is-label-overflow"
+                                             data-status-key="reserved" data-label="القطع المحجوزة" data-current="0"
+                                             data-total="150">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المحجوزة 0 من 150
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المحجوزة"
+                                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-bar sales-progress-reserved" style="width: 0%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">0%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sales-progress-item" data-status-key="sold"
+                                             data-label="القطع المباعة" data-current="4" data-total="150">
+                                            <h5 class="sales-progress-title mb-2 o_not_editable o_default_snippet_text">
+                                                القطع المباعة 4 من 150
+                                            </h5>
+                                            <div class="sales-progress" role="progressbar" aria-label="القطع المباعة"
+                                                 aria-valuenow="2.67" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="sales-bar sales-progress-sold" style="width: 2.67%;">
+                                                    <span class="sales-progress-percent o_default_snippet_text">2.67%
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- sales process -->
+                    <t t-call="theme_saud.info_section_component">
+                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Real-estate-sales.webp'"/>
+                        <t t-set="section_image_alt" t-value="'Our story image'"/>
+
+                        <t t-set="section_title" t-value="'مراحل عملية البيع'"/>
+                        <t t-set="section_description"
+                           t-value="'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.'"/>
+
+                        <t t-set="image_position" t-value="'right'"/>
+                        <t t-set="section_extra_class" t-value="'mt-80'"/>
+
+                        <t t-set="section_items" t-value="[
+        {
+            'icon': 'fa-solid fa-house-chimney',
+            'title': 'تحديد السعر',
+            'description': 'دراسة السوق المحلي وتحديد السعر العادل.'
+        },
+        {
+            'icon': 'fas fa-bullhorn',
+            'title': 'التسويق والإعلان',
+            'description': 'حملة تسويقية تشمل التصوير، الوصف الجذاب، والإعلانات.'
+        },
+        {
+            'icon': 'fas fa-paste',
+            'title': 'تقديم العروض',
+            'description': 'استقبال العروض والتفاوض للوصول إلى أفضل صفقة.'
+        },
+        {
+            'icon': 'fas fa-file-signature',
+            'title': 'إكمال الصفقة',
+            'description': 'بعد انتهاء، يتم توقيع العقود وتحويل الملكية رسميًا بعد دفع المبلغ المتفق عليه.'
+        }
+    ]"/>
+
+                    </t>
+                    <!-- Sponsors Banner -->
+                    <section class="s_saud_ruba_sponsors d-flex align-items-center justify-content-center bg-primary py-5">
+                        <div class="container d-flex flex-column align-items-center flex-lg-row gap-5 gap-lg-4 justify-content-center">
+                            <img src="/theme_saud/static/src/img/rwasete-Logo-w.png" alt="rwasete-Logo" class="w-100"/>
+                            <img src="/theme_saud/static/src/img/alajial-Logo-w.png" alt="alajial-Logo" class="w-100"/>
+                            <img src="/theme_saud/static/src/img/SGRECO-logo-w.png" alt="SGRECO-logo" class="w-100"/>
+
+
+                        </div>
+                    </section>
                 </div>
             </t>
         </template>

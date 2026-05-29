@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" width="200" height="120">
+  <!-- Background -->
+  <rect width="200" height="120" fill="#f8f9fa" rx="4"/>
+
+  <!-- Simulated image -->
+  <rect x="20" y="15" width="160" height="75" fill="#dee2e6" rx="3"/>
+
+  <!-- Map-like lines inside image -->
+  <rect x="30" y="25" width="60" height="8" fill="#adb5bd" rx="1"/>
+  <rect x="30" y="38" width="40" height="8" fill="#adb5bd" rx="1"/>
+  <rect x="30" y="51" width="55" height="8" fill="#adb5bd" rx="1"/>
+  <rect x="110" y="25" width="60" height="55" fill="#ced4da" rx="2"/>
+
+  <!-- Zoom icon badge -->
+  <circle cx="165" cy="75" r="12" fill="white" stroke="#dee2e6" stroke-width="1"/>
+  <circle cx="163" cy="73" r="5" fill="none" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="167" y1="77" x2="171" y2="81" stroke="#6c757d" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Label -->
+  <text x="100" y="108" font-family="sans-serif" font-size="10"
+        fill="#6c757d" text-anchor="middle">Zoomable Image</text>
+</svg>

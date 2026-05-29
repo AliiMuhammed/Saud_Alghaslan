@@ -17,7 +17,8 @@
 
     <template id="template_header_sgreco_mobile" name="SGRECO Header Mobile">
         <t t-call="website.navbar">
-            <t t-set="_navbar_classes" t-valuef="o_header_mobile s_sgreco_header s_sgreco_navbar_mobile d-block d-lg-none shadow-sm"/>
+            <t t-set="_navbar_classes"
+               t-valuef="o_header_mobile s_sgreco_header s_sgreco_navbar_mobile d-block d-lg-none shadow-sm"/>
             <t t-set="_navbar_expand_class" t-valuef=""/>
             <t t-set="_navbar_name" t-valuef="Mobile"/>
 
@@ -34,18 +35,19 @@
                            t-nocache="The searchbox should not cache previous searches.">
                             <t t-set="_item_class" t-valuef="nav-item s_sgreco_search"/>
                             <t t-set="_layout" t-valuef="modal"/>
-                            <t t-set="_button_classes" t-valuef="s_sgreco_nav_search_btn s_sgreco_mobile_search_btn border-0"/>
+                            <t t-set="_button_classes"
+                               t-valuef="s_sgreco_nav_search_btn s_sgreco_mobile_search_btn border-0"/>
                         </t>
                     </li>
                     <li class="nav-item o_not_editable">
                         <button
-                            class="nav-link btn p-2 s_sgreco_mobile_toggler"
-                            type="button"
-                            data-bs-toggle="offcanvas"
-                            data-bs-target="#top_menu_collapse_mobile"
-                            aria-controls="top_menu_collapse_mobile"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
+                                class="nav-link btn p-2 s_sgreco_mobile_toggler"
+                                type="button"
+                                data-bs-toggle="offcanvas"
+                                data-bs-target="#top_menu_collapse_mobile"
+                                aria-controls="top_menu_collapse_mobile"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
                         >
                             <span class="navbar-toggler-icon"/>
                         </button>
@@ -53,22 +55,32 @@
                 </ul>
 
                 <!-- Offcanvas (menu links only, no search) -->
-                <div t-attf-class="offcanvas #{_side if _side else 'offcanvas-end'} o_navbar_mobile" id="top_menu_collapse_mobile">
+                <div t-attf-class="offcanvas #{_side if _side else 'offcanvas-end'} o_navbar_mobile"
+                     id="top_menu_collapse_mobile">
                     <div class="offcanvas-header justify-content-end o_not_editable">
-                        <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas" aria-label="Close"/>
+                        <button type="button" class="nav-link btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"/>
                     </div>
                     <div class="offcanvas-body d-flex flex-column justify-content-between h-100 w-100">
                         <ul class="navbar-nav">
                             <t t-call="website.navbar_nav">
                                 <t t-set="_no_autohide_menu_mobile" t-valuef="True"/>
                                 <t t-set="is_mobile" t-value="True"/>
+                                <t t-set="saud_jobs_menu_template"
+                                   t-value="request.env.ref('theme_saud.job_detail_menu', raise_if_not_found=False)"/>
 
                                 <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                                    <t t-call="website.submenu">
-                                        <t t-set="item_class" t-valuef="nav-item"/>
-                                        <t t-set="link_class" t-valuef="nav-link"/>
-                                        <t t-set="dropdown_toggler_classes" t-valuef="d-flex justify-content-between align-items-center"/>
-                                        <t t-set="dropdown_menu_classes" t-valuef="position-relative rounded-0 o_dropdown_without_offset"/>
+                                    <t t-set="is_default_jobs_menu"
+                                       t-value="submenu.url == '/jobs' and saud_jobs_menu_template and submenu.theme_template_id != saud_jobs_menu_template"/>
+                                    <t t-if="not is_default_jobs_menu">
+                                        <t t-call="website.submenu">
+                                            <t t-set="item_class" t-valuef="nav-item"/>
+                                            <t t-set="link_class" t-valuef="nav-link"/>
+                                            <t t-set="dropdown_toggler_classes"
+                                               t-valuef="d-flex justify-content-between align-items-center"/>
+                                            <t t-set="dropdown_menu_classes"
+                                               t-valuef="position-relative rounded-0 o_dropdown_without_offset"/>
+                                        </t>
                                     </t>
                                 </t>
                             </t>
@@ -78,20 +90,23 @@
                         </ul>
                         <ul class="navbar-nav gap-2 mt-3 w-100">
                             <t t-call="website.placeholder_header_language_selector">
-                                <t t-set="_btn_class" t-valuef="{{_additional_btn_color or 'nav-link'}} d-flex align-items-center w-100"/>
+                                <t t-set="_btn_class"
+                                   t-valuef="{{_additional_btn_color or 'nav-link'}} d-flex align-items-center w-100"/>
                                 <t t-set="_txt_class" t-valuef="me-auto small"/>
                                 <t t-set="_flag_class" t-valuef="me-2"/>
                                 <t t-set="_div_classes" t-valuef="dropup"/>
                                 <t t-set="_dropdown_menu_class" t-valuef="w-100"/>
                             </t>
                             <t t-call="portal.placeholder_user_sign_in">
-                                <t t-set="_link_class" t-valuef="{{_additional_btn_color or 'nav-link o_nav_link_btn'}} w-100 border text-center"/>
+                                <t t-set="_link_class"
+                                   t-valuef="{{_additional_btn_color or 'nav-link o_nav_link_btn'}} w-100 border text-center"/>
                             </t>
                             <t t-call="portal.user_dropdown">
                                 <t t-set="_icon" t-value="true"/>
                                 <t t-set="_user_name" t-value="true"/>
                                 <t t-set="_user_name_class" t-valuef="me-auto small"/>
-                                <t t-set="_link_class" t-valuef="{{ _additional_btn_color or 'nav-link'}} d-flex align-items-center border-0"/>
+                                <t t-set="_link_class"
+                                   t-valuef="{{ _additional_btn_color or 'nav-link'}} d-flex align-items-center border-0"/>
                                 <t t-set="_icon_class" t-valuef="me-2"/>
                                 <t t-set="_item_class" t-valuef="dropdown dropup"/>
                                 <t t-set="_dropdown_menu_class" t-valuef="w-100"/>
@@ -109,94 +124,161 @@
             <header id="top" data-anchor="true"
                     t-attf-class="o_header_standard #{(not is_view_active('website.header_visibility_standard')) and 'o_header_sidebar' or ''} #{is_view_active('website.header_hoverable_dropdown') and 'o_hoverable_dropdown' or ''}"
                     t-att-data-name="'SGRECO'">
-            <t t-set="sgreco_phone" t-value="website.company_id.phone or website.company_id.mobile or '0165311111'"/>
-            <t t-set="sgreco_phone_href" t-value="(sgreco_phone or '').replace(' ', '')"/>
-            <t t-set="sgreco_email" t-value="website.company_id.email or 'info@saudalghaslan.com'"/>
+                <t t-set="sgreco_phone"
+                   t-value="website.company_id.phone or website.company_id.mobile or '0165311111'"/>
+                <t t-set="sgreco_phone_href" t-value="(sgreco_phone or '').replace(' ', '')"/>
+                <t t-set="sgreco_email" t-value="website.company_id.email or 'info@saudalghaslan.com'"/>
 
-            <div class="s_sgreco_header s_sgreco_topbar d-none d-lg-block" dir="rtl" aria-label="SGRECO Header Top Bar">
-                <div class="container s_sgreco_topbar_inner">
-                    <div class="s_sgreco_topbar_contacts">
-                        <a t-if="sgreco_phone" t-att-href="'tel:%s' % sgreco_phone_href" class="s_sgreco_topbar_link o_force_ltr">
-                            <span class="o_force_ltr" t-out="sgreco_phone"/>
-                            <i class="fa fa-phone" aria-hidden="true"/>
-                        </a>
-                        <a t-if="sgreco_email" t-att-href="'mailto:%s' % sgreco_email" class="s_sgreco_topbar_link o_force_ltr">
-                            <span class="o_force_ltr" t-out="sgreco_email"/>
-                            <i class="fa fa-envelope" aria-hidden="true"/>
-                        </a>
-                    </div>
+                <div class="s_sgreco_header s_sgreco_topbar d-none d-lg-block" dir="rtl"
+                     aria-label="SGRECO Header Top Bar">
+                    <div class="container s_sgreco_topbar_inner">
+                        <div class="s_sgreco_topbar_contacts">
+                            <a t-if="sgreco_phone" t-att-href="'tel:%s' % sgreco_phone_href"
+                               class="s_sgreco_topbar_link o_force_ltr">
+                                <span class="o_force_ltr" t-out="sgreco_phone"/>
+                                <i class="fa fa-phone" aria-hidden="true"/>
+                            </a>
+                            <a t-if="sgreco_email" t-att-href="'mailto:%s' % sgreco_email"
+                               class="s_sgreco_topbar_link o_force_ltr">
+                                <span class="o_force_ltr" t-out="sgreco_email"/>
+                                <i class="fa fa-envelope" aria-hidden="true"/>
+                            </a>
+                        </div>
 
-                    <div t-if="is_view_active('website.header_social_links')" class="s_sgreco_topbar_social" aria-label="Social links">
-                        <ul class="navbar-nav flex-row align-items-center mb-0 ps-0">
-                            <t t-call="website.placeholder_header_social_links">
-                                <t t-set="_item_class" t-valuef="nav-item"/>
-                                <t t-set="_div_class" t-valuef=""/>
-                            </t>
-                        </ul>
+                        <div t-if="is_view_active('website.header_social_links')" class="s_sgreco_topbar_social"
+                             aria-label="Social links">
+                            <ul class="navbar-nav flex-row align-items-center mb-0 ps-0">
+                                <t t-call="website.placeholder_header_social_links">
+                                    <t t-set="_item_class" t-valuef="nav-item"/>
+                                    <t t-set="_div_class" t-valuef=""/>
+                                </t>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <t t-call="website.navbar">
-                <t t-set="_navbar_classes" t-valuef="s_sgreco_header s_sgreco_navbar d-none d-lg-block shadow-sm"/>
-                <t t-set="_navbar_name" t-valuef="SGRECO"/>
+                <t t-call="website.navbar">
+                    <t t-set="_navbar_classes" t-valuef="s_sgreco_header s_sgreco_navbar d-none d-lg-block shadow-sm"/>
+                    <t t-set="_navbar_name" t-valuef="SGRECO"/>
 
-                <div id="o_main_nav" class="o_main_nav container s_sgreco_navbar_inner" dir="rtl">
-                    <t t-call="website.placeholder_header_brand">
-                        <t t-set="_link_class" t-valuef="s_sgreco_brand"/>
-                    </t>
+                    <div id="o_main_nav" class="o_main_nav container s_sgreco_navbar_inner" dir="rtl">
+                        <t t-call="website.placeholder_header_brand">
+                            <t t-set="_link_class" t-valuef="s_sgreco_brand"/>
+                        </t>
 
-                    <t t-call="website.navbar_nav">
-                        <t t-set="_nav_class"
-                           t-valuef="s_sgreco_nav_menu flex-grow-1 justify-content-center justify-content-xl-start"/>
+                        <t t-call="website.navbar_nav">
+                            <t t-set="_nav_class"
+                               t-valuef="s_sgreco_nav_menu flex-grow-1 justify-content-center justify-content-xl-start"/>
+                            <t t-set="saud_jobs_menu_template"
+                               t-value="request.env.ref('theme_saud.job_detail_menu', raise_if_not_found=False)"/>
 
-                        <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                            <t t-call="website.submenu">
-                                <t t-set="item_class" t-valuef="nav-item s_sgreco_nav_item"/>
-                                <t t-set="link_class" t-valuef="nav-link s_sgreco_nav_link"/>
-                                <t t-set="dropdown_toggler_classes" t-valuef="d-inline-flex align-items-center gap-1"/>
-                                <t t-set="dropdown_menu_classes" t-valuef="s_sgreco_dropdown_menu border-0 shadow"/>
+                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                <t t-set="is_default_jobs_menu"
+                                   t-value="submenu.url == '/jobs' and saud_jobs_menu_template and submenu.theme_template_id != saud_jobs_menu_template"/>
+                                <t t-if="not is_default_jobs_menu">
+                                    <t t-call="website.submenu">
+                                        <t t-set="item_class" t-valuef="nav-item s_sgreco_nav_item"/>
+                                        <t t-set="link_class" t-valuef="nav-link s_sgreco_nav_link"/>
+                                        <t t-set="dropdown_toggler_classes"
+                                           t-valuef="d-inline-flex align-items-center gap-1"/>
+                                        <t t-set="dropdown_menu_classes"
+                                           t-valuef="s_sgreco_dropdown_menu border-0 shadow"/>
+                                    </t>
+                                </t>
                             </t>
                         </t>
-                    </t>
 
-                    <ul class="navbar-nav s_sgreco_nav_actions flex-row align-items-center mb-0">
-                        <t t-call="website.placeholder_header_search_box"
-                           t-nocache="The searchbox should not cache previous searches.">
-                            <t t-set="_item_class" t-valuef="nav-item s_sgreco_search"/>
-                            <t t-set="_layout" t-valuef="modal"/>
-                            <t t-set="_button_classes" t-valuef="s_sgreco_nav_search_btn border-0"/>
-                        </t>
-                        <li class="nav-item s_sgreco_nav_cta_item">
-                            <a href="/contactus" class="btn btn-primary s_sgreco_nav_cta">اتصل بنا</a>
-                        </li>
-                    </ul>
-                </div>
-            </t>
-
-            <div t-if="is_view_active('website.header_social_links')" class="s_sgreco_header s_sgreco_topbar s_sgreco_topbar_mobile d-block d-lg-none" dir="rtl" aria-label="SGRECO Header Mobile Social Bar">
-                <div class="container s_sgreco_topbar_inner">
-                    <div class="s_sgreco_topbar_social s_sgreco_topbar_social_mobile mx-auto">
-                        <ul class="navbar-nav flex-row align-items-center justify-content-center mb-0 ps-0">
-                            <t t-call="website.placeholder_header_social_links">
-                                <t t-set="_item_class" t-valuef="nav-item"/>
-                                <t t-set="_div_class" t-valuef=""/>
+                        <ul class="navbar-nav s_sgreco_nav_actions flex-row align-items-center mb-0">
+                            <t t-call="website.placeholder_header_search_box"
+                               t-nocache="The searchbox should not cache previous searches.">
+                                <t t-set="_item_class" t-valuef="nav-item s_sgreco_search"/>
+                                <t t-set="_layout" t-valuef="modal"/>
+                                <t t-set="_button_classes" t-valuef="s_sgreco_nav_search_btn border-0"/>
                             </t>
+                            <li class="nav-item s_sgreco_nav_cta_item">
+                                <a href="/contactus" class="btn btn-primary s_sgreco_nav_cta">تواصل معنا</a>
+                            </li>
                         </ul>
                     </div>
-                </div>
-            </div>
+                </t>
 
-            <t t-call="theme_saud.template_header_sgreco_mobile">
-                <t t-set="cta_btn_text" t-valuef="اتصل بنا"/>
-                <t t-set="cta_btn_href" t-valuef="/contactus"/>
-            </t>
+                <div t-if="is_view_active('website.header_social_links')"
+                     class="s_sgreco_header s_sgreco_topbar s_sgreco_topbar_mobile d-block d-lg-none" dir="rtl"
+                     aria-label="SGRECO Header Mobile Social Bar">
+                    <div class="container s_sgreco_topbar_inner">
+                        <div class="s_sgreco_topbar_social s_sgreco_topbar_social_mobile mx-auto">
+                            <ul class="navbar-nav flex-row align-items-center justify-content-center mb-0 ps-0">
+                                <t t-call="website.placeholder_header_social_links">
+                                    <t t-set="_item_class" t-valuef="nav-item"/>
+                                    <t t-set="_div_class" t-valuef=""/>
+                                </t>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <t t-call="theme_saud.template_header_sgreco_mobile">
+                    <t t-set="cta_btn_text" t-valuef="تواصل معنا"/>
+                    <t t-set="cta_btn_href" t-valuef="/contactus"/>
+                </t>
             </header>
         </xpath>
     </template>
 
-    <!-- Navigation/Header Styles -->
+    <!-- ============================================================ -->
+    <!--  Zoomable Image Snippet                                       -->
+    <!-- ============================================================ -->
 
-    <!-- Future Snippets -->
+    <!-- 1. The snippet HTML that gets dropped onto the page -->
+    <template id="s_zoomable_image" name="Zoomable Image">
+        <section class="s_zoomable_image o_colored_level pt-5 pb-5">
+            <div class="container">
+                <div class="d-flex justify-content-center align-items-center">
+                        <div class="s_zoomable_image_wrap position-relative d-inline-block">
+                            <img src="/theme_saud/static/src/img/Ruba-plan-1.webp"
+                                 class="s_zoomable_img"
+                                 alt="Image"/>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+<!-- ============================================================ -->
+    <!--  Saud Snippets — custom group + items                        -->
+    <!-- ============================================================ -->
+    <template id="theme_saud_snippets"
+              inherit_id="website.snippets"
+              name="Saud Snippets">
+
+        <!-- 1. Register the "Saud Snippets" group tile.
+                Inserted BEFORE the first existing group so it appears at the top. -->
+        <xpath expr="//snippets[@id='snippet_groups']/t[1]" position="before">
+            <t snippet-group="saud_snippets"
+               t-snippet="website.s_snippet_group"
+               string="Saud Snippets"
+               t-thumbnail="/theme_saud/static/src/img/snippets/saud_snippets.svg"/>
+        </xpath>
+
+        <!-- 2. Register the snippet items in snippet_structure.
+                Each item carries group="saud_snippets" so it is filed
+                under the Saud Snippets group tile.
+                Inserted BEFORE the first existing t-snippet so the items
+                are guaranteed to be direct children of <snippets id="snippet_structure">. -->
+        <xpath expr="//snippets[@id='snippet_structure']/t[1]" position="before">
+            <t t-snippet="theme_saud.s_zoomable_image"
+               string="Zoomable Image"
+               group="saud_snippets"
+               t-thumbnail="/theme_saud/static/src/img/thumb_zoomable.svg">
+                <keywords>saud, zoom, image, plan, map, real estate</keywords>
+            </t>
+            <t t-snippet="theme_saud.s_saud_sales_status_card"
+               string="Sales Status Card"
+               group="saud_snippets">
+                <keywords>saud, sales, status, progress, card, ruba, real estate</keywords>
+            </t>
+        </xpath>
+
+    </template>
 
 </odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_saud_sales_status_card" name="Sales Status Card">
+        <section class="s_saud_sales_status_card o_colored_level bg-white p-4" dir="rtl">
+
+            <!-- Available -->
+            <div class="sales-progress-item is-empty mb-4"
+                 data-status-key="available"
+                 data-label="القطع المتوفرة"
+                 data-current="0"
+                 data-total="0">
+                <h5 class="sales-progress-title mb-2 o_not_editable">
+                    القطع المتوفرة 0 من 0
+                </h5>
+                <div class="sales-progress"
+                     role="progressbar"
+                     aria-label="القطع المتوفرة"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="sales-bar sales-progress-available" style="width: 0%;">
+                        <span class="sales-progress-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reserved -->
+            <div class="sales-progress-item is-empty mb-4"
+                 data-status-key="reserved"
+                 data-label="القطع المحجوزة"
+                 data-current="0"
+                 data-total="0">
+                <h5 class="sales-progress-title mb-2 o_not_editable">
+                    القطع المحجوزة 0 من 0
+                </h5>
+                <div class="sales-progress"
+                     role="progressbar"
+                     aria-label="القطع المحجوزة"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="sales-bar sales-progress-reserved" style="width: 0%;">
+                        <span class="sales-progress-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sold -->
+            <div class="sales-progress-item is-empty"
+                 data-status-key="sold"
+                 data-label="القطع المباعة"
+                 data-current="0"
+                 data-total="0">
+                <h5 class="sales-progress-title mb-2 o_not_editable">
+                    القطع المباعة 0 من 0
+                </h5>
+                <div class="sales-progress"
+                     role="progressbar"
+                     aria-label="القطع المباعة"
+                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="sales-bar sales-progress-sold" style="width: 0%;">
+                        <span class="sales-progress-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </template>
+
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_saud_sales_status_card_options"
+              inherit_id="website.snippet_options"
+              name="Sales Status Card Options">
+
+        <xpath expr="." position="inside">
+            <div data-js="SaudSalesStatusCard"
+                 data-selector=".s_saud_sales_status_card">
+
+                <we-title>القطع المتوفرة (Available)</we-title>
+                <we-input string="Current (x)" data-available-current="" data-no-preview="true"/>
+                <we-input string="Total (y)"   data-available-total=""   data-no-preview="true"/>
+
+                <we-title>القطع المحجوزة (Reserved)</we-title>
+                <we-input string="Current (x)" data-reserved-current="" data-no-preview="true"/>
+                <we-input string="Total (y)"   data-reserved-total=""   data-no-preview="true"/>
+
+                <we-title>القطع المباعة (Sold)</we-title>
+                <we-input string="Current (x)" data-sold-current="" data-no-preview="true"/>
+                <we-input string="Total (y)"   data-sold-total=""   data-no-preview="true"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='so_content_addition']" position="attributes">
+            <attribute name="data-selector" add=".s_saud_sales_status_card" separator=","/>
+            <attribute name="data-drop-near" add=".s_saud_sales_status_card" separator=","/>
+        </xpath>
+
+    </template>
+
+</odoo>

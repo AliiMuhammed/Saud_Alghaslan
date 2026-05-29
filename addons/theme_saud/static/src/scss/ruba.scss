@@ -20,6 +20,33 @@
   }
 }
 
+.s_saud_ruba_map_location {
+  height: 100%;
+  min-height: 550px;
+
+  iframe {
+    border: 0;
+    filter: grayscale(1);
+    width: 100%;
+    height: 100%;
+    min-height: 550px;
+  }
+
+}
+
+.s_saud_ruba_states {
+  overflow: hidden;
+
+  .s_saud_ruba_header_img img {
+    display: block;
+    width: 100%;
+    max-width: 270px;
+    height: auto;
+    max-height: 90px;
+    object-fit: contain;
+  }
+}
+
 .s_saud_ruba_booking_form_title.form-title {
   &:after {
     bottom: -4.9rem !important;
@@ -64,21 +91,60 @@
     }
   }
 
-  // On mobile stack nicely as single column
 
   @media (max-width: 991.98px) {
     .s_saud_ruba_details_item, .s_saud_ruba_details_media {
       max-width: 36rem;
       margin-inline: auto;
     }
-      @media (max-width: 767.98px) {
-    .s_saud_ruba_details_media {
-      max-width: 30rem;
-      margin-inline: auto;
+    @media (max-width: 767.98px) {
+      .s_saud_ruba_details_media {
+        max-width: 30rem;
+        margin-inline: auto;
+      }
     }
   }
+
+}
+
+.s_saud_ruba_locations {
+  .s_saud_ruba_locations_background {
+    background-image: url("/theme_saud/static/src/img/ruba_section.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+}
+
+.s_saud_location_card {
+  min-height: 88px;
+  background-color: #14AEE0;
+
+  .s_saud_location_card_distance {
+    min-width: 32px;
   }
 
+}
+
+.s_saud_ruba_sponsors {
+  background-image: url("/theme_saud/static/src/img/ruba_section.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  @media (min-width: 992px) {
+    height: 350px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 270px;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    @media (max-width: 575.98px) {
+      height: 90px;
+
+    }
+  }
 }
 
 @keyframes hoverScaleAnimation {

@@ -155,7 +155,8 @@
             'title': 'عاماً من الخبرة'
         }
     ]"/>
-            </t>            <!-- Trusted By section -->
+            </t>
+            <!-- Trusted By section -->
             <t t-call="theme_saud.trusted_by_section"/>
         </xpath>
     </template>

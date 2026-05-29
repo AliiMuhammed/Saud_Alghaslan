@@ -1,0 +1,224 @@
+// =============================================================================
+// Saud theme – Jobs pages
+// Scoped under .s_saud_jobs_page and .s_saud_job_details_page.
+// =============================================================================
+
+$saud-primary: $primary; // sgreco blue from primary_variables.scss
+$saud-navy: $secondary; // sgreco navy / secondary from primary_variables.scss
+
+
+// -----------------------------------------------------------------------------
+// Jobs listing — card
+// -----------------------------------------------------------------------------
+.s_saud_jobs_page {
+  &__filters {
+    .o_jobs_topbar_filters,
+    .o_jobs_topbar_search_bar {
+      justify-content: center;
+    }
+  }
+
+  .s_saud_job_card {
+    // Tall portrait card, close to the reference screenshot.
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 320px;
+    margin-inline: auto;
+    aspect-ratio: 4 / 5;
+    background-color: $saud-navy;
+    color: #fff;
+    cursor: pointer;
+    transition: transform .35s ease, box-shadow .35s ease;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 1.5rem 2.5rem rgba($saud-navy, .25) !important;
+      text-decoration: none;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      transition: opacity .35s ease, background-color .35s ease;
+    }
+
+    // Permanent image tint in the default state, like the screenshot.
+    &::before {
+      z-index: 2;
+      background-color: rgba($saud-navy, .38);
+    }
+
+    // Extra bottom depth behind the default title.
+    &::after {
+      z-index: 3;
+      opacity: 1;
+      background: linear-gradient(
+        to top,
+        rgba($saud-navy, .78) 0%,
+        rgba($saud-navy, .42) 45%,
+        rgba($saud-navy, 0) 78%
+      );
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+      opacity: 0;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      opacity: 0;
+    }
+
+    // Background image
+    &__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: transform .5s ease;
+    }
+
+    &:hover &__img {
+      transform: scale(1.04);
+    }
+
+    // Default-state info pinned at the bottom with a dark gradient
+    &__default {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 4;
+      padding: 1.5rem;
+      transition: opacity .35s ease;
+
+      h3 {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      background: linear-gradient(
+      to top,
+      rgba($saud-primary, .95) 0%,
+      rgba($saud-primary, .85) 40%,
+      rgba($saud-primary, .45) 75%,
+      rgba($saud-primary, 0) 100%
+    );
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(.75rem);
+      transition: opacity .35s ease, transform .35s ease, visibility 0s linear .35s;
+    }
+
+    &__overlay-inner {
+      width: 100%;
+       height:100%;
+
+      h3,
+      p {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+      }
+
+      h3 {
+        -webkit-line-clamp: 2;
+      }
+
+      p {
+        -webkit-line-clamp: 4;
+      }
+
+
+    }
+
+    &:hover .s_saud_job_card__overlay,
+    &:focus-visible .s_saud_job_card__overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition-delay: 0s;
+    }
+
+    &:hover .s_saud_job_card__default,
+    &:focus-visible .s_saud_job_card__default {
+      opacity: 0;
+    }
+  }
+
+  // Touch devices (no real hover): tap shows the overlay state via :focus
+  @media (hover: none) {
+    .s_saud_job_card:active .s_saud_job_card__overlay {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition-delay: 0s;
+    }
+    .s_saud_job_card:active .s_saud_job_card__default {
+      opacity: 0;
+    }
+  }
+}
+
+
+// -----------------------------------------------------------------------------
+// Single job detail
+// -----------------------------------------------------------------------------
+.s_saud_job_details_page {
+
+  &__hero {
+    object-fit: cover;
+    max-height: 480px;
+  }
+    .s_saud_job_section_content{
+        h3{
+            font-size:1rem;
+        }
+    }
+  .s_saud_job_section_content {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        position: relative;
+        padding-inline-start: 1.5rem;
+        margin-bottom: .75rem;
+        line-height: 1.9;
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset-inline-start: .25rem;
+          top: .75rem;
+          width: .45rem;
+          height: .45rem;
+          border-radius: 50%;
+          background: $saud-primary;
+        }
+      }
+    }
+  }
+
+
+}

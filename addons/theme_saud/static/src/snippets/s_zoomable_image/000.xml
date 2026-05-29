@@ -1,0 +1,23 @@
+<template id="s_zoomable_image" name="Zoomable Image">
+    <section class="s_zoomable_image o_colored_level">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 text-center">
+
+                    <div class="s_zoomable_image_wrap position-relative d-inline-block">
+                        <img src="/theme_saud/static/src/img/Ruba-plan-1.webp"
+                             class="img-fluid rounded shadow s_zoomable_img"
+                             alt="Zoomable Image"
+                             style="cursor: zoom-in; max-width: 100%;"/>
+
+                        <div class="s_zoom_icon position-absolute bottom-0 end-0 m-2 bg-white rounded-circle p-1 shadow-sm"
+                             style="pointer-events:none;">
+                            <i class="fa fa-search-plus text-muted"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
