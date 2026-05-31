@@ -93,7 +93,101 @@
                         </t>
                     </section>
                     <!-- How We Work section -->
-                    <t t-call="theme_saud.how_we_work_section"/>
+                    <section class="s_saud_how_work o_colored_level"
+                             data-snippet="s_saud_how_work_steps" data-name="How We Work Steps"
+                             data-saud-reveal-initialized="true">
+                        <div class="s_saud_section_title pb-5 container d-flex justify-content-center align-items-center flex-column">
+                            <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0 o_default_snippet_text">كيف
+                                نعمل
+                            </h2>
+                            <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0 o_default_snippet_text">
+                                نقدم لك تجربة منظمة وواضحة من أول خطوة حتى اكتمال الخدمة.
+                            </p>
+                        </div>
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-3 g-4 g-xl-5 justify-content-center s_saud_how_work_steps">
+                                <div class="col s_saud_how_work_step_item o_colored_level" data-name="How We Work Step">
+                                    <article
+                                            class="s_saud_how_work_step h-100 s_saud_reveal s_saud_reveal--zoom s_saud_reveal--delay-2 s_saud_reveal--ready is-visible"
+                                            data-saud-reveal-initialized="true">
+                                        <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                             aria-hidden="true"/>
+                                        <div class="s_saud_how_work_step_content">
+                                            <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;التقييم
+                                                والاستشارة
+                                            </h3>
+                                            <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                                &amp;nbsp;نبدأ
+                                                بفهم احتياجات العملاء وتقديم استشارات مخصصة حول أفضل الطرق لتحقيق
+                                                أهدافهم
+                                                العقارية، مع دراسة السوق وتقييم الفرص المتاحة.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col s_saud_how_work_step_item o_colored_level" data-name="How We Work Step">
+                                    <article
+                                            class="s_saud_how_work_step h-100 s_saud_reveal s_saud_reveal--zoom s_saud_reveal--delay-3 s_saud_reveal--ready is-visible"
+                                            data-saud-reveal-initialized="true">
+                                        <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                             aria-hidden="true"/>
+                                        <div class="s_saud_how_work_step_content">
+                                            <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;التطوير
+                                                والتسويق
+                                            </h3>
+                                            <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                                &amp;nbsp;نعمل
+                                                على تطوير العقارات بما يتناسب مع احتياجات السوق، مع إعداد خطط تسويقية
+                                                فعالة لجذب
+                                                المشترين والمستثمرين، وضمان الوصول لأفضل العوائد الاستثمارية.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="col s_saud_how_work_step_item o_colored_level" data-name="How We Work Step">
+                                    <article
+                                            class="s_saud_how_work_step h-100 s_saud_reveal s_saud_reveal--zoom s_saud_reveal--delay-4 s_saud_reveal--ready is-visible"
+                                            data-saud-reveal-initialized="true">
+                                        <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                             aria-hidden="true"/>
+                                        <div class="s_saud_how_work_step_content">
+                                            <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;التنفيذ
+                                                والإدارة
+                                            </h3>
+                                            <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                                نقوم بتنفيذ مشاريع العقارات مع الالتزام بأعلى معايير الجودة، ونتولى
+                                                إدارة
+                                                الممتلكات وضمان توفير الخدمات المناسبة للمستأجرين والمشترين، مما يعزز
+                                                رضا
+                                                العملاء ويحقق الاستدامة المالية.
+                                            </p>
+                                            <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                                &amp;nbsp;
+                                                <br/>
+                                            </p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <t t-call="theme_saud.testimonials_carousel">
+                        <t t-set="testimonials_extra_class" t-value="'mb-80'"/>
+                        <t t-set="testimonials" t-value="[
+                    {
+                        'text': 'اخترت الشركة لمساعدتي في استثمار أموالي في العقارات، قدموا لي استشارات دقيقة ومفيدة ساعدتني في اتخاذ القرار الصحيح، وكل ذلك بفضل احترافيتهم وتفانيهم في العمل.',
+                        'image': '/theme_saud/static/src/img/Testimonial-1.webp',
+                        'name': 'رائد فارس',
+                        'title': 'رجل أعمال'
+                    },
+                    {
+                        'text': 'شعرت بالراحة والثقة. الفريق كان محترفاً وقدم لي جميع المعلومات التي أحتاجها، مما جعل عملية شراء المنزل الجديد تجربة مريحة وسلسة. أنصح بشدة باستخدام خدماتهم لأي شخص يبحث عن عقار.',
+                        'image': '/theme_saud/static/src/img/Testimonial-2.webp',
+                        'name': 'الهنوف عبدالعزيز',
+                        'title': 'مدرسة'
+                    }
+                ]"/>
+                    </t>
                     <!-- CounterUp section -->
                     <section class="s-saud-our-numbers py-5 mb-80 bg-body-tertiary bg-opacity-25">
                         <t t-call="theme_saud.counter_up_section">

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_saud_how_work_steps" name="Saud How We Work Steps">
+        <section class="s_saud_how_work o_colored_level mb-80 bg-white pt-5 pb-5"
+                 data-snippet="s_saud_how_work_steps"
+                 data-name="Saud How We Work Steps"
+               >
+            <div class="s_saud_section_title pb-5 container d-flex justify-content-center align-items-center flex-column">
+                <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0">كيف نعمل</h2>
+                <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0">
+                    نقدم لك تجربة منظمة وواضحة من أول خطوة حتى اكتمال الخدمة.
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4 g-xl-5 justify-content-center s_saud_how_work_steps">
+                    <div class="col s_saud_how_work_step_item" data-name="How We Work Step">
+                        <article class="s_saud_how_work_step h-100">
+                            <div class="s_saud_how_work_step_number text-primary o_not_editable" aria-hidden="true"/>
+                            <div class="s_saud_how_work_step_content">
+                                <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">
+                                    الاستشارة الأولية
+                                </h3>
+                                <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                    نبدأ بفهم احتياجاتك وتحليل متطلباتك بدقة للوصول إلى أفضل حل مناسب.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col s_saud_how_work_step_item" data-name="How We Work Step">
+                        <article class="s_saud_how_work_step h-100">
+                            <div class="s_saud_how_work_step_number text-primary o_not_editable" aria-hidden="true"/>
+                            <div class="s_saud_how_work_step_content">
+                                <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">
+                                    التخطيط والتنفيذ
+                                </h3>
+                                <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                    نضع خطة واضحة ونبدأ تنفيذ الخطوات المطلوبة وفق جدول زمني منظم.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col s_saud_how_work_step_item" data-name="How We Work Step">
+                        <article class="s_saud_how_work_step h-100">
+                            <div class="s_saud_how_work_step_number text-primary o_not_editable" aria-hidden="true"/>
+                            <div class="s_saud_how_work_step_content">
+                                <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">
+                                    المتابعة والتسليم
+                                </h3>
+                                <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                    نتابع جودة التنفيذ ونضمن تسليم الخدمة بالشكل المطلوب.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

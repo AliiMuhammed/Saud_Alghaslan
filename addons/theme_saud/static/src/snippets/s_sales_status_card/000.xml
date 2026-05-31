@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="s_saud_sales_status_card" name="Sales Status Card">
-        <section class="s_saud_sales_status_card o_colored_level bg-white p-4" dir="rtl">
+        <section class="s_saud_sales_status_card o_colored_level bg-white p-4" >
 
             <!-- Available -->
             <div class="sales-progress-item is-empty mb-4"

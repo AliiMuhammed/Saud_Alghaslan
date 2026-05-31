@@ -240,6 +240,26 @@
   white-space: nowrap;
 }
 
+//------------------------------------------------------------------------------
+// How We Work Steps Snippet
+//------------------------------------------------------------------------------
+
+.s_saud_how_work_steps {
+  counter-reset: saud-how-work-step;
+
+  > .s_saud_how_work_step_item {
+    counter-increment: saud-how-work-step;
+  }
+
+  .s_saud_how_work_step_number {
+    min-width: 1.15em;
+
+    &::before {
+      content: counter(saud-how-work-step) ".";
+    }
+  }
+}
+
 @media (max-width: 1399.98px) {
   .s_sgreco_navbar_inner {
     gap: 1rem;

@@ -70,7 +70,7 @@
                     <t t-set="section_button_url" t-value="'/about-us'"/>
                     <t t-set="section_extra_class" t-value="'bg-body-tertiary py-5 bg-opacity-25'"/>
                 </t>
-                <main class="s_saud_jobs_page ">
+                <main class="s_saud_jobs_page mb-80 ">
                     <div class="container">
                         <!--   main section title     -->
                         <t t-call="theme_saud.main_section_title">
@@ -78,13 +78,11 @@
                             <t t-set="main_subtitle"
                                t-value="'نسعى لتوظيف الأفراد الذين يتمتعون بروح الابتكار والحماس، والذين يساهمون في تعزيز بيئة العمل.'"/>
                         </t>
-
                         <t t-if="not jobs">
                             <div class="alert alert-info text-center" role="alert">
                                 لا توجد وظائف متاحة حاليًا.
                             </div>
                         </t>
-
                         <div class="row g-4 g-lg-5 justify-content-center">
                             <t t-foreach="jobs" t-as="job">
                                 <div class="col-12 col-md-6 col-lg-3">
@@ -134,19 +132,122 @@
                                 </div>
                             </t>
                         </div>
-
-                        <div t-if="pager" class="navbar mt-5 w-100">
-                            <t t-call="website.pager">
-                                <t t-set="classname" t-valuef="mx-auto"/>
-                            </t>
-                        </div>
-
                     </div>
                 </main>
+                <section class="s_saud_how_work o_colored_level mb-80 bg-body-tertiary bg-opacity-25 py-5"
+                         data-snippet="s_saud_how_work_steps" data-name="How We Work Steps" >
+                    <div class="s_saud_section_title pb-5 d-flex justify-content-center align-items-center flex-column container">
+                        <h2 class="s_saud_main_title text-primary fw-semibold lh-lg m-0">عملية التوظيف</h2>
+                        <p class="s_saud_main_subtitle text-muted fw-normal text-center m-0">
+                            نحن نتبع عملية توظيف شاملة تضمن اختيار افضل المرشحين الذبن يتناسبون مع قيمنا وأهدفنا&amp;nbsp;
+                            <br/>
+                        </p>
+                    </div>
+                    <div class="container">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 g-xl-5 justify-content-center s_saud_how_work_steps">
+                            <div class="col s_saud_how_work_step_item o_colored_level pt16"
+                                 data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;التقديم
+                                            عبر الإنترنت
+                                        </h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">&amp;nbsp;يبدأ
+                                            المتقدمون بملء استمارة التقديم على موقعنا الإلكتروني، وتقديم سيرتهم الذاتية.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col s_saud_how_work_step_item o_colored_level pt16"
+                                 data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;مراجعة
+                                            الطلبات
+                                        </h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">&amp;nbsp;يقوم
+                                            فريق الموارد البشرية بمراجعة الطلبات المتقدمة وتحديد المتقدمين المناسبين
+                                            للمرحلة التالية.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col s_saud_how_work_step_item o_colored_level pt16"
+                                 data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;المقابلات</h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">&amp;nbsp;بعد
+                                            مراجعة الطلبات، يتم إجراء مقابلة للتعرف على المتقدمين بشكل أفضل، ومناقشة
+                                            خبراتهم وأهدافهم المهنية.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col s_saud_how_work_step_item o_colored_level pt16"
+                                 data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;اختبارات
+                                            تقييم المهارات
+                                        </h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">&amp;nbsp;دعوة
+                                            المتقدمين الذين اجتازوا المقابلة لإجراء اختبارات تقييمية تهدف إلى قياس
+                                            مهاراتهم الفنية والشخصية.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col s_saud_how_work_step_item o_colored_level" data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">&amp;nbsp;عرض
+                                            العمل
+                                        </h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">&amp;nbsp;يتم
+                                            تقديم عرض العمل للمرشحين الذين اجتازوا جميع المراحل، مع توضيح تفاصيل العرض
+                                            وشروط العمل.
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col s_saud_how_work_step_item o_colored_level" data-name="How We Work Step">
+                                <article class="s_saud_how_work_step h-100">
+                                    <div class="s_saud_how_work_step_number text-primary o_not_editable"
+                                         aria-hidden="true"/>
+                                    <div class="s_saud_how_work_step_content">
+                                        <h3 class="s_saud_how_work_step_title fs-5 lh-sm fw-semibold">
+                                            &amp;nbsp;المتابعة
+                                        </h3>
+                                        <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
+                                            متابعة إجراءات الانضمام إلى الشركة. مع تقديم التوجيهات اللازمة للانضمام وبدأ
+                                            الفترة التدريبية.&amp;nbsp;
+                                            <br/>
+                                        </p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Trusted By section -->
+                <t t-call="theme_saud.trusted_by_section">
+                    <t t-set="trusted_extra_class" t-value="'pb-5'"/>
+                </t>
                 <section
                         class="s_saud_cta_banner o_colored_level oe_img_bg o_bg_img_center position-relative overflow-hidden text-center text-white d-flex align-items-center justify-content-center py-5 s_saud_reveal s_saud_reveal--top s_saud_reveal--ready is-visible"
                         data-snippet="s_saud_cta_banner" data-name="Saud CTA Banner"
-                            style="background-image: url('/theme_saud/static/src/img/hero_about.webp'); background-position: 50% 50%;"
+                        style="background-image: url('/theme_saud/static/src/img/hero_about.webp'); background-position: 50% 50%;"
                         data-saud-reveal-initialized="true">
                     <div class="s_saud_cta_banner__overlay"/>
                     <div class="container s_allow_columns position-relative">

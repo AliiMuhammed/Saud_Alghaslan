@@ -22,6 +22,7 @@
 
         # Snippets
         "static/src/snippets/s_saud_cta_banner/000.xml",
+        "static/src/snippets/s_saud_how_work_steps/000.xml",
         "static/src/snippets/s_sales_status_card/000.xml",
         "static/src/snippets/s_sales_status_card/options.xml",
 

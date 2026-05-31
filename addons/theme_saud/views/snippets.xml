@@ -22,7 +22,7 @@
             <t t-set="_navbar_expand_class" t-valuef=""/>
             <t t-set="_navbar_name" t-valuef="Mobile"/>
 
-            <div class="o_main_nav container d-flex flex-wrap align-items-center justify-content-between" dir="rtl">
+            <div class="o_main_nav container d-flex flex-wrap align-items-center justify-content-between">
                 <!-- Brand / Logo (right side in RTL) -->
                 <t t-call="website.placeholder_header_brand">
                     <t t-set="_link_class" t-valuef="s_sgreco_brand"/>
@@ -129,7 +129,7 @@
                 <t t-set="sgreco_phone_href" t-value="(sgreco_phone or '').replace(' ', '')"/>
                 <t t-set="sgreco_email" t-value="website.company_id.email or 'info@saudalghaslan.com'"/>
 
-                <div class="s_sgreco_header s_sgreco_topbar d-none d-lg-block" dir="rtl"
+                <div class="s_sgreco_header s_sgreco_topbar d-none d-lg-block"
                      aria-label="SGRECO Header Top Bar">
                     <div class="container s_sgreco_topbar_inner">
                         <div class="s_sgreco_topbar_contacts">
@@ -161,7 +161,7 @@
                     <t t-set="_navbar_classes" t-valuef="s_sgreco_header s_sgreco_navbar d-none d-lg-block shadow-sm"/>
                     <t t-set="_navbar_name" t-valuef="SGRECO"/>
 
-                    <div id="o_main_nav" class="o_main_nav container s_sgreco_navbar_inner" dir="rtl">
+                    <div id="o_main_nav" class="o_main_nav container s_sgreco_navbar_inner" >
                         <t t-call="website.placeholder_header_brand">
                             <t t-set="_link_class" t-valuef="s_sgreco_brand"/>
                         </t>
@@ -203,7 +203,7 @@
                 </t>
 
                 <div t-if="is_view_active('website.header_social_links')"
-                     class="s_sgreco_header s_sgreco_topbar s_sgreco_topbar_mobile d-block d-lg-none" dir="rtl"
+                     class="s_sgreco_header s_sgreco_topbar s_sgreco_topbar_mobile d-block d-lg-none"
                      aria-label="SGRECO Header Mobile Social Bar">
                     <div class="container s_sgreco_topbar_inner">
                         <div class="s_sgreco_topbar_social s_sgreco_topbar_social_mobile mx-auto">
@@ -271,6 +271,11 @@
                group="saud_snippets"
                t-thumbnail="/theme_saud/static/src/img/thumb_zoomable.svg">
                 <keywords>saud, zoom, image, plan, map, real estate</keywords>
+            </t>
+            <t t-snippet="theme_saud.s_saud_how_work_steps"
+               string="How We Work Steps"
+               group="saud_snippets">
+                <keywords>saud, how we work, steps, process, items, real estate</keywords>
             </t>
             <t t-snippet="theme_saud.s_saud_sales_status_card"
                string="Sales Status Card"

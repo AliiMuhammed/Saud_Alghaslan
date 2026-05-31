@@ -582,7 +582,7 @@
 
                                 <!-- Left Card -->
                                 <div class="col-12 col-lg-5">
-                                    <section class="s_saud_sales_status_card o_colored_level bg-white p-4" dir="rtl"
+                                    <section class="s_saud_sales_status_card o_colored_level bg-white p-4"
                                              data-snippet="s_saud_sales_status_card" data-name="Sales Status Card">
                                         <div class="sales-progress-item mb-4" data-status-key="available"
                                              data-label="القطع المتوفرة" data-current="146" data-total="150">

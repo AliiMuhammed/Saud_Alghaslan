@@ -57,9 +57,9 @@
         <template id="benefits_component" name="Saud Benefits Section">
             <section t-attf-class="s_saud_benefits mb-80 {{ benefits_extra_class or '' }}">
                 <div class="container">
-                    <div class="row g-5">
+                    <div class="row g-1 g-lg-5">
                         <div t-foreach="benefits" t-as="benefit" class="col-lg-4 col-md-6">
-                            <div class="d-flex align-items-start gap-5 p-3">
+                            <div class="d-flex align-items-start gap-3 gap-lg-4 p-3">
                                 <div t-if="benefit.get('icon')" class=" text-primary flex-shrink-0">
                                     <i t-att-class="benefit['icon']" aria-hidden="true"/>
                                 </div>
@@ -161,116 +161,40 @@
                 </div>
             </section>
         </template>
-        <!-- How We Work section -->
-        <template id="how_we_work_section" name="Saud How We Work Section">
-            <section t-attf-class="s_saud_how_work mb-80 bg-white {{ how_we_work_extra_class or '' }}">
-                <t t-call="theme_saud.main_section_title">
-                    <t t-set="main_title" t-value="'كيف نعمل؟'"/>
-                    <t t-set="main_subtitle"
-                       t-value="'نعمل على تقديم الاستشارات وتطوير العقارات وتسويقها بفعالية، وتنفيذ المشاريع وإدارتها لضمان أعلى مستويات الجودة ورضا العملاء.'"/>
-                </t>
+        <!-- Testimonials Carousel -->
+        <template id="testimonials_carousel" name="Saud Testimonials Carousel">
+            <t t-set="saud_testimonials" t-value="testimonials or []"/>
+            <div t-if="saud_testimonials"
+                 t-attf-class="s_saud_how_work_testimonials mt-5 pt-lg-3 {{ testimonials_extra_class or '' }}">
+                <div class="owl-carousel owl-theme s_saud_carousel s_saud_how_work_carousel"
+                     data-items="1" data-dots="true" data-autoplay="true"
+                     data-autoplay-timeout="6000">
+                    <div t-foreach="saud_testimonials" t-as="testimonial"
+                         class="s_saud_how_work_testimonial_item">
+                        <article class="s_saud_how_work_testimonial text-center mx-auto">
+                            <p t-if="testimonial.get('text')"
+                               class="s_saud_how_work_testimonial_text lh-base text-muted fst-italic mb-3"
+                               t-out="testimonial.get('text')"/>
 
-                <div class="container">
-                    <div class="row g-4 g-xl-5 justify-content-center s_saud_how_work_steps">
-                        <div class="col-12 col-md-4 col-lg-4">
-                            <article class="s_saud_how_work_step h-100">
-                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">1.</div>
-                                <div class="s_saud_how_work_step_content">
-                                    <h3 class="s_saud_how_work_step_title fs-5 lh-sm  fw-semibold ">
-                                        التقييم والاستشارة
-                                    </h3>
-                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
-                                        نقوم بتحليل احتياجاتك و تقديم استشارات مخصصة حول أفضل الطرق لتحقيق أهدافك
-                                        العقارية، مع دراسة السوق وتقييم الفرص المتاحة.
-                                    </p>
+                            <div class="s_saud_how_work_customer d-inline-flex align-items-center gap-3">
+                                <img t-if="testimonial.get('image')"
+                                     t-att-src="testimonial.get('image')"
+                                     t-att-alt="testimonial.get('name') or ''"
+                                     class="s_saud_how_work_customer_image rounded-circle"
+                                     loading="lazy"/>
+                                <div class="s_saud_how_work_customer_meta text-start">
+                                    <h4 t-if="testimonial.get('name')"
+                                        class="fw-semibold small mb-1"
+                                        t-out="testimonial.get('name')"/>
+                                    <p t-if="testimonial.get('title') or testimonial.get('job_title')"
+                                       class="s_saud_how_work_customer_title text-muted mb-0"
+                                       t-out="testimonial.get('title') or testimonial.get('job_title')"/>
                                 </div>
-                            </article>
-                        </div>
-
-                        <div class="col-12 col-md-4 col-lg-4">
-                            <article class="s_saud_how_work_step h-100">
-                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">2.</div>
-                                <div class="s_saud_how_work_step_content">
-                                    <h3 class="s_saud_how_work_step_title fs-5  lh-sm fw-semibold ">
-                                        التطوير والتسويق
-                                    </h3>
-                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
-                                        نعمل على تطوير العقارات بما يتناسب مع احتياجات السوق، مع إعداد خطط تسويقية
-                                        فعالة لجذب المستثمرين والمشترين، وضمان الوصول لأفضل العوائد الاستثمارية.
-                                    </p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-12 col-md-4 col-lg-4">
-                            <article class="s_saud_how_work_step h-100">
-                                <div class="s_saud_how_work_step_number text-primary" aria-hidden="true">3.</div>
-                                <div class="s_saud_how_work_step_content">
-                                    <h3 class="s_saud_how_work_step_title fs-5 lh-sm  fw-semibold ">
-                                        التنفيذ والإدارة
-                                    </h3>
-                                    <p class="s_saud_how_work_step_description text-muted mb-0 small lh-base">
-                                        نقوم بتنفيذ مشاريع العقارات مع الالتزام بأعلى معايير الجودة، ونتولى إدارة
-                                        الممتلكات وتوفير الخدمات المناسبة للمستأجرين والمشترين، مما يعزز رضا العملاء
-                                        ويحقق الاستدامة المالية.
-                                    </p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-
-                    <div class="s_saud_how_work_testimonials mt-5 pt-lg-3">
-                        <div class="owl-carousel owl-theme s_saud_carousel s_saud_how_work_carousel"
-                             data-items="1" data-dots="true" data-autoplay="true"
-                             data-autoplay-timeout="6000">
-                            <div class="s_saud_how_work_testimonial_item">
-                                <article class="s_saud_how_work_testimonial text-center mx-auto">
-                                    <p class="s_saud_how_work_testimonial_text lh-base text-muted fst-italic mb-3">
-                                        اخترت الشركة لمساعدتي في استثمار أموالي في العقارات، قدموا لي استشارات دقيقة
-                                        ومفيدة ساعدتني في اتخاذ القرار الصحيح، وكل ذلك بفضل احترافيتهم وتفانيهم في
-                                        العمل.
-                                    </p>
-
-                                    <div class="s_saud_how_work_customer d-inline-flex align-items-center gap-3">
-                                        <img t-att-src="how_we_work_customer_image or '/theme_saud/static/src/img/Testimonial-1.webp'"
-                                             onerror="this.onerror=null;this.src='/theme_saud/static/src/img/testimonial_customer_placeholder.svg';"
-                                             alt="رائد فارس"
-                                             class="s_saud_how_work_customer_image rounded-circle"
-                                             loading="lazy"/>
-                                        <div class="s_saud_how_work_customer_meta text-start">
-                                            <h4 class=" fw-semibold small mb-1">رائد فارس</h4>
-                                            <p class=" s_saud_how_work_customer_title  text-muted mb-0">رجل أعمال</p>
-                                        </div>
-
-                                    </div>
-                                </article>
                             </div>
-                            <div class="s_saud_how_work_testimonial_item">
-                                <article class="s_saud_how_work_testimonial text-center mx-auto">
-                                    <p class="s_saud_how_work_testimonial_text lh-base text-muted fst-italic mb-4">
-                                        شعرت بالراحة والثقة. الفريق كان محترفاً وقدم لي جميع المعلومات التي أحتاجها،
-                                        مما جعل عملية شراء المنزل الجديد تجربة مريحة وسلسة. أنصح بشدة باستخدام
-                                        خدماتهم لأي شخص يبحث عن عقار.
-                                    </p>
-
-                                    <div class="s_saud_how_work_customer d-inline-flex align-items-center gap-3">
-                                        <img t-att-src="how_we_work_customer_image_2 or '/theme_saud/static/src/img/Testimonial-2.webp'"
-                                             onerror="this.onerror=null;this.src='/theme_saud/static/src/img/testimonial_customer_placeholder.svg';"
-                                             alt="الهنوف عبدالعزيز"
-                                             class="s_saud_how_work_customer_image rounded-circle"
-                                             loading="lazy"/>
-                                        <div class="s_saud_how_work_customer_meta text-start">
-                                            <h4 class=" fw-semibold small mb-1">الهنوف عبدالعزيز</h4>
-                                            <p class="s_saud_how_work_customer_title  text-muted mb-0">مدرسة</p>
-                                        </div>
-
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </section>
+            </div>
         </template>
         <!-- Services Cards -->
         <template id="s_saud_service_card" name="Saud Service Card">
