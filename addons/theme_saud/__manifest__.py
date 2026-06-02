@@ -42,6 +42,7 @@
         "data/pages/Auctions.xml",
         "data/pages/ContactUs.xml",
         "data/pages/Ruba.xml",
+        "data/pages/Inquiries.xml",
     ],
     'images': [
         'static/description/saudalghaslan_description.webp',
@@ -57,6 +58,7 @@
             'theme_saud/static/src/js/services_form.js',
             'theme_saud/static/src/js/contactus_form.js',
             'theme_saud/static/src/js/ruba_booking_form.js',
+            'theme_saud/static/src/js/inquiries_form.js',
             'theme_saud/static/src/js/zoomable_image.js',
             'theme_saud/static/src/js/sales_status_card.js',
 
@@ -81,6 +83,7 @@
             'theme_saud/static/src/scss/contactus.scss',
             'theme_saud/static/src/scss/ruba.scss',
             'theme_saud/static/src/scss/jobs.scss',
+            'theme_saud/static/src/scss/inquiries.scss',
         ],
 
         'website.assets_wysiwyg': [

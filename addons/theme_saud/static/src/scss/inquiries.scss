@@ -1,0 +1,60 @@
+.s_saud_inquiries_page {
+  .s_saud_inquiries_card {
+    border: 1px solid rgba($o-black, 0.12);
+    border-radius: 4px;
+  }
+
+  .s_saud_inquiries_info {
+    min-height: 640px;
+  }
+
+  .s_saud_inquiries_info_title {
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    line-height: 1.5;
+  }
+
+  .s_saud_inquiries_info_line {
+    display: block;
+    width: 36px;
+    height: 3px;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    background-color: rgba($o-light, 0.65);
+  }
+
+  .s_saud_inquiries_icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    background-color: rgba($o-light, 0.16);
+  }
+
+  .s_saud_inquiries_form_title {
+    color: $o-black;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.35;
+  }
+
+  .left .form-title:after {
+    left: 0 !important;
+    bottom: -0.85rem;
+
+    transform: none;
+    width: 36px;
+    height: 3px;
+  }
+
+  .contact-submit {
+    min-height: 48px;
+  }
+
+  textarea.form-control {
+    min-height: 112px;
+  }
+
+  @media (max-width: 991.98px) {
+    .s_saud_inquiries_info {
+      min-height: auto;
+    }
+  }
+}
