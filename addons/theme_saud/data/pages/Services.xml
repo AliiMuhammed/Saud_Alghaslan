@@ -77,79 +77,24 @@
                             </div>
                         </div>
                     </section>
-                    <!-- services -->
-                    <t t-call="theme_saud.info_section_component">
-                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Real-estate-sales.webp'"/>
-                        <t t-set="section_image_alt" t-value="'Our story image'"/>
-
-                        <t t-set="section_title" t-value="'المبيعات'"/>
-                        <t t-set="section_description"
-                           t-value="'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.'"/>
-
-                        <t t-set="image_position" t-value="'right'"/>
-                        <t t-set="section_extra_class" t-value="'mt-80'"/>
-
-                        <t t-set="section_items" t-value="[
-        {
-            'icon': 'fas fa-money-bill-wave',
-            'title': 'تحديد السعر',
-            'description': 'دراسة السوق المحلي وتحديد السعر العادل.'
-        },
-        {
-            'icon': 'fas fa-bullhorn',
-            'title': 'التسويق والإعلان',
-            'description': 'حملة تسويقية تشمل التصوير، الوصف الجذاب، والإعلانات.'
-        },
-        {
-            'icon': 'fas fa-paste',
-            'title': 'تقديم العروض',
-            'description': 'استقبال العروض والتفاوض للوصول إلى أفضل صفقة.'
-        },
-        {
-            'icon': 'fas fa-file-signature',
-            'title': 'إكمال الصفقة',
-            'description': 'بعد انتهاء المزاد، يتم توقيع العقود وتحويل الملكية رسميًا بعد دفع المبلغ المتفق عليه.'
-        }
-    ]"/>
-
-                        <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
-                        <t t-set="section_button_url" t-value="'/services/#'"/>
-                    </t>
-                    <t t-call="theme_saud.info_section_component">
-                        <t t-set="section_image" t-value="'/theme_saud/static/src/img/Property-management.webp'"/>
-                        <t t-set="section_image_alt" t-value="'Our story image'"/>
-
-                        <t t-set="section_title" t-value="'إدارة الأملاك'"/>
-                        <t t-set="section_description"
-                           t-value="'فور توقيع العقود, يقوم فريق إدارة الأملاك لدينا بوضع إستراتيجية شاملة لجميع جوانب المشروع والوقوف على العقار ومعاينته ووضع القيمة الإيجارية العادلة.'"/>
-
-                        <t t-set="image_position" t-value="'left'"/>
-                        <t t-set="section_extra_class" t-value="'bg-body-tertiary bg-opacity-25 py-5'"/>
-                        <t t-set="section_items" t-value="[
-        {
-            'icon': 'fas fa-comment-dollar',
-            'title': 'تقييم الممتلكات',
-            'description': 'تحليل حالة العقار وتحديد القيمة السوقية.'
-        },
-        {
-            'icon': 'fas fa-bullhorn',
-            'title': 'التسويق والإعلان',
-            'description': 'الإعلان عن العقار لجذب المستأجرين المحتملين.'
-        },
-        {
-            'icon': 'fas fa-key',
-            'title': 'التأجير وإدارة العقود',
-            'description': 'مقابلة المستأجرين وإعداد العقود.'
-        },
-        {
-            'icon': 'fas fa-tools',
-            'title': 'الصيانة والإدارة المستمرة',
-            'description': 'إدارة الصيانة والتواصل المستمر مع المستأجرين'
-        }
-    ]"/>
-
-                        <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
-                        <t t-set="section_button_url" t-value="'/services/#'"/>
+                    <!-- services (data-driven from saud.service) -->
+                    <t t-foreach="request.env['saud.service'].sudo().search([('active', '=', True)], order='sequence, id')"
+                       t-as="service">
+                        <t t-call="theme_saud.info_section_component">
+                            <t t-set="section_image" t-value="'/web/image/saud.service/%d/image' % service.id"/>
+                            <t t-set="section_image_alt" t-value="service.main_title"/>
+                            <t t-set="section_title" t-value="service.main_title"/>
+                            <t t-set="section_description" t-value="service.main_description"/>
+                            <t t-set="image_position" t-value="service.image_position"/>
+                            <t t-set="section_items" t-value="[
+                                {'icon': b.benefit_icon, 'title': b.benefit_title, 'description': b.benefit_subtitle}
+                                for b in service.benefit_ids
+                            ]"/>
+                            <t t-set="section_extra_class"
+                               t-value="'bg-body-tertiary bg-opacity-25 py-5' if service_odd else ('mt-80' if service_first else '')"/>
+                            <t t-set="section_button_text" t-value="'أطلب الخدمة'"/>
+                            <t t-set="section_button_url" t-value="'/services/#'"/>
+                        </t>
                     </t>
                     <!-- Trusted By section -->
                     <t t-call="theme_saud.trusted_by_section">

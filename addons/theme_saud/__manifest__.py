@@ -17,6 +17,9 @@
     ],
     "installable": True,
     "data": [
+        # Security
+        "security/ir.model.access.csv",
+
         # Presets
         "data/presets.xml",
 
@@ -34,6 +37,7 @@
         "views/hr_job_views.xml",
         "views/jobs_index_templates.xml",
         "views/job_detail_templates.xml",
+        "views/saud_service_views.xml",
 
         # Pages
         "data/pages/Home.xml",

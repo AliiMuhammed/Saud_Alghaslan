@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_saud_service_manager,saud.service manager,model_saud_service,website.group_website_designer,1,1,1,1
+access_saud_service_public,saud.service public,model_saud_service,,1,0,0,0
+access_saud_service_benefit_manager,saud.service.benefit manager,model_saud_service_benefit,website.group_website_designer,1,1,1,1
+access_saud_service_benefit_public,saud.service.benefit public,model_saud_service_benefit,,1,0,0,0

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!-- List View -->
+        <record id="saud_service_view_list" model="ir.ui.view">
+            <field name="name">saud.service.view.list</field>
+            <field name="model">saud.service</field>
+            <field name="arch" type="xml">
+                <list string="Services">
+                    <field name="sequence" widget="handle"/>
+                    <field name="image" widget="image" class="oe_avatar" options="{'size': [45, 45]}"/>
+                    <field name="main_title"/>
+                    <field name="image_position"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="saud_service_view_form" model="ir.ui.view">
+            <field name="name">saud.service.view.form</field>
+            <field name="model">saud.service</field>
+            <field name="arch" type="xml">
+                <form string="Service">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar"
+                               options="{'preview_image': 'image', 'size': [200, 200]}"/>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. Real Estate Sales"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="main_title"/>
+                                <field name="image_position"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="active" widget="boolean_toggle"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="main_description" nolabel="0"
+                                   placeholder="Short description shown on the card and info section..."/>
+                        </group>
+                        <notebook>
+                            <page string="Benefits" name="benefits">
+                                <field name="benefit_ids">
+                                    <list string="Benefits" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="benefit_icon"
+                                               placeholder="e.g. fas fa-home"/>
+                                        <field name="benefit_title"/>
+                                        <field name="benefit_subtitle"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="saud_service_action_list" model="ir.actions.act_window">
+            <field name="name">Services</field>
+            <field name="res_model">saud.service</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first website service
+                </p>
+                <p>
+                    Services drive the cards on the Home page and the info
+                    sections on the Services page.
+                </p>
+            </field>
+        </record>
+
+        <!-- Website backend bar menu item (Site > Content > Services) -->
+        <menuitem id="menu_saud_services"
+                  parent="website.menu_content"
+                  sequence="80"
+                  name="Services"
+                  action="saud_service_action_list"
+                  groups="website.group_website_designer"/>
+
+    </data>
+
+</odoo>

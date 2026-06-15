@@ -149,47 +149,13 @@
                 <div class="container d-flex justify-content-center align-items-center">
                     <t t-set="services_cards" t-value="[
                         {
-                            'title': 'المبيعات',
-                            'description': 'فور استلام المشاريع والعروض، يقوم فريق التسويق والمبيعات لدينا بوضع الخطط المناسبة، لتسويقها بطرق ذكية ومبتكرة.',
-                            'image': '/theme_saud/static/src/img/serv-1.webp',
-                            'alt': 'المبيعات',
-                            'url': '/services'
-                        },
-                        {
-                            'title': 'إدارة الأملاك',
-                            'description': 'فور توقيع العقود، يقوم فريق إدارة الأملاك لدينا بوضع استراتيجية شاملة لجميع جوانب المشروع والنهوض بها، لضمان مورد آمن ورفع القيمة الإيجارية العادلة.',
-                            'image': '/theme_saud/static/src/img/serv-2.webp',
-                            'alt': 'إدارة الأملاك',
-                            'url': '/services'
-                        },
-                        {
-                            'title': 'إدارة المرافق',
-                            'description': 'تولي إدارة الشؤون الفنية للعقار نيابة عن المالك.',
-                            'image': '/theme_saud/static/src/img/serv-3.webp',
-                            'alt': 'إدارة المرافق',
-                            'url': '/services'
-                        },
-                        {
-                            'title': 'التقييم العقاري',
-                            'description': 'تكمن أهمية التقييم في كونه أحد أهم الركائز التي تعتمد عليها جميع العمليات العقارية، مثل العمليات الإيجارية، البيوع والاستثمارات.',
-                            'image': '/theme_saud/static/src/img/serv-4.webp',
-                            'alt': 'التقييم العقاري',
-                            'url': '/services'
-                        },
-                        {
-                            'title': 'المزادات العقارية',
-                            'description': 'فور استلام خطابات المحكمة، يقوم فريق المزادات العقارية لدينا بجميع العمليات الخاصة في المزادات والتي تكون تسلسلية حتى انتهاء افراغ الصكوك.',
-                            'image': '/theme_saud/static/src/img/serv-5.webp',
-                            'alt': 'المزادات العقارية',
-                            'url': '/services'
-                        },
-                        {
-                            'title': 'المقاولات',
-                            'description': 'تشمل التخطيط، التصميم، البناء، والإشراف على مشاريع البنية التحتية والمباني، بهدف تحقيق مواصفات الجودة والسلامة المطلوبة وضمان إنجاز المشاريع ضمن الوقت والميزانية المحددين.',
-                            'image': '/theme_saud/static/src/img/serv-6.webp',
-                            'alt': 'المقاولات',
-                            'url': '/services'
+                            'title': srv.main_title,
+                            'description': srv.main_description,
+                            'image': '/web/image/saud.service/%d/image' % srv.id,
+                            'alt': srv.main_title,
+                            'url': '/services',
                         }
+                        for srv in request.env['saud.service'].sudo().search([('active', '=', True)], order='sequence, id')
                     ]"/>
                     <div class="s_saud_services_cards column-gap-5 row-gap-0 d-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <t t-foreach="services_cards" t-as="service">
